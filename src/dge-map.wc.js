@@ -1,0 +1,1 @@
+export { default as DGEMap } from './Components/DGE-Map.wc.svelte';

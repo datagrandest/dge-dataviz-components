@@ -1,0 +1,1 @@
+export { default as DGETable } from './Components/DGE-Table.wc.svelte';

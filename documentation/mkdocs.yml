@@ -1,0 +1,128 @@
+site_name: DGE Dataviz Components
+site_url: ''
+use_directory_urls: false
+
+extra_css:
+    - dist/style.css
+    - dist/bootstrap/css/bootstrap-grid.min.css
+    - dist/bootstrap-icons/bootstrap-icons.css
+extra_javascript:
+    - dist/bootstrap/js/bootstrap.min.js
+    - dist/4.2.0/dge-all.js
+
+nav:
+    - Accueil: 'index.md'
+    - Documentation:
+        - Pour débuter: 'documentation-start.md'
+        - DGE Figure: 'documentation-figure.md'
+        - DGE Table: 'documentation-table.md'
+        - DGE Chart: 'documentation-chart.md'
+        - DGE Map: 'documentation-map.md'
+        - DGE Image: 'documentation-image.md'
+        - DGE Text: 'documentation-text.md'
+    - Exemples:
+        - dge-figure: 'examples-figure.md'
+        - dge-table: 'examples-table.md'
+        - dge-chart: 'examples-chart.md'
+        - dge-map: 'examples-map.md'
+        - dge-image: 'examples-image.md'
+        - dge-text: 'examples-text.md'
+    - Notes de version: 'versions.md'
+    - A propos: 'about.md'
+
+
+repo_name: 'github/datagrandest'
+repo_url: 'https://github.com/datagrandest'
+# edit_uri: 'blob/master/docs'
+copyright: 'Copyright © 2021 - DataGrandEst'
+ 
+theme:
+  name: material #mkdocs
+  highlightjs: true
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+  language: fr
+  features:
+    - navigation.tracking
+    - navigation.instant
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.sections
+    # - navigation.expand
+    # - navigation.indexes
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+  custom_dir: 'docs'
+  # favicon: img/favicon.ico
+  # logo: img/logo.png
+  icon:
+    logo: material/file-document
+  font:
+    text: Arial
+    code: Roboto Mono
+
+plugins:
+  - search:
+      lang: fr
+  # - tags
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/datagrandest'
+      icon: fontawesome/brands/github-alt
+  # version:
+  #   provider: mike
+  #   default: 4.0
+ 
+# extra_css:
+#   - styles/app-theme.css
+#   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.css
+      
+# extra_javascript:
+#   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+#   - javascripts/tables.js
+#   - https://unpkg.com/mermaid@8.8.3/dist/mermaid.min.js
+ 
+markdown_extensions:
+  - meta
+  - toc:
+        permalink: "#"
+        baselevel: 1
+        separator: "-"
+        toc_depth: 2
+  - admonition
+  - footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - attr_list
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.tabbed
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.snippets
+  - pymdownx.progressbar
+  - codehilite:
+      linenums: true

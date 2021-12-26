@@ -1,0 +1,1 @@
+export { default as DGEFigure } from './Components/DGE-Figure.wc.svelte';

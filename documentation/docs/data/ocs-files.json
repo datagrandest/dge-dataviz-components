@@ -1,0 +1,57 @@
+[{
+        "id": 1,
+        "ocs_level": "n1",
+        "ocs_type": "etat_2010",
+        "ocs_extent": "commune",
+        "file_description": "Fichier CSV des statistiques de la BdOCS GE² par commune au niveau 1 de la nomenclature pour 2010.",
+        "file_name": "commune_n1.csv"
+    },
+    {
+        "id": 2,
+        "ocs_level": "n1",
+        "ocs_type": "etat_2019",
+        "ocs_extent": "epci",
+        "file_description": "Fichier CSV des statistiques de la BdOCS GE² par EPCI au niveau 2 de la nomenclature pour 2019.",
+        "file_name": "commune_n1b.csv"
+    },
+    {
+        "id": 3,
+        "ocs_level": "n2",
+        "ocs_type": "mutations",
+        "ocs_extent": "scot",
+        "file_description": "Fichier CSV des statistiques de la BdOCS GE² par SCOT au niveau 2 de la nomenclature pour les mutations.",
+        "file_name": "scot_n2.csv"
+    },
+    {
+        "id": 4,
+        "ocs_level": "n3",
+        "ocs_type": "evolutions",
+        "ocs_extent": "epci",
+        "file_description": "Fichier CSV des statistiques de la BdOCS GE² par epci au niveau 3 de la nomenclature pour les évolutions 2010/2019.",
+        "file_name": "epci_n3.csv"
+    },
+    {
+        "id": 5,
+        "ocs_level": "n1",
+        "ocs_type": "evolutions",
+        "ocs_extent": "epci",
+        "file_description": "Fichier CSV des statistiques de la BdOCS GE² par epci au niveau 3 de la nomenclature pour les évolutions 2010/2019.",
+        "file_name": "epci_n3.csv"
+    },
+    {
+        "id": 6,
+        "ocs_level": "n1",
+        "ocs_type": "evolutions",
+        "ocs_extent": "commune",
+        "file_description": "Fichier CSV des statistiques de la BdOCS GE² par epci au niveau 3 de la nomenclature pour les évolutions 2010/2019.",
+        "file_name": "commune_n3.csv"
+    },
+    {
+        "id": 7,
+        "ocs_level": "n1",
+        "ocs_type": "etat_2010",
+        "ocs_extent": "epci",
+        "file_description": "Fichier CSV des statistiques de la BdOCS GE² par epci au niveau 3 de la nomenclature pour les évolutions 2010/2019.",
+        "file_name": "epci_n3.csv"
+    }
+]

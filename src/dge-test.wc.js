@@ -1,0 +1,1 @@
+export { default as DGETest } from './Components/DGE-Test.wc.svelte';

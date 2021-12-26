@@ -1,0 +1,23 @@
+#dge-figure-1 h2 {
+    color: #f52;
+    font-weight: normal;
+}
+
+#dge-figure-1 {
+    border: 0;
+}
+
+#dge-figure-2 h2 {
+    color: #592;
+    font-weight: bold;
+}
+
+#dge-test-1 h6 {
+    color: #592;
+    font-weight: bold;
+}
+
+h6 {
+    color: #799;
+    font-weight: bold;
+}
