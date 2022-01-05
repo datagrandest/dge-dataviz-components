@@ -19,7 +19,7 @@ Pour voir ce que ça donne et disposer de plus de détails sur la manière d'uti
 
 Ce projet est basé sur le template suivant: https://github.com/sinedied/svelte-web-components-template.
 
-Ces composants sont produit via la solution "Svelte JS".
+Ces composants sont produits via la solution "Svelte JS".
 Pour participer au dévelppement de ces composants, il vous suffit de cloner le dépôt, adapter les sources et régéner le composant via la commande:
 
 ```bash
