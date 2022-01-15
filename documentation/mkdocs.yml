@@ -1,5 +1,5 @@
 site_name: DGE Dataviz Components
-site_url: ''
+site_url: 'https://www.datagrandest.fr/tools/dge-dataviz-components/documentation'
 use_directory_urls: false
 
 extra_css:
@@ -8,7 +8,7 @@ extra_css:
     - dist/bootstrap-icons/bootstrap-icons.css
 extra_javascript:
     - dist/bootstrap/js/bootstrap.min.js
-    - dist/4.2.0/dge-all.js
+    - dist/4.3.0/dge-all.js
 
 nav:
     - Accueil: 'index.md'
@@ -31,10 +31,11 @@ nav:
     - A propos: 'about.md'
 
 
-repo_name: 'github/datagrandest'
-repo_url: 'https://github.com/datagrandest'
-# edit_uri: 'blob/master/docs'
-copyright: 'Copyright © 2021 - DataGrandEst'
+repo_name: 'dge-dataviz-components'
+repo_url: 'https://github.com/datagrandest/dge-dataviz-components'
+#edit_uri: 'blob/master/docs'
+edit_uri: 'blob/main/documentation/docs'
+copyright: 'Copyright © 2022 - DataGrandEst'
  
 theme:
   name: material #mkdocs
@@ -47,14 +48,14 @@ theme:
     - navigation.tracking
     - navigation.instant
     - navigation.tabs
-    # - navigation.tabs.sticky
-    # - navigation.sections
-    # - navigation.expand
-    # - navigation.indexes
     - navigation.top
     - toc.integrate
     - search.suggest
     - search.highlight
+    # - navigation.tabs.sticky
+    # - navigation.sections
+    # - navigation.expand
+    # - navigation.indexes
   custom_dir: 'docs'
   # favicon: img/favicon.ico
   # logo: img/logo.png
@@ -72,7 +73,7 @@ plugins:
 extra:
   social:
     - type: 'github'
-      link: 'https://github.com/datagrandest'
+      link: 'https://github.com/datagrandest/dge-dataviz-components'
       icon: fontawesome/brands/github-alt
   # version:
   #   provider: mike
@@ -114,7 +115,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true 
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true

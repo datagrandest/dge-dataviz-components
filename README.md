@@ -13,15 +13,33 @@ Les composants disponibles sont:
 
 ## Documentation et démonstration
 
-Pour voir ce que ça donne et disposer de plus de détails sur la manière d'utiliser ces composants, rendez-vous sur le [site dédié](https://www.datagrandest.fr/tools/dge-dataviz-components/4.2.0/documentation/index.html).
+Pour voir ce que ça donne et disposer de plus de détails sur la manière d'utiliser ces composants, rendez-vous sur le [site dédié](https://www.datagrandest.fr/tools/dge-dataviz-components/documentation/index.html).
 
 ## Développement
 
-Ce projet est basé sur le template suivant: https://github.com/sinedied/svelte-web-components-template.
+Ce code source est sous licence ouverte MIT.
 
-Ces composants sont produits via la solution "Svelte JS".
-Pour participer au dévelppement de ces composants, il vous suffit de cloner le dépôt, adapter les sources et régéner le composant via la commande:
+Ces composants sont produits grâce au framework [Svelte JS](https://svelte.dev/).
+
+Le projet a été initié via le template proposé par [sinedied](https://github.com/sinedied) : https://github.com/sinedied/svelte-web-components-template
+
+Pour modifier le code et recompiler les composants:
 
 ```bash
-npm run build
+# Clonerr le dépot GitHub
+git clone https://github.com/datagrandest/dge-dataviz-components
+
+# Installer les modules nodejs
+cd dge-dataviz-components
+npm install
+
+# Réaliser les modifications nécessaires puis recompiler le code
+npm run build:chart  # recompile uniquement le composant "dge-chart.js"
+npm run build:figure  # recompile uniquement le composant "dge-figure.js"
+npm run build:image  # recompile uniquement le composant "dge-image.js"
+npm run build:map  # recompile uniquement le composant "dge-map.js"
+npm run build:table  # recompile uniquement le composant "dge-table.js"
+npm run build:text  # recompile uniquement le composant "dge-text.js"
+# ou
+npm run build:all  # recompile l'ensemble des composants individuellement plus le fichier global dge-all.js
 ```

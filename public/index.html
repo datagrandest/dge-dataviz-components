@@ -66,7 +66,7 @@
             <div class="col-6">
                 <dge-image id="dge-image-1"
                     src="https://viago.ca/wp-content/uploads/2017/09/Essentiels_Japon-768x432.jpg"
-                    legend="Essentiels Japon" title="Exemple d'image"
+                    legend="Essentiels Japon" title="Exemple d'image" localcss="1"
                     attribution="text:Viago;url:https://viago.ca/top-10-des-activites-a-faire-au-japon/" />
             </div>
         </div>
@@ -77,7 +77,7 @@
                 <dge-figure id="dge-figure-1"
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr|Région Grand Est:icon;url:test"
                     api="csv" url="data/test.csv" fields="id,quantite,objet,prix" operation="value|sum(quantite*prix)"
-                    unit="€" text="Test quantité*prix" />
+                    unit="€" text="Test quantité*prix" refresh="2" />
             </div>
             <div class="col-6">
                 <dge-figure id="dge-figure-1"
@@ -120,10 +120,11 @@
         <!-- TABLES -->
         <div class="row my-3">
             <div class="col-6">
-                <dge-table id="dge-table-1" api="csv" url="data/test.csv" fields="id,commande,objet,prix"
+                <dge-table id="dge-table-1" api="csv" url="data/test.csv" fields="id,commande,prix,objet"
+                    columns="id|commande|objet|prix"
                     labels="ID|Commande|Objet|Prix" filter="" title="Liste des fournitures du fichier data/test.csv"
                     displaytotal="1" pagination="display:1;perpage:6;page:1;selectpages:2,6,12,24,48"
-                    orderby="objet,DESC" />
+                    orderby="objet,DESC" refresh="2" />
             </div>
             <div class="col-6">
                 <dge-table id="dge-table-2" api="csv" url="./data/"
@@ -170,6 +171,13 @@
                     download="icon:cloud-download;size:1rem"
                     attribution="icon:info-circle;url:https://www.datagrandest.fr;title:Source: DataGrandEst"
                     datalink="icon:table;title:Lien vers les données" localcss="1" />
+            </div>
+
+            <div class="col-6">
+                <dge-chart id="dge-chart-wordcloud" api="csv" url="data/test.csv" fields="quantite,prix,objet,commande" x="objet"
+                    y="quantite|quantite*prix,cout" chart="bar|line" title="Test" legend="display:true" download="text:télécharger" where="commande=3"
+                    refresh="2" animation="duration=0"
+                    attribution="text:DataGrandEst;url:https://www.datagrandest.fr" />
             </div>
 
             <div class="col-6">

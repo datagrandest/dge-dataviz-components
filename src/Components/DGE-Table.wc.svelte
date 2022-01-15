@@ -98,6 +98,9 @@
         datalink = { ...defaultDatalinkOptions, ...datalinkOptions };
     }
 
+    export let refresh = 0;
+    $: refresh = dgeHelpers.checkValueFormat(refresh);
+
     let loading = 0;
     let data = false;
     let items = false;
@@ -241,6 +244,7 @@
 
             // Get columns array
             let columns_array = columns ? columns.split("|") : fields_array[0].slice().split(",");
+            columns_list = [];
             for (let i = 0, n = columns_array.length; i < n; i++) {
                 const column_field = getField(columns_array[i]);
                 columns_list.push(column_field.id);
@@ -342,6 +346,7 @@
             const sql_request = sql_select + sql_from + sql_where + sql_groupby + sql_having + sql_orderby;
 
             const result = alasql.exec(sql_request, items);
+
             return result;
         }
         return [];
@@ -369,7 +374,12 @@
         filterValue = filter.split("|")[2];
         let fields_array = fields.split("|");
         // Get data
-        getPromiseData(url, datasets, fields_array, max, api);
+        // getPromiseData(url, datasets, fields_array, max, api);
+        if (refresh) {
+            setInterval(getPromiseData, refresh * 1000, url, datasets, fields_array, max, api);
+        } else {
+            getPromiseData(url, datasets, fields_array, max, api);
+        }
     });
 
     function sortColumn(event, colId) {
@@ -381,7 +391,7 @@
 </script>
 
 <div {id} class="mt-3 card table-responsive">
-    <div hidden={!loading}>
+    <div hidden={!loading || refresh}>
         <div class="d-flex justify-content-center">
             <div class="m-5 text-center">
                 <div class="spinner-grow" role="status" />
@@ -389,7 +399,7 @@
             </div>
         </div>
     </div>
-    <div hidden={loading}>
+    <div hidden={loading && !refresh}>
         {#if titleReplaced}
             <div class="text text-center p-2">
                 <h6>{titleReplaced}</h6>

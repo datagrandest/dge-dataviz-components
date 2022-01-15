@@ -3,20 +3,49 @@
 Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.  
 Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.
 
+
+## v4.3.0 - 20220111
+
+### Téléchargements
+
+| Fichier        | Format | Téléchargement                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------- |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.3.0/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.3.0/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.3.0/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.3.0/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.3.0/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.3.0/dge-all.js){:target="\_blank"}                           |
+| dist_4.2.0.zip | ZIP    | [téléchargement](./dist/4.3.0/dist_4.3.0.zip){:target="\_blank"}                       |
+| dist_4.2.0.7z  | 7Z     | [téléchargement](./dist/4.3.0/dist_4.3.0.7z){:target="\_blank"}                        |
+
+### Evolutions
+
+- `dge-figure`: 
+    - [x] Ajout de la propriété `refresh` pour premetre une rechargement (mise à jour) des données à interval régulier
+- `dge-table`: 
+    - [x] Ajout de la propriété `refresh` pour premetre une rechargement (mise à jour) des données à interval régulier
+- `dge-chart`: 
+    - [x] Ajout de la propriété `refresh` pour premetre une rechargement (mise à jour) des données à interval régulier
+- `documentation`:
+    - [x] Mise à jour vers la version 8.1.6 du template [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+    - [x] Ajout de la description des différentes sources de données (fichiers CSV, fichiers et API JSON, flux WFS et API Data4Citizen). Cf. [documentation](documentation-start.md#les-sources-de-donnees)
+    - [x] Ajout de la section "CSS et mise en forme". Cf. [documentation](documentation-start.md#css-et-mise-en-forme)
+
 ## v4.2.0 - 20211219
 
 ### Téléchargements
 
 | Fichier        | Format | Téléchargement                                                                         |
 | -------------- | ------ | -------------------------------------------------------------------------------------- |
-| dge-figure.js  | JS     | [téléchargement](./dist/4.2.0/dge-figure.js){:target="\_blank"} |
-| dge-table.js   | JS     | [téléchargement](./dist/4.2.0/dge-table.js){:target="\_blank"}  |
-| dge-chart.js   | JS     | [téléchargement](./dist/4.2.0/dge-chart.js){:target="\_blank"}  |
-| dge-text.js    | JS     | [téléchargement](./dist/4.2.0/dge-text.js){:target="\_blank"}   |
-| dge-image.js   | JS     | [téléchargement](./dist/4.2.0/dge-image.js){:target="\_blank"}  |
-| dge-all.js     | JS     | [téléchargement](./dist/4.2.0/dge-all.js){:target="\_blank"}    |
-| dist_4.2.0.zip | ZIP    | [téléchargement](./dist/4.2.0/dist_4.2.0.zip){:target="\_blank"}                             |
-| dist_4.2.0.7z  | 7Z     | [téléchargement](./dist/4.2.0/dist_4.2.0.7z){:target="\_blank"}                              |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.2.0/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.2.0/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.2.0/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.2.0/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.2.0/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.2.0/dge-all.js){:target="\_blank"}                           |
+| dist_4.2.0.zip | ZIP    | [téléchargement](./dist/4.2.0/dist_4.2.0.zip){:target="\_blank"}                       |
+| dist_4.2.0.7z  | 7Z     | [téléchargement](./dist/4.2.0/dist_4.2.0.7z){:target="\_blank"}                        |
 
 ### Evolutions
 

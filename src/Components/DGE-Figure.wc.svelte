@@ -111,6 +111,8 @@
     export let unit = "";
     export let decimal = "0";
 
+    export let refresh = 0;
+
     let loading = 0;
     let data = false;
     let items = [];
@@ -332,13 +334,17 @@
         filterValue = filter.split("|")[2];
         let fields_array = fields.split("|");
         // Get data
-        getPromiseData(url, datasets, fields_array, max, api);
+        if (refresh) {
+            setInterval(getPromiseData, refresh * 1000, url, datasets, fields_array, max, api);
+        } else {
+            getPromiseData(url, datasets, fields_array, max, api);
+        }
     });
 </script>
 
 <div {id} class="mt-3 card">
     <div class="card-body">
-        <div hidden={!loading}>
+        <div hidden={!loading || result}>
             <div class="d-flex justify-content-center">
                 <div class="m-5 text-center">
                     <div class="spinner-grow" role="status" />
@@ -346,7 +352,7 @@
                 </div>
             </div>
         </div>
-        <div hidden={loading}>
+        <div hidden={loading && !result}>
             {#if (icon.name || image.url) && position == "top"}
                 <div class="row">
                     <div class="col">

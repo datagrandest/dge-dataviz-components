@@ -425,6 +425,18 @@ Exemples:
 - `icon="text:data;url:https://datagrandest.fr/public/data/villes.csv"`
 - `icontext="data" iconurl="https://datagrandest.fr/public/data/villes.csv"`
 
+### refresh
+
+| Propriété      | Type    | Défaut      |
+|----------------|---------|-------------|
+| refrtesh       | Integer | false       |
+
+Propriété permettant de recharger régulièrement les données pour mettre à jour la table à interval de temps régulier sans recharger la page (l'interval est exprimé en secondes).  
+Cela peut-être utile notamment dans le cas de données mises à jour en temps réel.
+Si plusieurs sources de données sont indiquées, le rafraichissement est valable pour l'ensemble des datasets.
+
+Exemple: `refresh="60"` pour une mise à jour toutes les minutes
+
 ## Exemples
 
 Pour plus de détails, vous pouvez consulter la page de [démo](examples-table.md).
