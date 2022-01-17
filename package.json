@@ -1,7 +1,7 @@
 {
     "name": "dge-dataviz-components",
     "description": "Dataviz web components library builds with Svelte JS",
-    "version": "4.3.0",
+    "version": "4.3.1",
     "module": "public/dist/dge-dataviz-components/dge-all.mjs",
     "main": "public/dist/dge-dataviz-components/dge-all.js",
     "module-chart": "public/dist/dge-dataviz-components/dge-chart.mjs",
