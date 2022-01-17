@@ -15,13 +15,16 @@ Cet exemple montre notamment la détection automatique des URL et des images lor
             id="dge-map-1" 
             height="50vh" 
             attribution="text:DataGrandEst;url:https://www.datagrandest.fr" 
-            center="48.6|7.75" 
-            zoom="10" 
-            api="geojson" 
+            api="geojson"
             url="./data/departements.geojson" 
             layersname="Départements" 
-            fields="code|nom|site|logo" 
-            labels="CODE|NOM|SITE|LOGO" />
+            center="48.6|7.6" 
+            zoom="8" 
+            fields="code,nom,site,logo" 
+            labels="CODE,NOM,SITE,LOGO"
+            queryable="departements.geojson"
+            osm="true"
+            />
         ```
 
     === "Résultat"
@@ -31,13 +34,16 @@ Cet exemple montre notamment la détection automatique des URL et des images lor
                 id="dge-map-1" 
                 height="50vh" 
                 attribution="text:DataGrandEst;url:https://www.datagrandest.fr" 
-                center="48.6|7.75" 
-                zoom="10" 
-                api="geojson" 
+                api="geojson"
                 url="./data/departements.geojson" 
                 layersname="Départements" 
-                fields="code|nom|site|logo" 
-                labels="CODE|NOM|SITE|LOGO" />
+                center="48.6|7.6" 
+                zoom="8" 
+                fields="code,nom,site,logo" 
+                labels="CODE,NOM,SITE,LOGO"
+                queryable="departements.geojson"
+                osm="true"
+                />
         </div>
 
 
@@ -67,8 +73,9 @@ Cet exemple montre les principales fonctionnalités actuellement disponibles: aj
             transparent="1" 
             filters="id_epci='246700488'" 
             queryable="commune_actuelle_3857" 
-            fields="insee_com|nom_com|id_epci|epci_nom_complet" 
-            labels="INSEE|COMMUNE|EPCI ID|EPCI" />
+            fields="insee_com,nom_com,id_epci,epci_nom_complet" 
+            labels="INSEE,COMMUNE,EPCI ID,EPCI"
+            osm="true" />
         ```
 
     === "Résultat"
@@ -83,22 +90,28 @@ Cet exemple montre les principales fonctionnalités actuellement disponibles: aj
                 zoom="10"
                 url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?" 
                 api="wms" 
-                layers="commune_actuelle_3857|commune_actuelle_centroide" 
-                layersname="Communes (poly)|Commmunes (point)" 
+                layers="commune_actuelle_3857,commune_actuelle_centroide" 
+                layersname="Communes (poly),Commmunes (point)" 
                 styles="" 
                 version="1.1.0" 
                 format="image/png" 
-                transparent="1" 
+                transparent="true" 
                 filters="id_epci='246700488'" 
                 queryable="commune_actuelle_3857" 
-                fields="insee_com|nom_com|id_epci|epci_nom_complet" 
-                labels="INSEE|COMMUNE|EPCI ID|EPCI" />
+                fields="insee_com,nom_com,id_epci,epci_nom_complet" 
+                labels="INSEE,COMMUNE,EPCI ID,EPCI"
+                osm="true" />
         </div>
 
 ## Exemple 3: modification du fond de carte à partir d'un flux WMS
 
-Cet exemple montre, à partir de l'exemple précédent, comment utiliser la propriété `baselayer` pour changer le fond de carte par défaut (OSM).  
-Le fond utilisé ici vient du [serveur OSM GéoGrandEst](https://osm.datagrandest.fr)
+Cet exemple montre, à partir de l'exemple précédent l'utilisation des propriétés:
+
+- `osm` pour afficher le fonds OSM par défaut
+- `baselayers` pour ajouter un fond de carte supplémentaire (couche "relief" du [serveur OSM DataGrandEst](https://osm.datagrandest.fr))
+- `gesturehandling` pour forcer l'tilisation de la touche "Ctrl" pour zoomer
+
+A noter également que cete exemple utilise la propriété gobale `data` au lieu des propriétés individuelles.
 
 !!! example "Exemple 3"
 
@@ -106,50 +119,47 @@ Le fond utilisé ici vient du [serveur OSM GéoGrandEst](https://osm.datagrandes
 
         ``` html
         <dge-map 
-            id="dge-map-3"
-            height="50vh"
+            id="dge-map-3" 
+            height="50vh" 
             title="Communes de l'EMS"
-            attributions="GéoGrandEst,https://www.datagrandest.fr|OpenStreetMap,https://www.openstreetmap.org/copyright"
-            center="48.6|7.75"
-            zoom="10"
-            url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?"
-            api="wms"
-            layers="commune_actuelle_3857|commune_actuelle_centroide"
-            layersname="Communes (poly)|Commmunes (point)"
-            styles="" 
-            version="1.1.0"
-            format="image/png"
-            transparent="1"
-            filters="id_epci='246700488'" 
-            queryable="commune_actuelle_3857" 
-            fields="insee_com|nom_com|id_epci|epci_nom_complet" 
-            labels="INSEE|COMMUNE|EPCI ID|EPCI" 
-            baselayer="https://osm.datagrandest.fr/mapcache/?|relief" />
+            attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
+            center="48.6|7.75" 
+            zoom="10" 
+            data="url:https://www.datagrandest.fr/geoserver/region-grand-est/ows?;
+            api:wms;
+            layers:commune_actuelle_3857,commune_actuelle_centroide;
+            layersname:Communes (poly),Commmunes (point);
+            transparent:true;
+            filters:id_epci='246700488';
+            queryable:commune_actuelle_3857;
+            fields:insee_com,nom_com,id_epci,epci_nom_complet;
+            labels:INSEE,COMMUNE,EPCI ID,EPCI"
+            baselayers="url:https://osm.geograndest.fr/mapcache/?;layers:relief;layersname:OSM Relief DataGrandEst"
+            osm="true" 
+            gesturehandling="true" />
         ```
 
     === "Résultat"
 
         <div style="width:50%">
             <dge-map 
-                id="dge-map-3"
-                height="50vh"
+                id="dge-map-3" 
+                height="50vh" 
                 title="Communes de l'EMS"
-                attributions="GéoGrandEst,https://www.datagrandest.fr|OpenStreetMap,https://www.openstreetmap.org/copyright"
-                center="48.6|7.75"
-                zoom="10"
-                url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?"
-                api="wms"
-                layers="commune_actuelle_3857|commune_actuelle_centroide"
-                layersname="Communes (poly)|Commmunes (point)"
-                styles="" 
-                version="1.1.0"
-                format="image/png"
-                transparent="1"
-                filters="id_epci='246700488'" 
-                queryable="commune_actuelle_3857" 
-                fields="insee_com|nom_com|id_epci|epci_nom_complet" 
-                labels="INSEE|COMMUNE|EPCI ID|EPCI" 
-                baselayer="https://osm.datagrandest.fr/mapcache/?|relief" />
+                attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
+                center="48.6|7.75" zoom="10" data="
+                url:https://www.datagrandest.fr/geoserver/region-grand-est/ows?;
+                api:wms;
+                layers:commune_actuelle_3857,commune_actuelle_centroide;
+                layersname:Communes (poly),Commmunes (point);
+                transparent:true;
+                filters:id_epci='246700488';
+                queryable:commune_actuelle_3857;
+                fields:insee_com,nom_com,id_epci,epci_nom_complet;
+                labels:INSEE,COMMUNE,EPCI ID,EPCI"
+                baselayers="url:https://osm.geograndest.fr/mapcache/?;layers:relief;layersname:OSM Relief DataGrandEst"
+                osm="true" 
+                gesturehandling="true" />
         </div>
 
 

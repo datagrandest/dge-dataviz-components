@@ -3,6 +3,27 @@
 Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.  
 Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.
 
+## v4.3.1 - 20220117
+
+### Téléchargements
+
+| Fichier        | Format | Téléchargement                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------- |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.3.1/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.3.1/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.3.1/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.3.1/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.3.1/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.3.1/dge-all.js){:target="\_blank"}                           |
+| dist_4.3.1.zip | ZIP    | [téléchargement](./dist/4.3.1/dist_4.3.1.zip){:target="\_blank"}                       |
+| dist_4.3.1.7z  | 7Z     | [téléchargement](./dist/4.3.1/dist_4.3.1.7z){:target="\_blank"}                        |
+
+### Evolutions
+
+- `dge-map`: 
+    - [x] Ajout de "https" lors de l'appel du serveur OSM par défaut
+- `documentation`: 
+    - [x] Corriger les exemples de `dge-map`
 
 ## v4.3.0 - 20220111
 
@@ -16,8 +37,8 @@ Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacte
 | dge-text.js    | JS     | [téléchargement](./dist/4.3.0/dge-text.js){:target="\_blank"}                          |
 | dge-image.js   | JS     | [téléchargement](./dist/4.3.0/dge-image.js){:target="\_blank"}                         |
 | dge-all.js     | JS     | [téléchargement](./dist/4.3.0/dge-all.js){:target="\_blank"}                           |
-| dist_4.2.0.zip | ZIP    | [téléchargement](./dist/4.3.0/dist_4.3.0.zip){:target="\_blank"}                       |
-| dist_4.2.0.7z  | 7Z     | [téléchargement](./dist/4.3.0/dist_4.3.0.7z){:target="\_blank"}                        |
+| dist_4.3.0.zip | ZIP    | [téléchargement](./dist/4.3.0/dist_4.3.0.zip){:target="\_blank"}                       |
+| dist_4.3.0.7z  | 7Z     | [téléchargement](./dist/4.3.0/dist_4.3.0.7z){:target="\_blank"}                        |
 
 ### Evolutions
 

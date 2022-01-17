@@ -1,10 +1,10 @@
 <?php
 
-// curl --location --request GET "https://nocodb.mydomain.ext/nc/test_1_IoKA/api/v1/Table1" --header "Accept: application/json" --header "Authorization: Bearer XXX"
+// curl --location --request GET "URL" --header "Accept: application/json" --header "Authorization: Bearer TOKEN"
 
 //The URL we are connecting to.
-$url = 'https://...';
-$token = 'XXX';
+$url = 'URL';
+$token = 'TOKEN';
 
 //Initiate cURL.
 $ch = curl_init($url);
@@ -25,7 +25,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_exec($ch);
 
 //Check for errors.
-if (curl_errno($ch)) {
+if(curl_errno($ch)){
     throw new Exception(curl_error($ch));
 }
 

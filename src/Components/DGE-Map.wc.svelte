@@ -224,7 +224,7 @@
         const attribution_string = attribution_array.join(" | ");
 
         if (osm) {
-            const layer = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            const layer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                 attribution: attribution_string,
             }).addTo(map);
             if (baselayer || baselayers) layerControl.addBaseLayer(layer, "OpenStreetMap");

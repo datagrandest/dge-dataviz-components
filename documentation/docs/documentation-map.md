@@ -4,16 +4,18 @@ Un composant pour afficher facilement une carte.
 
 <div style="width:40%">
     <dge-map 
-        id="dge-text-1" 
+        id="dge-map-1" 
         height="50vh" 
         attribution="text:DataGrandEst;url:https://www.datagrandest.fr" 
         api="geojson"
         url="./data/departements.geojson" 
         layersname="Départements" 
-        center="48.6|7.75" 
-        zoom="10" 
-        fields="code|nom|site|logo" 
-        labels="CODE|NOM|SITE|LOGO" 
+        center="48.6|7.6" 
+        zoom="8" 
+        fields="code,nom,site,logo" 
+        labels="CODE,NOM,SITE,LOGO"
+        queryable="departements.geojson"
+        osm="true"
         />
 </div>
 

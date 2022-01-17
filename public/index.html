@@ -246,13 +246,13 @@
         <!-- MAPS -->
         <div class="row my-3">
             <div class="col-6">
-                <dge-map id="dge-text-2" height="50vh" attribution="text:GéoGrandEst;url:https://www.datagrandest.fr"
+                <dge-map id="dge-map-1" height="50vh" attribution="text:GéoGrandEst;url:https://www.datagrandest.fr"
                     center="48.6|7.75" zoom="10" url="./data/departements.geojson" layersname="Départements"
                     api="geojson" fields="code,nom,site,logo" labels="CODE,NOM,SITE,LOGO" osm="true"
                     queryable="departements.geojson" />
             </div>
             <div class="col-6">
-                <dge-map id="dge-text-1" height="50vh" title="Communes de l'EMS"
+                <dge-map id="dge-map-1" height="50vh" title="Communes de l'EMS"
                     attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
                     center="48.6|7.75" zoom="10" url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?"
                     api="wms" layers="commune_actuelle_3857,commune_actuelle_centroide"
@@ -262,7 +262,7 @@
                     baselayer="https://osm.geograndest.fr/mapcache/?,relief" osm="true" />
             </div>
             <div class="col-6">
-                <dge-map id="dge-text-1" height="50vh" title="Communes de l'EMS"
+                <dge-map id="dge-map-3" height="50vh" title="Communes de l'EMS"
                     attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
                     center="48.6|7.75" zoom="10" data="
                     url:https://www.datagrandest.fr/geoserver/region-grand-est/ows?;
