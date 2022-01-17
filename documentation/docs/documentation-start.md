@@ -59,15 +59,15 @@ Voici un premier exemple:
 Pour utiliser DGE Dataviz Components vous devez tout d'abord télécharger et intégrer le code javascript du composant à utiliser dans votre page.  
 Pour télécharger les différents composants:
 
-* `dge-figure`: [téléchargement](./dist/4.3.0/dge-figure.js){:target="_blank"}
-* `dge-table`: [téléchargement](./dist/4.3.0/dge-table.js){:target="_blank"}
-* `dge-chart`: [téléchargement](./dist/4.3.0/dge-chart.js){:target="_blank"}
-* `dge-text`: [téléchargement](./dist/4.3.0/dge-text.js){:target="_blank"}
-* `dge-image`: [téléchargement](./dist/4.3.0/dge-image.js){:target="_blank"}
+* `dge-figure`: [téléchargement](./dist/4.3.1/dge-figure.js){:target="_blank"}
+* `dge-table`: [téléchargement](./dist/4.3.1/dge-table.js){:target="_blank"}
+* `dge-chart`: [téléchargement](./dist/4.3.1/dge-chart.js){:target="_blank"}
+* `dge-text`: [téléchargement](./dist/4.3.1/dge-text.js){:target="_blank"}
+* `dge-image`: [téléchargement](./dist/4.3.1/dge-image.js){:target="_blank"}
 
 Vous pouvez également télécharger l'ensemble des composants sous la forme d'un seul fichier. Cela limite la taille gloable du chargement cumulé des différents composants du fait de la redondance de certaines bibliothèques externes entre composants (ex. : "Papaparse" et "AlaSQL").
 
-* `dge-all`: [téléchargement](./dist/4.3.0/dge-all.js){:target="_blank"}
+* `dge-all`: [téléchargement](./dist/4.3.1/dge-all.js){:target="_blank"}
 
 Le code à ajouter à votre page web est le suivant (une ligne par composant en adaptant au besoin le chemin vers le fichier):
 
@@ -105,8 +105,8 @@ Voici l'exemple du code d'un composant `dge-chart`:
 !!! Info "Package pour démarrer"
     Pour simplifier la mise en oeuvre initiale vous pouvez télécharger le "package de démarrage". Il comprend l'ensemble des fichiers nécessaires pour débuter (framework `Bootstrap v5` inclu):
 
-    * [Format ZIP](dist/4.3.0/dist_4.3.0.zip)
-    * [Format 7Z](dist/4.3.0/dist_4.3.0.7z)
+    * [Format ZIP](dist/4.3.1/dist_4.3.1.zip)
+    * [Format 7Z](dist/4.3.1/dist_4.3.1.7z)
 
 
 ## Les sources de données
