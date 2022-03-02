@@ -3,6 +3,32 @@
 Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.  
 Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.
 
+## v4.4.0 - 20220303
+
+### Téléchargements
+
+| Fichier        | Format | Téléchargement                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------- |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.4.0/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.4.0/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.4.0/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.4.0/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.4.0/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.4.0/dge-all.js){:target="\_blank"}                           |
+| dist_4.4.0.zip | ZIP    | [téléchargement](./dist/4.4.0/dist_4.4.0.zip){:target="\_blank"}                       |
+| dist_4.4.0.7z  | 7Z     | [téléchargement](./dist/4.4.0/dist_4.4.0.7z){:target="\_blank"}                        |
+
+### Evolutions
+
+- `dge-figure`: 
+    - [x] Ajout d'une fonction pour parser les données et convertir les chaïnes de caractère en nombre quand c'est possible
+- `dge-table`: 
+    - [x] Correction de prise en compte du paramètre `page=`
+    - [x] Correction d'un problème de récupération des données de l'API de D4C
+    - [x] Ajout de la propriété `parsehtml` qui permet d'interpréter les URL et balises HTML dans la table
+- `dist`:
+    - [x] Mise à jour de Bootstrap Icons vers la version 1.8.1
+
 ## v4.3.1 - 20220117
 
 ### Téléchargements

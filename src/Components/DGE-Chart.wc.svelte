@@ -14,7 +14,7 @@
     export let height = 2;
     $: height = dgeHelpers.checkValueFormat(height);
     export let width = 3;
-    $: heiwidthght = dgeHelpers.checkValueFormat(width);
+    $: width = dgeHelpers.checkValueFormat(width);
     export let title = "";
     export let localcss = false;
     $: localcss = dgeHelpers.checkValueFormat(localcss);

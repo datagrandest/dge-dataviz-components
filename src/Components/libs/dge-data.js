@@ -92,6 +92,10 @@ function filterItems(items, filter) {
     return items;
 }
 
+function parseData(x){
+    return x==x*1?x*1:x;
+}
+
 function getDataUrl(url, dataset, max, fields, api) {
     api = api || "d4c";
     if (api == "d4c") {
@@ -148,4 +152,5 @@ export default {
     addFulltextField: addFulltextField,
     escapeSql: escapeSql,
     replaceText: replaceText,
+    parseData: parseData,
 }

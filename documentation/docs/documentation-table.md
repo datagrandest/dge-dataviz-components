@@ -6,7 +6,7 @@ Un composant pour afficher facilement un tableau.
     <dge-table 
         id="dge-table-1" 
         api="csv" 
-        url="../data/test1.csv" 
+        url="./data/test1.csv" 
         fields="id,couleur,objet,prix" 
         labels="ID|Couleur|Objet|Prix" 
         where="couleur='bleu'"
@@ -429,13 +429,28 @@ Exemples:
 
 | Propriété      | Type    | Défaut      |
 |----------------|---------|-------------|
-| refrtesh       | Integer | false       |
+| refresh       | Integer | false       |
 
 Propriété permettant de recharger régulièrement les données pour mettre à jour la table à interval de temps régulier sans recharger la page (l'interval est exprimé en secondes).  
 Cela peut-être utile notamment dans le cas de données mises à jour en temps réel.
 Si plusieurs sources de données sont indiquées, le rafraichissement est valable pour l'ensemble des datasets.
 
 Exemple: `refresh="60"` pour une mise à jour toutes les minutes
+
+### parsehtml
+
+| Propriété      | Type    | Défaut      |
+|----------------|---------|-------------|
+| parsehtml      | Boolean | false       |
+
+Propriété permettant d'analyser les valeurs de la table et de les afficher au format HTML le cas échéant.
+
+Ainsi:
+
+- Toute valeur commençant par la chaîne "http" est intéprété comme un URL et un lien est créé automatiquement.
+- Toute balise HTML est interprétée. La valeur `<b>en gras</b>` sera alors affichée en gras.
+
+Exemple: `parsehtml="true"` pour activer la reonnaissance des liens et balises HTML
 
 ## Exemples
 

@@ -266,6 +266,16 @@
             // Get final SQL request
             const sql_request = sql_select + sql_from + sql_where;
 
+            // Parse data to convert string to float if possible
+            for (let i = 0, n = data.length; i < n; i++) {
+                data[i].map((item) => {
+                    for (const key in item) {
+                        item[key] = dgeData.parseData(item[key]);
+                    }
+                    return item;
+                });
+            }
+
             // Get result of sql_request request from data
             let result = alasql.exec(sql_request, data);
             // Add fulltext search column

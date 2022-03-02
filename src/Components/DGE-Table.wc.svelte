@@ -30,6 +30,8 @@
     export let displaytotal = false;
     export let sortcolumns = false;
     $: sortcolumns = sortcolumns ? sortcolumns.split(",") : [];
+    export let parsehtml = false;
+    $: parsehtml = dgeHelpers.checkValueFormat(parsehtml);
 
     // pagination properties
     export let pagination = false;
@@ -275,7 +277,7 @@
             } else {
                 if (datasets_list.length) {
                     for (let i = 0, n = datasets_list.length; i < n; i++) {
-                        sql_from.push("? AS " + datasets_list[i].id);
+                        sql_from.push("? AS `" + datasets_list[i].id + "`");
                     }
                 } else {
                     sql_from.push("?");
@@ -358,8 +360,10 @@
     $: titleReplaced = dgeTable.getTextReplaced(title, filterValue, filterLabel, searchValue, filteredItems);
 
     function updatePages() {
-        pages = filteredItems.length ? Math.ceil(filteredItems.length / perpage) : 1;
-        page = page > pages ? pages : page;
+        if (filteredItems.length) {
+            pages = filteredItems.length ? Math.ceil(filteredItems.length / perpage) : 1;
+            page = page > pages ? pages : page;
+        }
     }
 
     $: {
@@ -456,7 +460,15 @@
                 {#each displayedItems as item}
                     <tr>
                         {#each columns_list as col}
-                            <td>{item[col]}</td>
+                            {#if parsehtml && typeof item[col] == "string" && item[col]
+                                    .toLowerCase()
+                                    .startsWith("http")}
+                                <td><a href={item[col]}>{item[col]}</a></td>
+                            {:else if parsehtml}
+                                <td>{@html item[col]}</td>
+                            {:else}
+                                <td>{item[col]}</td>
+                            {/if}
                         {/each}
                     </tr>
                 {:else}

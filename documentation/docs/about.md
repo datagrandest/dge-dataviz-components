@@ -13,7 +13,7 @@ Ces outils utilisent plusieurs librairies externes parmis lesquelles:
 | Librairie                                                                                  | dge-text | dge-image | dge-figure | dge-table | dge-chart | dge-map |
 |--------------------------------------------------------------------------------------------|:--------:|:---------:|:----------:|:---------:|:---------:|:-------:|
 | [bootstrap 5.1.x](https://getbootstrap.com/)                                               | X        | X         | X          | X         | X         | X       |
-| [bootstrap-icons 1.7.x](https://icons.getbootstrap.com/)                                   |          |           | X          |           |           |         |
+| [bootstrap-icons 1.8.x](https://icons.getbootstrap.com/)                                   |          |           | X          |           |           |         |
 | [alasql 1.7.x](http://alasql.org/)                                                         |          |           | X          | X         | X         | X       |
 | [papaparse 5.3.x](https://www.papaparse.com/)                                              |          |           | X          | X         | X         |         |
 | [chartjs 3.6](https://www.chartjs.org/)  (+ [plugins](https://github.com/chartjs/awesome)) |          |           |            |           | X         |         |

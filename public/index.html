@@ -127,6 +127,13 @@
                     orderby="objet,DESC" refresh="2" />
             </div>
             <div class="col-6">
+                <dge-table id="dge-table-1" api="csv" url="data/test3.csv" fields="id,commande,prix,objet"
+                    columns="id|commande|objet|prix" parsehtml="true"
+                    labels="ID|Commande|Objet|Prix" filter="" title="Liste des fournitures du fichier data/test.csv"
+                    displaytotal="1" pagination="display:1;perpage:6;page:1;selectpages:2,6,12,24,48"
+                    orderby="objet,DESC"/>
+            </div>
+            <div class="col-6">
                 <dge-table id="dge-table-2" api="csv" url="./data/"
                     datasets="commandes.csv,cmd|objets.csv,obj|contacts.csv,cnt"
                     fields="id,commande,objet,quantite|id,objet,prix|id,nom"

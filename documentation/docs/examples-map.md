@@ -57,24 +57,25 @@ Cet exemple montre les principales fonctionnalités actuellement disponibles: aj
 
         ``` html
         <dge-map 
-            id="dge-map-2" 
+            id="dge-map-1" 
             height="50vh" 
-            title="Communes de l'EMS" 
-            attribution="text:DataGrandEst,https://www.datagrandest.fr" 
+            title="Communes de l'EMS"
+            attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
             center="48.6|7.75" 
-            zoom="10"
-            url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?" 
+            zoom="10" 
+            url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?"
             api="wms" 
-            layers="commune_actuelle_3857|commune_actuelle_centroide" 
-            layersname="Communes (poly)|Commmunes (point)" 
-            styles="" 
-            version="1.1.0" 
-            format="image/png" 
-            transparent="1" 
-            filters="id_epci='246700488'" 
-            queryable="commune_actuelle_3857" 
+            layers="commune_actuelle_3857,commune_actuelle_centroide"
+            layersname="Communes (poly),Commmunes (point)"
+            styles=""
+            version="1.1.0"
+            format="image/png"
+            transparent="true"
+            filters="id_epci='246700488'"
+            queryable="commune_actuelle_3857"
             fields="insee_com,nom_com,id_epci,epci_nom_complet" 
             labels="INSEE,COMMUNE,EPCI ID,EPCI"
+            baselayer="https://osm.geograndest.fr/mapcache/?,relief" 
             osm="true" />
         ```
 
@@ -82,24 +83,25 @@ Cet exemple montre les principales fonctionnalités actuellement disponibles: aj
 
         <div style="width:50%">
             <dge-map 
-                id="dge-map-2" 
+                id="dge-map-1" 
                 height="50vh" 
-                title="Communes de l'EMS" 
-                attribution="text:DataGrandEst,https://www.datagrandest.fr" 
+                title="Communes de l'EMS"
+                attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
                 center="48.6|7.75" 
-                zoom="10"
-                url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?" 
+                zoom="10" 
+                url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?"
                 api="wms" 
-                layers="commune_actuelle_3857,commune_actuelle_centroide" 
-                layersname="Communes (poly),Commmunes (point)" 
-                styles="" 
-                version="1.1.0" 
-                format="image/png" 
-                transparent="true" 
-                filters="id_epci='246700488'" 
-                queryable="commune_actuelle_3857" 
+                layers="commune_actuelle_3857,commune_actuelle_centroide"
+                layersname="Communes (poly),Commmunes (point)"
+                styles=""
+                version="1.1.0"
+                format="image/png"
+                transparent="true"
+                filters="id_epci='246700488'"
+                queryable="commune_actuelle_3857"
                 fields="insee_com,nom_com,id_epci,epci_nom_complet" 
                 labels="INSEE,COMMUNE,EPCI ID,EPCI"
+                baselayer="https://osm.geograndest.fr/mapcache/?,relief" 
                 osm="true" />
         </div>
 
@@ -111,21 +113,19 @@ Cet exemple montre, à partir de l'exemple précédent l'utilisation des propri�
 - `baselayers` pour ajouter un fond de carte supplémentaire (couche "relief" du [serveur OSM DataGrandEst](https://osm.datagrandest.fr))
 - `gesturehandling` pour forcer l'tilisation de la touche "Ctrl" pour zoomer
 
-A noter également que cete exemple utilise la propriété gobale `data` au lieu des propriétés individuelles.
+A noter également que cete exemple utilise la propriété gobale `data` au lieu des propriétés individuelles. Elle permet ici d'ajouter 2 layers de source différente à la carte.
 
 !!! example "Exemple 3"
 
     === "HTML"
 
         ``` html
-        <dge-map 
-            id="dge-map-3" 
-            height="50vh" 
-            title="Communes de l'EMS"
+        <dge-map id="dge-map-3" height="50vh" title="Communes de l'EMS"
             attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
             center="48.6|7.75" 
             zoom="10" 
-            data="url:https://www.datagrandest.fr/geoserver/region-grand-est/ows?;
+            data="
+            url:https://www.datagrandest.fr/geoserver/region-grand-est/ows?;
             api:wms;
             layers:commune_actuelle_3857,commune_actuelle_centroide;
             layersname:Communes (poly),Commmunes (point);
@@ -133,7 +133,13 @@ A noter également que cete exemple utilise la propriété gobale `data` au lieu
             filters:id_epci='246700488';
             queryable:commune_actuelle_3857;
             fields:insee_com,nom_com,id_epci,epci_nom_complet;
-            labels:INSEE,COMMUNE,EPCI ID,EPCI"
+            labels:INSEE,COMMUNE,EPCI ID,EPCI|
+            url:./data/departements.geojson;
+            layersname:Départements;
+            api:geojson;
+            fields:code,nom,site,logo;
+            labels:CODE,NOM,SITE,LOGO;
+            queryable:departements.geojson"
             baselayers="url:https://osm.geograndest.fr/mapcache/?;layers:relief;layersname:OSM Relief DataGrandEst"
             osm="true" 
             gesturehandling="true" />
@@ -142,12 +148,11 @@ A noter également que cete exemple utilise la propriété gobale `data` au lieu
     === "Résultat"
 
         <div style="width:50%">
-            <dge-map 
-                id="dge-map-3" 
-                height="50vh" 
-                title="Communes de l'EMS"
+            <dge-map id="dge-map-3" height="50vh" title="Communes de l'EMS"
                 attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
-                center="48.6|7.75" zoom="10" data="
+                center="48.6|7.75" 
+                zoom="10" 
+                data="
                 url:https://www.datagrandest.fr/geoserver/region-grand-est/ows?;
                 api:wms;
                 layers:commune_actuelle_3857,commune_actuelle_centroide;
@@ -156,7 +161,13 @@ A noter également que cete exemple utilise la propriété gobale `data` au lieu
                 filters:id_epci='246700488';
                 queryable:commune_actuelle_3857;
                 fields:insee_com,nom_com,id_epci,epci_nom_complet;
-                labels:INSEE,COMMUNE,EPCI ID,EPCI"
+                labels:INSEE,COMMUNE,EPCI ID,EPCI|
+                url:./data/departements.geojson;
+                layersname:Départements;
+                api:geojson;
+                fields:code,nom,site,logo;
+                labels:CODE,NOM,SITE,LOGO;
+                queryable:departements.geojson"
                 baselayers="url:https://osm.geograndest.fr/mapcache/?;layers:relief;layersname:OSM Relief DataGrandEst"
                 osm="true" 
                 gesturehandling="true" />
