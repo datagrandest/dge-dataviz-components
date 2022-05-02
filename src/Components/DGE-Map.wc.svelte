@@ -334,8 +334,8 @@
 {:else}
     <style>
         @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
-        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
-        @import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+        @import url("https://unpkg.com/leaflet@1.8.0/dist/leaflet.css");
         @import url("https://unpkg.com/leaflet-gesture-handling@1.1.8/dist/leaflet-gesture-handling.min.css");
     </style>
 {/if}

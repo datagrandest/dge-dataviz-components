@@ -3,6 +3,28 @@
 Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.  
 Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.
 
+## v4.5.0 - 20220501
+
+### Téléchargements
+
+| Fichier        | Format | Téléchargement                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------- |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.5.0/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.5.0/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.5.0/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.5.0/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.5.0/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.5.0/dge-all.js){:target="\_blank"}                           |
+| dist_4.5.0.zip | ZIP    | [téléchargement](./dist/4.5.0/dist_4.5.0.zip){:target="\_blank"}                       |
+| dist_4.5.0.7z  | 7Z     | [téléchargement](./dist/4.5.0/dist_4.5.0.7z){:target="\_blank"}                        |
+
+### Evolutions
+
+- `dge-figure`: 
+    - [x] Ajout du paramètre `value` afind e pouvoir afficher une valeur directement sans utiliser de données externes. Il est ainsi possible d'ajouter la valeur via une varaible de la page (ex.: `value="'<?php echo $value; ?>'"`)
+- `dist`:
+    - [x] Mise à jour des différentes bibliothèques vers leurs dernières versions
+
 ## v4.4.0 - 20220303
 
 ### Téléchargements

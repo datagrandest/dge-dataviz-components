@@ -61,14 +61,14 @@ Cet exemple utilise un filtre sur le code INSEE de la commune à afficher.
             attribution="text:DataGrandEst;url:https://www.datagrandest.fr"
             api="wfs"
             url="https://www.datagrandest.fr/geoserver/region-grand-est/wfs"
-            fields="pmun_rp2018,insee_com"
+            fields="pmun_rp2019,insee_com"
             datasets="commune_actuelle"
             max="6000"
             icon="people-fill"
-            operation="sum|pmun_rp2018"
+            operation="sum|pmun_rp2019"
             unit="hab."
-            where="insee_com='67186'"
-            text="Commune de Hegeney (2018)" />
+            where="insee_com=67186"
+            text="Commune de Hegeney (2019)" />
         ```
 
     === "Résultat"
@@ -79,12 +79,12 @@ Cet exemple utilise un filtre sur le code INSEE de la commune à afficher.
                 attribution="text:DataGrandEst;url:https://www.datagrandest.fr"
                 api="wfs"
                 url="https://www.datagrandest.fr/geoserver/region-grand-est/wfs"
-                fields="pmun_rp2018,insee_com"
+                fields="pmun_rp2019,insee_com"
                 datasets="commune_actuelle"
                 max="6000"
                 icon="people-fill"
-                operation="sum|pmun_rp2018"
+                operation="sum|pmun_rp2019"
                 unit="hab."
-                where="insee_com='67186'"
-                text="Commune de Hegeney (2018)" />
+                where="insee_com=67186"
+                text="Commune de Hegeney (2019)" />
         </div>

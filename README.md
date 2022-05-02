@@ -26,7 +26,7 @@ Le projet a été initié via le template proposé par [sinedied](https://github
 Pour modifier le code et recompiler les composants:
 
 ```bash
-# Cloner le dépot GitHub
+# Clonerr le dépot GitHub
 git clone https://github.com/datagrandest/dge-dataviz-components
 
 # Installer les modules nodejs

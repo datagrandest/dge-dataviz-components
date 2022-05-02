@@ -17,4 +17,4 @@ Ces outils utilisent plusieurs librairies externes parmis lesquelles:
 | [alasql 1.7.x](http://alasql.org/)                                                         |          |           | X          | X         | X         | X       |
 | [papaparse 5.3.x](https://www.papaparse.com/)                                              |          |           | X          | X         | X         |         |
 | [chartjs 3.6](https://www.chartjs.org/)  (+ [plugins](https://github.com/chartjs/awesome)) |          |           |            |           | X         |         |
-| [leaflet 1.7.x](https://leafletjs.com/)                                                    |          |           |            |           |           | X       |
+| [leaflet 1.8.x](https://leafletjs.com/)                                                    |          |           |            |           |           | X       |
