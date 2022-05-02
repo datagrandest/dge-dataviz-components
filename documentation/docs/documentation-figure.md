@@ -410,13 +410,27 @@ Exemple: `imagealt="Illustration de l'indicateur"`
 
 | Propriété      | Type    | Défaut      |
 |----------------|---------|-------------|
-| refrtesh       | Integer | false       |
+| refresh        | Integer | false       |
 
 Propriété permettant de recharger régulièrement les données pour mettre à jour l'indicateur à interval de temps régulier sans recharger la page (l'interval est exprimé en secondes).  
 Cela peut-être utile notamment dans le cas de données mises à jour en temps réel.
 Si plusieurs sources de données sont indiquées, le rafraichissement est valable pour l'ensemble des datasets.
 
 Exemple: `refresh="60"` pour une mise à jour toutes les minutes
+
+### value
+
+| Propriété      | Type    | Défaut      |
+|----------------|---------|-------------|
+| value          | String  | false       |
+
+Propriété permettant d'indiquer une valeur sans faire appel à une source de données externe du type API, flux ou fichier.  
+Cela peut être intéressant pour générer la valeur directement avec du code dans la page.
+
+Exemples: 
+
+- `value="'156'"`
+- `value="'<?php echo round($value, 2); ?>'"`
 
 ## Exemples
 
