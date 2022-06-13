@@ -3,6 +3,31 @@
 Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.  
 Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.
 
+## v4.5.1 - 20220601
+
+### Téléchargements
+
+| Fichier        | Format | Téléchargement                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------- |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.5.1/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.5.1/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.5.1/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.5.1/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.5.1/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.5.1/dge-all.js){:target="\_blank"}                           |
+| dist_4.5.1.zip | ZIP    | [téléchargement](./dist/4.5.1/dist_4.5.1.zip){:target="\_blank"}                       |
+| dist_4.5.1.7z  | 7Z     | [téléchargement](./dist/4.5.1/dist_4.5.1.7z){:target="\_blank"}                        |
+
+### Evolutions
+
+- `dge-figure`: 
+    - [x] Correction des propriétés `filter` et `search`
+- `dist`:
+    - [x] Mise à jour des différentes bibliothèques vers leurs dernières versions
+- `documentation`: 
+    - [x] Corrections mineures
+    - [x] Organisation des propriétés par ordre alphabétique
+
 ## v4.5.0 - 20220501
 
 ### Téléchargements

@@ -22,16 +22,6 @@ Il existe 4 grands types de propriétés:
 
 Il est important de respecter le type de valeur attendu par les propriétés et attributs pour le bon fonctionnement des composants web.
 
-### id
-
-| Propriété | Type   | Défaut     |
-|-----------|--------|------------|
-| id        | String | "dge-text" |
-
-Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
-
-Exemple: `id="dge-text-1"`
-
 ### attribution
 
 | Propriété   | Type   | Défaut     |
@@ -53,6 +43,16 @@ Cette propriété est de type object et se compose d'une liste d'attributs perme
 
 Exemple: `attribution="text:DataGrandEst;url:https://www.datagrandest.fr"`
 
+### id
+
+| Propriété | Type   | Défaut     |
+|-----------|--------|------------|
+| id        | String | "dge-text" |
+
+Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
+
+Exemple: `id="dge-text-1"`
+
 ### localcss
 
 | Propriété   | Type    | Défaut     |
@@ -73,16 +73,6 @@ Si la propriété localcss est activée (`localcss="1"`) alors le composant essa
 
 Exemple: `localcss="1"`
 
-### title
-
-| Propriété | Type   | Défaut     |
-|-----------|--------|------------|
-| title     | String | null       |
-
-Titre du composant.
-
-Exemple: `title="Titre de mon composant DGE text"`
-
 ### text
 
 | Propriété   | Type   | Défaut     |
@@ -93,6 +83,15 @@ Text à afficher dans le composant.
 
 Exemple: `text="Texte de mon composant..."`
 
+### title
+
+| Propriété | Type   | Défaut     |
+|-----------|--------|------------|
+| title     | String | null       |
+
+Titre du composant.
+
+Exemple: `title="Titre de mon composant DGE text"`
 
 ## L'utilisation des `slots`
 

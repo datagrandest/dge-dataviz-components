@@ -23,16 +23,6 @@ Il existe 4 grands types de propriétés:
 
 Il est important de respecter le type de valeur attendu par les propriétés et attributs pour le bon fonctionnement des composants web.
 
-### id
-
-| Propriété | Type   | Défaut      |
-|-----------|--------|-------------|
-| id        | String | "dge-image" |
-
-Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
-
-Exemple: `id="dge-image-1"`
-
 ### attribution
 
 | Propriété   | Type   | Défaut     |
@@ -57,6 +47,27 @@ Exemple:
 - `attribution="text:DataGrandEst;url:https://www.datagrandest.fr"`
 - `attributiontext="DataGrandEst" attributionurl="https://www.datagrandest.fr"`
 
+### id
+
+| Propriété | Type   | Défaut      |
+|-----------|--------|-------------|
+| id        | String | "dge-image" |
+
+Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
+
+Exemple: `id="dge-image-1"`
+
+
+### legend
+
+| Propriété   | Type   | Défaut     |
+|-------------|--------|------------|
+| legend      | String | false      |
+
+Légende de l'image. Ce texte est affiché sous l'image. 
+
+Exemple: `legend="Ceci est une très belle illustration."`
+
 ### localcss
 
 | Propriété   | Type    | Défaut     |
@@ -77,16 +88,6 @@ Si la propriété localcss est activée (`localcss="1"`) alors le composant essa
 
 Exemple: `localcss="1"`
 
-### title
-
-| Propriété | Type   | Défaut     |
-|-----------|--------|------------|
-| title     | String | null       |
-
-Titre du composant.
-
-Exemple: `title="Titre de mon composant DGE image"`
-
 ### src
 
 | Propriété   | Type   | Défaut     |
@@ -97,15 +98,15 @@ Source de l'image (URL).
 
 Exemple: `src="https://viago.ca/wp-content/uploads/2017/09/Essentiels_Japon-768x432.jpg"`
 
-### legend
+### title
 
-| Propriété   | Type   | Défaut     |
-|-------------|--------|------------|
-| legend      | String | false      |
+| Propriété | Type   | Défaut     |
+|-----------|--------|------------|
+| title     | String | null       |
 
-Légende de l'image. Ce texte est affiché sous l'image. 
+Titre du composant.
 
-Exemple: `legend="Ceci est une très belle illustration."`
+Exemple: `title="Titre de mon composant DGE image"`
 
 ## Exemples
 

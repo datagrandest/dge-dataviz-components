@@ -150,19 +150,6 @@
         });
     }
 
-    function getFilterValues(filterFieldId, items) {
-        if (items.length && items[0].length && filterFieldId) {
-            const sql_select = "SELECT DISTINCT " + filterFieldId + " FROM ? ORDER BY " + filterFieldId + " ASC;";
-            let result = alasql
-                .exec(sql_select, items)
-                .filter((item) => (item[filterFieldId] = item[filterFieldId] ? item[filterFieldId] : ""));
-            return result;
-        }
-        return [];
-    }
-
-    $: filterValues = getFilterValues(filterFieldId, [items]);
-
     function getField(field, id, table) {
         if (field) {
             const field_parts = field.split(",");
@@ -195,7 +182,7 @@
         return datasets_list;
     }
 
-    function getItems(data, datasets, fields, from, where, filter, search, operation) {
+    function getItems(data, datasets, fields, from, where, filter, filterValue, search, searchValue, operation) {
         if (value) {
             return [];
         }
@@ -238,6 +225,7 @@
             const filter_field = getField(filterField);
             fields_list = addField(fields_list, filter_field);
             filterFieldId = filter_field.id;
+            filterFieldId = filterFieldId;
 
             // Add search fields to fields_list
             for (let i = 0, n = searchFields.length; i < n; i++) {
@@ -268,7 +256,16 @@
             // Get from SQL request part
             const sql_from = from ? " FROM " + from : " FROM ?";
             // Get where SQL request part
-            const sql_where = where ? " WHERE " + where : " WHERE 1";
+            let sql_where = where ? " WHERE " + where : " WHERE 1";
+
+            if (filterValue) {
+                filterValue = isNaN(filterValue) ? "'" + dgeData.escapeSql(filterValue) + "'" : filterValue;
+                sql_where += " AND " + filterFieldId + "=" + filterValue;
+            }
+
+            if (searchValue) {
+                sql_where += " AND " + searchField + " LIKE " + "'%" + dgeData.escapeSql(searchValue) + "%'";
+            }
 
             // Get final SQL request
             const sql_request = sql_select + sql_from + sql_where;
@@ -292,9 +289,9 @@
         return [];
     }
 
-    $: items = getItems(data, datasets, fields, from, where, filter, search, operation);
+    $: items = getItems(data, datasets, fields, from, where, filter, filterValue, search, searchValue, operation);
 
-    function getResult(items, filterValue, searchValue, operation) {
+    function getResult(items, operation) {
         const operations = {
             average: "AVG",
             sum: "SUM",
@@ -318,7 +315,7 @@
                 return item;
             });
 
-            const sql_select =
+            let sql_select =
                 "SELECT " + operations[operation_array[0].toLowerCase()] + "(" + operation_field.id + ") AS result";
 
             // Get from SQL request part
@@ -326,14 +323,6 @@
 
             // Get where SQL request part
             let sql_where = " WHERE 1";
-            if (filterValue) {
-                filterValue = isNaN(filterValue) ? "'" + dgeData.escapeSql(filterValue) + "'" : filterValue;
-                sql_where += " AND " + filterFieldId + "=" + filterValue;
-            }
-
-            if (searchValue) {
-                sql_where += " AND " + searchField + " LIKE " + "'%" + dgeData.escapeSql(searchValue) + "%'";
-            }
 
             // Get final SQL request
             const sql_request = sql_select + sql_from + sql_where;
@@ -348,7 +337,20 @@
         return 0;
     }
 
-    $: result = getResult(items, filterValue, searchValue, operation);
+    $: result = getResult(items, operation);
+
+    function getFilterValues(filterFieldId, items_list) {
+        if (items_list.length && items_list[0].length && filterFieldId) {
+            const sql_select = "SELECT DISTINCT " + filterFieldId + " FROM ? ORDER BY " + filterFieldId + " ASC;";
+            let result = alasql
+                .exec(sql_select, items_list)
+                .filter((item) => (item[filterFieldId] = item[filterFieldId] ? item[filterFieldId] : ""));
+            return result;
+        }
+        return [];
+    }
+
+    $: filterValues = getFilterValues(filterFieldId, data);
 
     onMount(() => {
         searchValue = search.split("|")[2];

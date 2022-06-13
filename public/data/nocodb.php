@@ -1,10 +1,10 @@
 <?php
 
-// curl --location --request GET "URL" --header "Accept: application/json" --header "Authorization: Bearer TOKEN"
+// curl --location --request GET "https://nocodb.shogun.ovh/nc/test_1_IoKA/api/v1/Table%202" --header "Accept: application/json" --header "Authorization: Bearer 0tcganM3Q6jGTIId2mmYJ4hE7ovewtIm-DitTv_X"
 
 //The URL we are connecting to.
-$url = 'URL';
-$token = 'TOKEN';
+$url = 'https://nocodb.shogun.ovh/xxx';
+$token = 'xxxxxxxxx';
 
 //Initiate cURL.
 $ch = curl_init($url);

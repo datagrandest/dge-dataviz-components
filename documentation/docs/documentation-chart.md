@@ -30,15 +30,38 @@ Par ailleurs, le traitement des données se fait via des requêtes SQL qui s'apu
 ). Ils ne devraient pas être utilisés comme nom de champs.  
 Une solution de contournement existe en "échappant" c'est noms de champs avec ``fieldname`` ou `[fieldname]` (ex.: `operation="sum|`value`"`).
 
-### id
+### api
 
-| Propriété | Type   | Défaut      |
-|-----------|--------|-------------|
-| id        | String | "dge-chart" |
+| Propriété   | Type   | Défaut       |
+|-------------|--------|--------------|
+| api         | String | "json"       |
 
-Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
+Typde de source de données. Les valeurs possibles sont:
 
-Exemple: `id="dge-chart-1"`
+- "json": fichier JSON
+- "csv": fichier CSV
+- "wfs": flux WFS
+- "dc4": API provenant d'une plateforme Data4Citizen
+
+Exemple: `api="csv"`
+
+### animation
+
+| Propriété | Type   | Défaut     |
+|-----------|--------|------------|
+| animation | Object | null       |
+
+| Attribut   | Type    | Défaut              | Propriété éq. | Description                                                                            |
+|------------|---------|---------------------|---------------|----------------------------------------------------------------------------------------|
+| duration   | Integer | 1000                | animduration  | Durée de l'animation en millisecondes                                                  |
+| easing     | String  | "easeOutQuart"      | animeasing    | Type d'animation (cf. [liste](https://www.chartjs.org/docs/3.3.1/configuration/animations.html#easing) |
+| delay      | Integer | null                | animdelay     | Délai avant de lancer l'animation                                                      |
+| loop       | Boolean | null                | animloop      | Si "true" l'animation tourne en boucle                                                 |
+
+Propriété permettant de définir l'animation à l'affichage du graphique.
+La liste des paramètres est celle de la proriété "animation" de Chartjs. Cf. https://www.chartjs.org/docs/latest/configuration/animations.html#animation
+
+Exemple: `animation="duration:5000"`
 
 ### attribution
 
@@ -60,308 +83,6 @@ Sources des données utilisées par le composant.
 Cette propriété est de type object et se compose d'une liste d'attributs permettant de préciser le texte ou l'icon à afficher, l'URL, etc.
 
 Exemple: `attribution="text:DataGrandEst;url:https://www.datagrandest.fr"`
-
-### localcss
-
-| Propriété   | Type    | Défaut     |
-|-------------|---------|------------|
-| localcss    | Boolean | false      |
-
-Indique si le composant utilise des fichiers CSS locaux ou distants. Ce paramètre permet notamment de pouvoir utiliser le composant dans un contexte hors ligne.  
-Par défaut, les fichiers CSS des bibliothèques Bootstrap et Bootstrap Icons sont chargées via les liens:
-
-- https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
-- https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css
-
-Si la propriété localcss est activée (`localcss="1"`) alors le composant essaie de charger les fichiers suivants:
-
-- "./bootstrap/css/bootstrap.min.css"
-- "./bootstrap-icons/bootstrap-icons.css"
-- "./global.css"
-
-Exemple: `localcss="1"`
-
-### title
-
-| Propriété | Type   | Défaut     |
-|-----------|--------|------------|
-| title     | String | null       |
-
-Titre du composant.
-Si le paramètre `filter` ou `search` est utilisée, la valeur recherché peut être affiché respectivement via les variables `%filter%` et `%search%`.  
-
-Des variables calaculées à partir des données peuvent également être ajoutées dans le titre. Elles sont de la forme `%operation,decimal,[line],[field]%`. Une seule variable peut être utilisée par ligne de texte.
-- operation: "sum", "min", "max", "average", "percent", "value"
-- decimal: nombre de décimal à afficher
-- line: selection de la ligne ou valeur à afficher dans la série
-- field: colonne à sélectionner pour définir la série à afficher (dans le cas de `dge-table`)
-
-Exemples: 
-
-- `title="Evolution de la population par commune"`
-- `title="Nombre de projets pour l'année %filter%"` affiche "Nombre de projets pour l'année 2006" si on a ajouter un paramètre `filter` et si la valeur "2006" est sélectionnée dans la liste
-- `title="Total: %sum,0,0,cout%"`
-
-### animation
-
-| Propriété | Type   | Défaut     |
-|-----------|--------|------------|
-| animation | Object | null       |
-
-| Attribut   | Type    | Défaut              | Propriété éq. | Description                                                                            |
-|------------|---------|---------------------|---------------|----------------------------------------------------------------------------------------|
-| duration   | Integer | 1000                | animduration  | Durée de l'animation en millisecondes                                                  |
-| easing     | String  | "easeOutQuart"      | animeasing    | Type d'animation (cf. [liste](https://www.chartjs.org/docs/3.3.1/configuration/animations.html#easing) |
-| delay      | Integer | null                | animdelay     | Délai avant de lancer l'animation                                                      |
-| loop       | Boolean | null                | animloop      | Si "true" l'animation tourne en boucle                                                 |
-
-Propriété permettant de définir l'animation à l'affichage du graphique.
-La liste des paramètres est celle de la proriété "animation" de Chartjs. Cf. https://www.chartjs.org/docs/latest/configuration/animations.html#animation
-
-Exemple: `animation="duration:5000"`
-
-### api
-
-| Propriété   | Type   | Défaut       |
-|-------------|--------|--------------|
-| api         | String | "json"       |
-
-Typde de source de données. Les valeurs possibles sont:
-
-- "json": fichier JSON
-- "csv": fichier CSV
-- "wfs": flux WFS
-- "dc4": API provenant d'une plateforme Data4Citizen
-
-Exemple: `api="csv"`
-
-### url
-
-| Propriété   | Type   | Défaut      |
-|-------------|--------|-------------|
-| url         | String | false       |
-
-URL de la source de données (cf. la propriété `api` pour connaîtres les sources de données possibles).
-
-:material-arrow-right-bold-circle: Pour les flux WFS, le workspace doit être précisé.  
-:material-arrow-right-bold-circle: Pour les fichiers JSON et CSV, le nom du fichier peut être indiqué dans la propriété `datasets`.
-
-Exemples:
-
-- `url="https://www.datagrandest.fr/geoserver/region-grand-est/wfs"`
-- `url="https://dev.datagrandest.fr/data4citizen/d4c/api/records/1.0/search"`
-- `url="./data/test.json"`
-- `url="https://www.datagrandest.fr/tools/dge-dataviz-components/dge-components/data/test.csv"`
-
-### datasets
-
-| Propriété        | Type   | Défaut      |
-|------------------|--------|-------------|
-| datasets         | String | false       |
-
-Nom du ou des jeux de données utilisés. Si plusieurs jeux de données sont précisés (exemples: plusieurs fichiers JSON ou CSV) il doivent être séprés par un "|" et provenir de la même source (propriété `url`).
-
-:material-arrow-right-bold-circle: Pour un flux WFS il s'agit du ou des noms des couches de données ("layer").  
-:material-arrow-right-bold-circle: Pour un fichier JSON ou CSV il s'agit du ou des noms de fichiers, extension comprise.
-
-Un alias peut être donné aux datasets, notamment lors de l'utilisation de plusieurs sources de données. Il permet, comme dans le language SQL de préfixer le nom des champs dans d'autres propriété (`where`, `from`, etc.) et éviter les confusions. 
-
-Exemples:
-
-- `datasets="commune_actuelle"`
-- `datasets="commandes.csv,cmd|contact.csv,cnt"`
-
-### max
-
-| Propriété        | Type    | Défaut      |
-|------------------|---------|-------------|
-| max              | Integer | false       |
-
-Nombre d'entité à retourner lors de l'appel à l'API.  
-Cette propriété est notamment à utiliser avec les API `wfs` et `d4c` quilimitent par défaut le nombre de données retournées.
-
-Exemple: `max="500"`
-
-### fields
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| fields         | String | false       |
-
-Liste des champs renvoyé lors de la récupération des données. Cette propriété est obligatoire dans le cas de l'utilisation de plusieurs datasets. 
-La liste doit d'ailleurs dans ce cas respecter l'ordre des sources de données définies dans la propriété `datasets=""`.
-
-Cette propriété est également conseillée pour les flux WFS. Elle permet d'alléger le volume de données en évitant que le serveur renvoi les géométries au format GeoJSON. 
-Ce paramètre n'a pas d'influence avec les sources de données Data4Citizen et les fichiers JSON et CSV.
-
-Le séparateur de champ est ",". Si plusieurs datasets sont précisés, les champs doivent être indiqué dans l'ordre des datasets, séparés par des "|".
-
-Exemples: 
-
-- `fields="id,code,name,color"`
-- `fields="id,code_id,name,color|id,code,value"`
-
-### from
-
-| Propriété    | Type   | Défaut      |
-|--------------|--------|-------------|
-| from         | String | false       |
-
-Propriété qui permet dans le cas de l'utilisation de plusieurs datasets de préciser la jointure entre les sources de données. 
-Elle est équivalente à la partie "FROM" de la requête SQL ou le nom des tables est remplacé par des "?", en respectant l'ordre défini dans la propriété `datasets=""`.
-
-Exemple: `? AS table1 join ? AS table2 ON table1.field2=table2.field1 JOIN ? AS table3 ON table1.field3=table3.field1`
-
-### where
-
-| Propriété     | Type   | Défaut      |
-|---------------|--------|-------------|
-| where         | String | false       |
-
-Filtre appliqué sur les données récupérées. Il correspond à la partie "WHERE" de la requête SQL.
-Si la valeur recherchée est une chaïne de caractères il faut l'encadrer avec des apostrophes ("'"). Cla n'est pas nécessaire pour les nombres. La conversion des chaînes en nombre peux dépendre de la source de données.
-
-Exemples: 
-
-- `where="commande=3`
-- `where="object='cahier'`
-
-### groupby
-
-| Propriété       | Type   | Défaut      |
-|-----------------|--------|-------------|
-| groupby         | String | false       |
-
-Propriété permettant de grouper les résultats selon un champ (une "catégorie" ou un "type" par exemple). 
-
-Pour les graphiques, elle fonctionne en général conjointement à une formule de regroupement sur les ordonnées (ex.: `y="SUM(values)"`). 
-Les formulaes de regroupement sont celles du SQL: "SUM", "MIN", "MAX", "COUNT", "AVG".
-
-Exemples: `groupby="category"`
-
-### having
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| having         | String | false       |
-
-Propriété fonctionnant en lien avec `groupby=""` (et `y=""`). Comme dans le cadre des requêtes SQL, elle permet de réaliser un filtre sur le résultat d'un regroupement, là ou la propriété `where=""` permet un filtre sur les éléments retournés avant leur regroupement. 
-On aura donc conjointement par exemple: `y="SUM(values),somme" groupby="categorie" having="somme>100"`.
-
-Exemple: `having="somme>100"`
-
-### orderby
-
-| Propriété       | Type   | Défaut      |
-|-----------------|--------|-------------|
-| orderby         | String | false       |
-
-Propriété qui permet de trier et afficher les résultats d'une requête par ordre croissant (`ASC`) ou décroissant (`DESC`) selon un ou plusieurs champs (séparateur "|").
-
-Exemple: `orderby="type,DESC"`
-
-### filter
-
-Affichage d'une liste de sélection pour filtrer les données.
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| filter         | String | false       |
-
-Ce paramètre se compose de 3 parties:
-
-- Le texte à afficher par défaut quand aucune valeur n'est sélectionnée (si cette valeur est vide, aucune valeur par défaut n'est utilisée)
-- Le champ à utiliser pour le filtre
-- Eventuellement une valeur de filtre prédéfinie
-
-Exemples:
-
-- `select="Sélectionner un EPCI|epci"`
-- `select="Sélectionner une commune|f4|Strasbourg"`
-- `select="|year|"`
-
-### search
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| search         | String | false       |
-
-Affichage d'une barre de recherche pour filtrer les données.
-
-Ce paramètre se compose de 3 parties:
-
-- Le texte à afficher par défaut dans la barre de recherche
-- Le champ à utiliser pour le filtre
-- Eventuellement une valeur de filtre prédéfinie
-
-Dans le cas de l'utilisation de la propriété `sql`, il faut utiliser ici le nom de l'alias du champ de recherche.
-
-Exemples:
-
-- `select="Rechercher un EPCI|epci"`
-- `select="Rechercher une commune|f4|Str"`
-
-### x
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| x              | String | false       |
-
-Données à afficher en abscisse du graphique. Il s'agit du nom d'une colonne ou d'une opération SQL sur les colonnes du jeu de données.
-
-Exemple: `x="nom_commune"`
-
-### y
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| y              | String | false       |
-
-Données à afficher en ordonnées du graphique. Il est possible d'indiquer plusieurs champs séparés par "|" dans le cas de l'ajout de plusieurs séries de données à un graphique. 
-Il est également possible de préciser un alias séparé par une virgule "," dans le cas d'une valeur calculée.
-
-Exemple:
-
-- `y="superficie"`
-- `y="superficie|population"`
-- `y="prix*quantite,cout"`
-- `y="prix*quantite,cout|total"`
-
-### xaxis
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| xaxis          | String | false       |
-
-Propriété permettant de configurer l'axe des abscisses. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`,`).
-L'axe des abscisses est unique.
-
-Les propriétés disponibles sont:
-
-- type: type d'axe des abscisses (valeurs: `linear|logarithmic|category|time|timeseries`)
-
-Exemple:
-
-- `x=type:time`
-
-### yaxis
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| yaxis          | String | false       |
-
-Propriété permettant de configurer l'axe des ordonnées des différentes séries de données. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`,`).
-Chaque axe des ordonnées peut être configuré séparémment. le séparateur est `|`.
-
-Les propriétés disponibles sont:
-
-- start: précise si l'axe commence à la valeur 0 ou à une valeur proche du minimal de la série (valeurs: `0|1`)
-- position: précise ou placer l'axe (valeurs: `left|right`)
-- drawGrid: précise si les lignes de la grille doivent être affichées (valeurs: `0|1`)
-
-Exemple:
-
-- `yaxis="start:1,position:left|start:0,position:right,drawGrid:0"`
 
 ### chart
 
@@ -391,17 +112,6 @@ A cela s'ajout pour les diahrammes en barres les variantes suivantes:
 Le type gauge dispose de sa propre propriété `gauge=`. Elle définie un ensemble de paramètre permettant de mettre en forme la jauge.
 Exemple: `gauge="circumference:270;rotation:-135;cutout:75%;radius:98%;borderRadius:2;offset:15"` (paramètre par défaut)
 
-### width et height
-
-| Propriété      | Type    | Défaut      |
-|----------------|---------|-------------|
-| width          | Integer | 4           |
-| height         | Integer | 3           |
-
-Propriétés permettant de définir la largeur (`width`) et la hauteur du grphique (`height`). Les dimensions sont calculées automatiquement de façon responsive à partir du rapport entre la hauteur et la largeur. Par défaut ces valeurs sont respectivement de 4 et 3 soit un rapport de 4/3.
-
-Exemple: `width="4" height="1"`
-
 ### colors
 
 | Propriété      | Type   | Défaut      |
@@ -413,6 +123,129 @@ Il est possble de définir des couleurs fixes par série via la propriété `col
 Pour le type `bars` il est possible de préciser la couleur de chaque barre si le nombre de données représentées est connu. Le séparateur entre les barres d'un même série est `;`.
 
 Exemple: `colors="rgba(226,58,112,0.5)|rgba(52,85,186,0.5)"`
+
+### datasets
+
+| Propriété        | Type   | Défaut      |
+|------------------|--------|-------------|
+| datasets         | String | false       |
+
+Nom du ou des jeux de données utilisés. Si plusieurs jeux de données sont précisés (exemples: plusieurs fichiers JSON ou CSV) il doivent être séprés par un "|" et provenir de la même source (propriété `url`).
+
+:material-arrow-right-bold-circle: Pour un flux WFS il s'agit du ou des noms des couches de données ("layer").  
+:material-arrow-right-bold-circle: Pour un fichier JSON ou CSV il s'agit du ou des noms de fichiers, extension comprise.
+
+Un alias peut être donné aux datasets, notamment lors de l'utilisation de plusieurs sources de données. Il permet, comme dans le language SQL de préfixer le nom des champs dans d'autres propriété (`where`, `from`, etc.) et éviter les confusions. 
+
+Exemples:
+
+- `datasets="commune_actuelle"`
+- `datasets="commandes.csv,cmd|contact.csv,cnt"`
+
+### fields
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| fields         | String | false       |
+
+Liste des champs renvoyé lors de la récupération des données. Cette propriété est obligatoire dans le cas de l'utilisation de plusieurs datasets. 
+La liste doit d'ailleurs dans ce cas respecter l'ordre des sources de données définies dans la propriété `datasets=""`.
+
+Cette propriété est également conseillée pour les flux WFS. Elle permet d'alléger le volume de données en évitant que le serveur renvoi les géométries au format GeoJSON. 
+Ce paramètre n'a pas d'influence avec les sources de données Data4Citizen et les fichiers JSON et CSV.
+
+Le séparateur de champ est ",". Si plusieurs datasets sont précisés, les champs doivent être indiqué dans l'ordre des datasets, séparés par des "|".
+
+Exemples: 
+
+- `fields="id,code,name,color"`
+- `fields="id,code_id,name,color|id,code,value"`
+
+### filter
+
+Affichage d'une liste de sélection pour filtrer les données.
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| filter         | String | false       |
+
+Ce paramètre se compose de 3 parties:
+
+- Le texte à afficher par défaut quand aucune valeur n'est sélectionnée (si cette valeur est vide, aucune valeur par défaut n'est utilisée)
+- Le champ à utiliser pour le filtre
+- Eventuellement une valeur de filtre prédéfinie
+
+Exemples:
+
+- `filter="Sélectionner un EPCI|epci"`
+- `filter="Sélectionner une commune|f4|Strasbourg"`
+- `filter="|year|"`
+
+### from
+
+| Propriété    | Type   | Défaut      |
+|--------------|--------|-------------|
+| from         | String | false       |
+
+Propriété qui permet dans le cas de l'utilisation de plusieurs datasets de préciser la jointure entre les sources de données. 
+Elle est équivalente à la partie "FROM" de la requête SQL ou le nom des tables est remplacé par des "?", en respectant l'ordre défini dans la propriété `datasets=""`.
+
+Exemple: `? AS table1 join ? AS table2 ON table1.field2=table2.field1 JOIN ? AS table3 ON table1.field3=table3.field1`
+
+### groupby
+
+| Propriété       | Type   | Défaut      |
+|-----------------|--------|-------------|
+| groupby         | String | false       |
+
+Propriété permettant de grouper les résultats selon un champ (une "catégorie" ou un "type" par exemple). 
+
+Pour les graphiques, elle fonctionne en général conjointement à une formule de regroupement sur les ordonnées (ex.: `y="SUM(values)"`). 
+Les formulaes de regroupement sont celles du SQL: "SUM", "MIN", "MAX", "COUNT", "AVG".
+
+Exemples: `groupby="category"`
+
+### having
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| having         | String | false       |
+
+Propriété fonctionnant en lien avec `groupby=""` (et `y=""`). Comme dans le cadre des requêtes SQL, elle permet de réaliser un filtre sur le résultat d'un regroupement, là ou la propriété `where=""` permet un filtre sur les éléments retournés avant leur regroupement. 
+On aura donc conjointement par exemple: `y="SUM(values),somme" groupby="categorie" having="somme>100"`.
+
+Exemple: `having="somme>100"`
+
+### height et width
+
+| Propriété      | Type    | Défaut      |
+|----------------|---------|-------------|
+| height         | Integer | 3           |
+| width          | Integer | 4           |
+
+Propriétés permettant de définir la largeur (`width`) et la hauteur du grphique (`height`). Les dimensions sont calculées automatiquement de façon responsive à partir du rapport entre la hauteur et la largeur. Par défaut ces valeurs sont respectivement de 4 et 3 soit un rapport de 4/3.
+
+Exemple: `width="4" height="1"`
+
+### id
+
+| Propriété | Type   | Défaut      |
+|-----------|--------|-------------|
+| id        | String | "dge-chart" |
+
+Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
+
+Exemple: `id="dge-chart-1"`
+
+### labels
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| labels         | String | false       |
+
+Propriété permettant de préciser le nom des étiquettes pour les valeurs des abscisses (x).
+
+Exemple: `labels="OUI|NON|NE SAIS PAS"` 
 
 ### legend
 
@@ -440,25 +273,46 @@ Les propriétés de type "Object" et 'Function" ne sont pas implémentées et n'
 
 Exemple: `legend=display:false`
 
-### labels
+### localcss
 
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| labels         | String | false       |
+| Propriété   | Type    | Défaut     |
+|-------------|---------|------------|
+| localcss    | Boolean | false      |
 
-Propriété permettant de préciser le nom des étiquettes pour les valeurs des abscisses (x).
+Indique si le composant utilise des fichiers CSS locaux ou distants. Ce paramètre permet notamment de pouvoir utiliser le composant dans un contexte hors ligne.  
+Par défaut, les fichiers CSS des bibliothèques Bootstrap et Bootstrap Icons sont chargées via les liens:
 
-Exemple: `labels="OUI|NON|NE SAIS PAS"` 
+- https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
+- https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css
 
-### reverse
+Si la propriété localcss est activée (`localcss="1"`) alors le composant essaie de charger les fichiers suivants:
 
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| reverse        | String | false       |
+- "./bootstrap/css/bootstrap.min.css"
+- "./bootstrap-icons/bootstrap-icons.css"
+- "./global.css"
 
-Propriété permettant de transposer les données, c'est à dire inverser les séries en colonne en ligne. Les en-têtes de colonnes deviennent alors les valeurs d'abscisse (x). Cette propriété doit être utilisée conjointement à la proriété `labels` car par défaut ce sont les paramètres de type `y0`, `y1`, etc. qui sont utilisés comme nom de colonne pour les ordonnées (y).
+Exemple: `localcss="1"`
 
-Exemple: `reverse="true"`
+### max
+
+| Propriété        | Type    | Défaut      |
+|------------------|---------|-------------|
+| max              | Integer | false       |
+
+Nombre d'entité à retourner lors de l'appel à l'API.  
+Cette propriété est notamment à utiliser avec les API `wfs` et `d4c` quilimitent par défaut le nombre de données retournées.
+
+Exemple: `max="500"`
+
+### orderby
+
+| Propriété       | Type   | Défaut      |
+|-----------------|--------|-------------|
+| orderby         | String | false       |
+
+Propriété qui permet de trier et afficher les résultats d'une requête par ordre croissant (`ASC`) ou décroissant (`DESC`) selon un ou plusieurs champs (séparateur "|").
+
+Exemple: `orderby="type,DESC"`
 
 ### refresh
 
@@ -471,6 +325,37 @@ Cela peut-être utile notamment dans le cas de données mises à jour en temps r
 Si plusieurs sources de données sont indiquées, le rafraichissement est valable pour l'ensemble des datasets.
 
 Exemple: `refresh="60"` pour une mise à jour toutes les minutes
+
+### reverse
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| reverse        | String | false       |
+
+Propriété permettant de transposer les données, c'est à dire inverser les séries en colonne en ligne. Les en-têtes de colonnes deviennent alors les valeurs d'abscisse (x). Cette propriété doit être utilisée conjointement à la proriété `labels` car par défaut ce sont les paramètres de type `y0`, `y1`, etc. qui sont utilisés comme nom de colonne pour les ordonnées (y).
+
+Exemple: `reverse="true"`
+
+### search
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| search         | String | false       |
+
+Affichage d'une barre de recherche pour filtrer les données.
+
+Ce paramètre se compose de 3 parties:
+
+- Le texte à afficher par défaut dans la barre de recherche
+- Le champ à utiliser pour le filtre
+- Eventuellement une valeur de filtre prédéfinie
+
+Dans le cas de l'utilisation de la propriété `sql`, il faut utiliser ici le nom de l'alias du champ de recherche.
+
+Exemples:
+
+- `search="Rechercher un EPCI|epci"`
+- `search="Rechercher une commune|f4|Str"`
 
 ### textcenter
 
@@ -504,6 +389,126 @@ A noter également que des variables peuvent être ajoutées pour intégrer des 
 - field: nom du champ à prendre en compte (à utiliser quand les données sont composée de plusieurs champs comme par exemple pour choisir la colonne d'une table à prendre en compte)
 
 Exemple: `textcenter="label:OUI;color:rgba(120,180,60,1);baseLine:middle;fontSize:12;fontFamily:Arial;fontStyle:normal;fontWeight:normal;y:40|label:%percent,2,0-1%%;color:rgba(180,120,60,1);baseLine:middle;fontSize:15;fontWeight:bold;fontFamily:Arial;y:50;x:20"`
+
+### title
+
+| Propriété | Type   | Défaut     |
+|-----------|--------|------------|
+| title     | String | null       |
+
+Titre du composant.
+Si le paramètre `filter` ou `search` est utilisée, la valeur recherché peut être affiché respectivement via les variables `%filter%` et `%search%`.  
+
+Des variables calaculées à partir des données peuvent également être ajoutées dans le titre. Elles sont de la forme `%operation,decimal,[line],[field]%`. Une seule variable peut être utilisée par ligne de texte.
+- operation: "sum", "min", "max", "average", "percent", "value"
+- decimal: nombre de décimal à afficher
+- line: selection de la ligne ou valeur à afficher dans la série
+- field: colonne à sélectionner pour définir la série à afficher (dans le cas de `dge-table`)
+
+Exemples: 
+
+- `title="Evolution de la population par commune"`
+- `title="Nombre de projets pour l'année %filter%"` affiche "Nombre de projets pour l'année 2006" si on a ajouter un paramètre `filter` et si la valeur "2006" est sélectionnée dans la liste
+- `title="Total: %sum,0,0,cout%"`
+
+### url
+
+| Propriété   | Type   | Défaut      |
+|-------------|--------|-------------|
+| url         | String | false       |
+
+URL de la source de données (cf. la propriété `api` pour connaîtres les sources de données possibles).
+
+:material-arrow-right-bold-circle: Pour les flux WFS, le workspace doit être précisé.  
+:material-arrow-right-bold-circle: Pour les fichiers JSON et CSV, le nom du fichier peut être indiqué dans la propriété `datasets`.
+
+Exemples:
+
+- `url="https://www.datagrandest.fr/geoserver/region-grand-est/wfs"`
+- `url="https://dev.datagrandest.fr/data4citizen/d4c/api/records/1.0/search"`
+- `url="./data/test.json"`
+- `url="https://www.datagrandest.fr/tools/dge-dataviz-components/dge-components/data/test.csv"`
+
+
+### where
+
+| Propriété     | Type   | Défaut      |
+|---------------|--------|-------------|
+| where         | String | false       |
+
+Filtre appliqué sur les données récupérées. Il correspond à la partie "WHERE" de la requête SQL.
+Si la valeur recherchée est une chaïne de caractères il faut l'encadrer avec des apostrophes ("'"). Cla n'est pas nécessaire pour les nombres. La conversion des chaînes en nombre peux dépendre de la source de données.
+
+Exemples: 
+
+- `where="commande=3`
+- `where="object='cahier'`
+
+
+
+
+
+### x
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| x              | String | false       |
+
+Données à afficher en abscisse du graphique. Il s'agit du nom d'une colonne ou d'une opération SQL sur les colonnes du jeu de données.
+
+Exemple: `x="nom_commune"`
+
+### xaxis
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| xaxis          | String | false       |
+
+Propriété permettant de configurer l'axe des abscisses. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`,`).
+L'axe des abscisses est unique.
+
+Les propriétés disponibles sont:
+
+- type: type d'axe des abscisses (valeurs: `linear|logarithmic|category|time|timeseries`)
+
+Exemple:
+
+- `x=type:time`
+
+### y
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| y              | String | false       |
+
+Données à afficher en ordonnées du graphique. Il est possible d'indiquer plusieurs champs séparés par "|" dans le cas de l'ajout de plusieurs séries de données à un graphique. 
+Il est également possible de préciser un alias séparé par une virgule "," dans le cas d'une valeur calculée.
+
+Exemple:
+
+- `y="superficie"`
+- `y="superficie|population"`
+- `y="prix*quantite,cout"`
+- `y="prix*quantite,cout|total"`
+
+### yaxis
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| yaxis          | String | false       |
+
+Propriété permettant de configurer l'axe des ordonnées des différentes séries de données. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`,`).
+Chaque axe des ordonnées peut être configuré séparémment. le séparateur est `|`.
+
+Les propriétés disponibles sont:
+
+- start: précise si l'axe commence à la valeur 0 ou à une valeur proche du minimal de la série (valeurs: `0|1`)
+- position: précise ou placer l'axe (valeurs: `left|right`)
+- drawGrid: précise si les lignes de la grille doivent être affichées (valeurs: `0|1`)
+
+Exemple:
+
+- `yaxis="start:1,position:left|start:0,position:right,drawGrid:0"`
 
 ## Etiquettes
 

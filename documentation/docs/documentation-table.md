@@ -29,16 +29,20 @@ Par ailleurs, le traitement des données se fait via des requêtes SQL qui s'apu
 ). Ils ne devraient pas être utilisés comme nom de champs.  
 Une solution de contournement existe en "échappant" c'est noms de champs avec ``fieldname`` ou `[fieldname]` (ex.: `operation="sum|`value`"`).
 
+### api
 
-### id
+| Propriété   | Type   | Défaut       |
+|-------------|--------|--------------|
+| api         | String | "json"       |
 
-| Propriété | Type   | Défaut     |
-|-----------|--------|------------|
-| id        | String | "dge-figure" |
+Typde de source de données. Les valeurs possibles sont:
 
-Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
+- "json": fichier JSON
+- "csv": fichier CSV
+- "wfs": flux WFS
+- "dc4": API provenant d'une plateforme Data4Citizen
 
-Exemple: `id="dge-figure-1"`
+Exemple: `api="csv"`
 
 ### attribution
 
@@ -61,79 +65,40 @@ Cette propriété est de type object et se compose d'une liste d'attributs perme
 
 Exemple: `attribution="text:DataGrandEst;url:https://www.datagrandest.fr"`
 
-### localcss
+### columns
 
-| Propriété   | Type    | Défaut     |
-|-------------|---------|------------|
-| localcss    | Boolean | false      |
+| Propriété       | Type   | Défaut      |
+|-----------------|--------|-------------|
+| columns         | String | false       |
 
-Indique si le composant utilise des fichiers CSS locaux ou distants. Ce paramètre permet notamment de pouvoir utiliser le composant dans un contexte hors ligne.  
-Par défaut, les fichiers CSS des bibliothèques Bootstrap et Bootstrap Icons sont chargées via les liens:
+Ordre des champs pour l'affichage des colonnes de la table.
 
-- https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
-- https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css
+Exemples:
+- `columns="id,ville,population"`
+- `columns="commandes.id|objets.objet|objets.couleur|commandes.quantite|objets.prix|commandes.quantite*objets.prix,cout|contacts.nom"`
 
-Si la propriété localcss est activée (`localcss="1"`) alors le composant essaie de charger les fichiers suivants:
+### datalink
 
-- "./bootstrap/css/bootstrap.min.css"
-- "./bootstrap-icons/bootstrap-icons.css"
-- "./global.css"
+| Propriété        | Type   | Défaut      |
+|------------------|--------|-------------|
+| datalink         | Object | false       |
 
-Exemple: `localcss="1"`
+| Attribut | Type   | Défaut | Propriété  équivalente | Description                                                                                  |
+|----------|--------|--------|------------------------|----------------------------------------------------------------------------------------------|
+| text     | String | null   | datalinktext           | Texte à afficher comme support au lien vers le site indiqué (cf. attribut `url`)              |
+| icon     | String | null   | datalinkicon           | Nom de l'îcon (cf. bibliothèque "[Bootstrap Icons v1.7.x](https://icons.getbootstrap.com/)") |
+| prefix   | String | null   | datalinkprefix         | Texte prefixant l'attribut `text`                                                            |
+| url      | String | null   | datalinkurl            | Lien vers un site internet                                                                   |
+| size     | String | 1rem   | datalinksize           | Taille de l'icon. L'unité doit être précisée (ex.: "1.5rem" ou "18px")                       |
+| color    | String | #000   | datalinkcolor          | Couleur de l'icon (ex.: "#393" ou "#99564c" ou "rgba(50,200,35,0.6)")                        |
+| title    | String | text   | datalinktitle          | Titre du texte ou de l'icon qui appraît au survol par la souris                              |
 
-### title
-
-| Propriété | Type   | Défaut     |
-|-----------|--------|------------|
-| title     | String | null       |
-
-Titre du composant.
-Si le paramètre `filter` ou `search` est utilisée, la valeur recherché peut être affiché respectivement via les variables `%filter%` et `%search%`.  
-
-Des variables calaculées à partir des données peuvent également être ajoutées dans le titre. Elles sont de la forme `%operation,decimal,[line],[field]%`. Une seule variable peut être utilisée par ligne de texte.
-- operation: "sum", "min", "max", "average", "percent", "value"
-- decimal: nombre de décimal à afficher
-- line: selection de la ligne ou valeur à afficher dans la série
-- field: colonne à sélectionner pour définir la série à afficher (dans le cas de `dge-table`)
+Propriété permettant de préciser sous forme de texte ou d'icon un lien vers les données sources.
 
 Exemples: 
 
-- `title="Evolution de la population par commune"`
-- `title="Nombre de projets pour l'année %filter%"` affiche "Nombre de projets pour l'année 2006" si on a ajouter un paramètre `filter` et si la valeur "2006" est sélectionnée dans la liste
-- `title="Total: %sum,0,0,cout%"`
-
-### api
-
-| Propriété   | Type   | Défaut       |
-|-------------|--------|--------------|
-| api         | String | "json"       |
-
-Typde de source de données. Les valeurs possibles sont:
-
-- "json": fichier JSON
-- "csv": fichier CSV
-- "wfs": flux WFS
-- "dc4": API provenant d'une plateforme Data4Citizen
-
-Exemple: `api="csv"`
-
-### url
-
-| Propriété   | Type   | Défaut      |
-|-------------|--------|-------------|
-| url         | String | false       |
-
-URL de la source de données (cf. la propriété `api` pour connaîtres les sources de données possibles).
-
-:material-arrow-right-bold-circle: Pour les flux WFS, le workspace doit être précisé.  
-:material-arrow-right-bold-circle: Pour les fichiers JSON et CSV, le nom du fichier peut être indiqué dans la propriété `datasets`.
-
-Exemples:
-
-- `url="https://www.datagrandest.fr/geoserver/region-grand-est/wfs"`
-- `url="https://dev.datagrandest.fr/data4citizen/d4c/api/records/1.0/search"`
-- `url="./data/test.json"`
-- `url="https://www.datagrandest.fr/tools/dge-dataviz-components/dge-components/data/test.csv"`
+- `icon="text:data;url:https://datagrandest.fr/public/data/villes.csv"`
+- `icontext="data" iconurl="https://datagrandest.fr/public/data/villes.csv"`
 
 ### datasets
 
@@ -153,16 +118,25 @@ Exemples:
 - `datasets="commune_actuelle"`
 - `datasets="commandes.csv,cmd|contact.csv,cnt"`
 
-### max
+### displaytotal
 
-| Propriété        | Type    | Défaut      |
-|------------------|---------|-------------|
-| max              | Integer | false       |
+| Propriété        | Type   | Défaut      |
+|------------------|--------|-------------|
+| displaytotal     | String | false       |
 
-Nombre d'entité à retourner lors de l'appel à l'API.  
-Cette propriété est notamment à utiliser avec les API `wfs` et `d4c` quilimitent par défaut le nombre de données retournées.
+Propriété permettant d'afficher le nombre de lignes total en dessous du tableau.
 
-Exemple: `max="500"`
+Exemple: `dsplaytotal="1"`
+
+### displaypagination
+
+| Propriété           | Type   | Défaut      |
+|---------------------|--------|-------------|
+| displaypagination   | String | false       |
+
+Propriété permettant d'afficher la pagination en bas de page.
+
+Exemple: `displaypagination="1"`
 
 ### fields
 
@@ -183,30 +157,25 @@ Exemples:
 - `fields="id,code,name,color"`
 - `fields="id,code_id,name,color|id,code,value"`
 
-### columns
+### filter
 
-| Propriété       | Type   | Défaut      |
-|-----------------|--------|-------------|
-| columns         | String | false       |
-
-Ordre des champs pour l'affichage des colonnes de la table.
-
-Exemples:
-- `columns="id,ville,population"`
-- `columns="commandes.id|objets.objet|objets.couleur|commandes.quantite|objets.prix|commandes.quantite*objets.prix,cout|contacts.nom"`
-
-### labels
+Affichage d'une liste de sélection pour filtrer les données.
 
 | Propriété      | Type   | Défaut      |
 |----------------|--------|-------------|
-| labels         | String | false       |
+| filter         | String | false       |
 
-Alias des noms de colonnes à afficher dans l'ordre des colonnes définies par la propriété `columns`.
+Ce paramètre se compose de 3 parties:
+
+- Le texte à afficher par défaut quand aucune valeur n'est sélectionnée (si cette valeur est vide, aucune valeur par défaut n'est utilisée)
+- Le champ à utiliser pour le filtre
+- Eventuellement une valeur de filtre prédéfinie
 
 Exemples:
 
-- `labels="ID|VILLE|POP. (HAB.)"`
-- `labels="ID|OBJET|COULEUR|QUANTITE|PRIX (€)|COUT (€)|CONTACT"`
+- `filter="Sélectionner un EPCI|epci"`
+- `filter="Sélectionner une commune|f4|Strasbourg"`
+- `filter="|year|"`
 
 ### from
 
@@ -218,20 +187,6 @@ Propriété qui permet dans le cas de l'utilisation de plusieurs datasets de pr�
 Elle est équivalente à la partie "FROM" de la requête SQL ou le nom des tables est remplacé par des "?", en respectant l'ordre défini dans la propriété `datasets=""`.
 
 Exemple: `? AS table1 join ? AS table2 ON table1.field2=table2.field1 JOIN ? AS table3 ON table1.field3=table3.field1`
-
-### where
-
-| Propriété     | Type   | Défaut      |
-|---------------|--------|-------------|
-| where         | String | false       |
-
-Filtre appliqué sur les données récupérées. Il correspond à la partie "WHERE" de la requête SQL.
-Si la valeur recherchée est une chaïne de caractères il faut l'encadrer avec des apostrophes ("'"). Cla n'est pas nécessaire pour les nombres. La conversion des chaînes en nombre peux dépendre de la source de données.
-
-Exemples: 
-
-- `where="commande=3`
-- `where="object='cahier'`
 
 ### groupby
 
@@ -257,6 +212,61 @@ On aura donc conjointement par exemple: `y="SUM(values),somme" groupby="categori
 
 Exemple: `having="somme>100"`
 
+### id
+
+| Propriété | Type   | Défaut     |
+|-----------|--------|------------|
+| id        | String | "dge-figure" |
+
+Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.
+
+Exemple: `id="dge-figure-1"`
+
+### localcss
+
+| Propriété   | Type    | Défaut     |
+|-------------|---------|------------|
+| localcss    | Boolean | false      |
+
+Indique si le composant utilise des fichiers CSS locaux ou distants. Ce paramètre permet notamment de pouvoir utiliser le composant dans un contexte hors ligne.  
+Par défaut, les fichiers CSS des bibliothèques Bootstrap et Bootstrap Icons sont chargées via les liens:
+
+- https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
+- https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css
+
+Si la propriété localcss est activée (`localcss="1"`) alors le composant essaie de charger les fichiers suivants:
+
+- "./bootstrap/css/bootstrap.min.css"
+- "./bootstrap-icons/bootstrap-icons.css"
+- "./global.css"
+
+Exemple: `localcss="1"`
+
+### labels
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| labels         | String | false       |
+
+Alias des noms de colonnes à afficher dans l'ordre des colonnes définies par la propriété `columns`.
+
+Exemples:
+
+- `labels="ID|VILLE|POP. (HAB.)"`
+- `labels="ID|OBJET|COULEUR|QUANTITE|PRIX (€)|COUT (€)|CONTACT"`
+
+### max
+
+| Propriété        | Type    | Défaut      |
+|------------------|---------|-------------|
+| max              | Integer | false       |
+
+Nombre d'entité à retourner lors de l'appel à l'API.  
+Cette propriété est notamment à utiliser avec les API `wfs` et `d4c` quilimitent par défaut le nombre de données retournées.
+
+Exemple: `max="500"`
+
+
 ### orderby
 
 | Propriété       | Type   | Défaut      |
@@ -267,57 +277,15 @@ Propriété qui permet de trier et afficher les résultats d'une requête par or
 
 Exemple: `orderby="type,DESC"`
 
-### filter
+### page
 
-Affichage d'une liste de sélection pour filtrer les données.
+| Propriété           | Type   | Défaut      |
+|---------------------|--------|-------------|
+| page                | String | false       |
 
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| filter         | String | false       |
+Propriété permettant d'indiquer la page à afficher au chargement du composant.
 
-Ce paramètre se compose de 3 parties:
-
-- Le texte à afficher par défaut quand aucune valeur n'est sélectionnée (si cette valeur est vide, aucune valeur par défaut n'est utilisée)
-- Le champ à utiliser pour le filtre
-- Eventuellement une valeur de filtre prédéfinie
-
-Exemples:
-
-- `select="Sélectionner un EPCI|epci"`
-- `select="Sélectionner une commune|f4|Strasbourg"`
-- `select="|year|"`
-
-### search
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| search         | String | false       |
-
-Affichage d'une barre de recherche pour filtrer les données.
-
-Ce paramètre se compose de 3 parties:
-
-- Le texte à afficher par défaut dans la barre de recherche
-- Le champ à utiliser pour le filtre
-- Eventuellement une valeur de filtre prédéfinie
-
-Dans le cas de l'utilisation de la propriété `sql`, il faut utiliser ici le nom de l'alias du champ de recherche.
-
-Exemples:
-
-- `select="Rechercher un EPCI|epci"`
-- `select="Rechercher une commune|f4|Str"`
-
-### smalltable
-
-| Propriété      | Type   | Défaut      |
-|----------------|--------|-------------|
-| smalltable     | String | false       |
-
-Propriété permettant de réduire l'espaces autour du texte dans le tableau pour le compacter afin qu'il prenne moins de place sur la page.
-
-Exemple: `smalltable="1"`
-
+Exemple: `page="2"`
 
 ### pagination
 
@@ -340,26 +308,20 @@ Exemples:
 - `pagination="display:true;perpage:5"`
 - `displaypagination="1" page="2"`
 
+### parsehtml
 
-### displaytotal
+| Propriété      | Type    | Défaut      |
+|----------------|---------|-------------|
+| parsehtml      | Boolean | false       |
 
-| Propriété        | Type   | Défaut      |
-|------------------|--------|-------------|
-| displaytotal     | String | false       |
+Propriété permettant d'analyser les valeurs de la table et de les afficher au format HTML le cas échéant.
 
-Propriété permettant d'afficher le nombre de lignes total en dessous du tableau.
+Ainsi:
 
-Exemple: `dsplaytotal="1"`
+- Toute valeur commençant par la chaîne "http" est intéprété comme un URL et un lien est créé automatiquement.
+- Toute balise HTML est interprétée. La valeur `<b>en gras</b>` sera alors affichée en gras.
 
-### displaypagination
-
-| Propriété           | Type   | Défaut      |
-|---------------------|--------|-------------|
-| displaypagination   | String | false       |
-
-Propriété permettant d'afficher la pagination en bas de page.
-
-Exemple: `displaypagination="1"`
+Exemple: `parsehtml="true"` pour activer la reonnaissance des liens et balises HTML
 
 ### perpage
 
@@ -371,15 +333,38 @@ Propriété permettant d'indiquer le nombre de ligne à afficher par page.
 
 Exemple: `perpage="25"`
 
-### page
+### refresh
 
-| Propriété           | Type   | Défaut      |
-|---------------------|--------|-------------|
-| page                | String | false       |
+| Propriété      | Type    | Défaut      |
+|----------------|---------|-------------|
+| refresh       | Integer | false       |
 
-Propriété permettant d'indiquer la page à afficher au chargement du composant.
+Propriété permettant de recharger régulièrement les données pour mettre à jour la table à interval de temps régulier sans recharger la page (l'interval est exprimé en secondes).  
+Cela peut-être utile notamment dans le cas de données mises à jour en temps réel.
+Si plusieurs sources de données sont indiquées, le rafraichissement est valable pour l'ensemble des datasets.
 
-Exemple: `page="2"`
+Exemple: `refresh="60"` pour une mise à jour toutes les minutes
+
+### search
+
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| search         | String | false       |
+
+Affichage d'une barre de recherche pour filtrer les données.
+
+Ce paramètre se compose de 3 parties:
+
+- Le texte à afficher par défaut dans la barre de recherche
+- Le champ à utiliser pour le filtre
+- Eventuellement une valeur de filtre prédéfinie
+
+Dans le cas de l'utilisation de la propriété `sql`, il faut utiliser ici le nom de l'alias du champ de recherche.
+
+Exemples:
+
+- `search="Rechercher un EPCI|epci"`
+- `search="Rechercher une commune|f4|Str"`
 
 ### selectpages
 
@@ -402,55 +387,71 @@ Pour activer le tri sur toutes les colonnes utiliser `sortcolumns="true"`.
 
 Exemple: `sortcolumns="nom, prenom, cmd_id"`
 
-### datalink
 
-| Propriété        | Type   | Défaut      |
-|------------------|--------|-------------|
-| datalink         | Object | false       |
+### smalltable
 
-| Attribut | Type   | Défaut | Propriété  équivalente | Description                                                                                  |
-|----------|--------|--------|------------------------|----------------------------------------------------------------------------------------------|
-| text     | String | null   | datalinktext           | Texte à afficher comme support au lien vers le site indiqué (cf. attribut `url`)              |
-| icon     | String | null   | datalinkicon           | Nom de l'îcon (cf. bibliothèque "[Bootstrap Icons v1.7.x](https://icons.getbootstrap.com/)") |
-| prefix   | String | null   | datalinkprefix         | Texte prefixant l'attribut `text`                                                            |
-| url      | String | null   | datalinkurl            | Lien vers un site internet                                                                   |
-| size     | String | 1rem   | datalinksize           | Taille de l'icon. L'unité doit être précisée (ex.: "1.5rem" ou "18px")                       |
-| color    | String | #000   | datalinkcolor          | Couleur de l'icon (ex.: "#393" ou "#99564c" ou "rgba(50,200,35,0.6)")                        |
-| title    | String | text   | datalinktitle          | Titre du texte ou de l'icon qui appraît au survol par la souris                              |
+| Propriété      | Type   | Défaut      |
+|----------------|--------|-------------|
+| smalltable     | String | false       |
 
-Propriété permettant de préciser sous forme de texte ou d'icon un lien vers les données sources.
+Propriété permettant de réduire l'espaces autour du texte dans le tableau pour le compacter afin qu'il prenne moins de place sur la page.
+
+Exemple: `smalltable="1"`
+
+### title
+
+| Propriété | Type   | Défaut     |
+|-----------|--------|------------|
+| title     | String | null       |
+
+Titre du composant.
+Si le paramètre `filter` ou `search` est utilisée, la valeur recherché peut être affiché respectivement via les variables `%filter%` et `%search%`.  
+
+Des variables calaculées à partir des données peuvent également être ajoutées dans le titre. Elles sont de la forme `%operation,decimal,[line],[field]%`. Une seule variable peut être utilisée par ligne de texte.
+- operation: "sum", "min", "max", "average", "percent", "value"
+- decimal: nombre de décimal à afficher
+- line: selection de la ligne ou valeur à afficher dans la série
+- field: colonne à sélectionner pour définir la série à afficher (dans le cas de `dge-table`)
 
 Exemples: 
 
-- `icon="text:data;url:https://datagrandest.fr/public/data/villes.csv"`
-- `icontext="data" iconurl="https://datagrandest.fr/public/data/villes.csv"`
+- `title="Evolution de la population par commune"`
+- `title="Nombre de projets pour l'année %filter%"` affiche "Nombre de projets pour l'année 2006" si on a ajouter un paramètre `filter` et si la valeur "2006" est sélectionnée dans la liste
+- `title="Total: %sum,0,0,cout%"`
 
-### refresh
 
-| Propriété      | Type    | Défaut      |
-|----------------|---------|-------------|
-| refresh       | Integer | false       |
 
-Propriété permettant de recharger régulièrement les données pour mettre à jour la table à interval de temps régulier sans recharger la page (l'interval est exprimé en secondes).  
-Cela peut-être utile notamment dans le cas de données mises à jour en temps réel.
-Si plusieurs sources de données sont indiquées, le rafraichissement est valable pour l'ensemble des datasets.
+### url
 
-Exemple: `refresh="60"` pour une mise à jour toutes les minutes
+| Propriété   | Type   | Défaut      |
+|-------------|--------|-------------|
+| url         | String | false       |
 
-### parsehtml
+URL de la source de données (cf. la propriété `api` pour connaîtres les sources de données possibles).
 
-| Propriété      | Type    | Défaut      |
-|----------------|---------|-------------|
-| parsehtml      | Boolean | false       |
+:material-arrow-right-bold-circle: Pour les flux WFS, le workspace doit être précisé.  
+:material-arrow-right-bold-circle: Pour les fichiers JSON et CSV, le nom du fichier peut être indiqué dans la propriété `datasets`.
 
-Propriété permettant d'analyser les valeurs de la table et de les afficher au format HTML le cas échéant.
+Exemples:
 
-Ainsi:
+- `url="https://www.datagrandest.fr/geoserver/region-grand-est/wfs"`
+- `url="https://dev.datagrandest.fr/data4citizen/d4c/api/records/1.0/search"`
+- `url="./data/test.json"`
+- `url="https://www.datagrandest.fr/tools/dge-dataviz-components/dge-components/data/test.csv"`
 
-- Toute valeur commençant par la chaîne "http" est intéprété comme un URL et un lien est créé automatiquement.
-- Toute balise HTML est interprétée. La valeur `<b>en gras</b>` sera alors affichée en gras.
+### where
 
-Exemple: `parsehtml="true"` pour activer la reonnaissance des liens et balises HTML
+| Propriété     | Type   | Défaut      |
+|---------------|--------|-------------|
+| where         | String | false       |
+
+Filtre appliqué sur les données récupérées. Il correspond à la partie "WHERE" de la requête SQL.
+Si la valeur recherchée est une chaïne de caractères il faut l'encadrer avec des apostrophes ("'"). Cla n'est pas nécessaire pour les nombres. La conversion des chaînes en nombre peux dépendre de la source de données.
+
+Exemples: 
+
+- `where="commande=3`
+- `where="object='cahier'`
 
 ## Exemples
 
