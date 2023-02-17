@@ -69,15 +69,24 @@ plugins:
   - search:
       lang: fr
   # - tags
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      # alias_type: symlink
+      # redirect_template: null
+      # deploy_prefix: ''
+      # canonical_version: null
+      # version_selector: true
+      # css_dir: css
+      # javascript_dir: js
 
 extra:
   social:
     - type: 'github'
       link: 'https://github.com/datagrandest/dge-dataviz-components'
       icon: fontawesome/brands/github-alt
-  # version:
-  #   provider: mike
-  #   default: 4.0
+  version:
+    provider: mike
+    default: latest
  
 # extra_css:
 #   - styles/app-theme.css
