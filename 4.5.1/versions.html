@@ -1,0 +1,1646 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://www.datagrandest.fr/tools/dge-dataviz-components/documentation/4.5.1/versions.html">
+      
+      
+        <link rel="prev" href="examples-text.html">
+      
+      
+        <link rel="next" href="about.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
+    
+    
+      
+        <title>Notes de version - DGE Dataviz Components</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Arial";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="dist/style.css">
+    
+      <link rel="stylesheet" href="dist/bootstrap/css/bootstrap-grid.min.css">
+    
+      <link rel="stylesheet" href="dist/bootstrap-icons/bootstrap-icons.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notes-de-version" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="index.html" title="DGE Dataviz Components" class="md-header__button md-logo" aria-label="DGE Dataviz Components" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DGE Dataviz Components
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notes de version
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/datagrandest/dge-dataviz-components" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dge-dataviz-components
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="index.html" class="md-tabs__link">
+      Accueil
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="documentation-start.html" class="md-tabs__link">
+        Documentation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="examples-figure.html" class="md-tabs__link">
+        Exemples
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="versions.html" class="md-tabs__link md-tabs__link--active">
+      Notes de version
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="about.html" class="md-tabs__link">
+      A propos
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="DGE Dataviz Components" class="md-nav__button md-logo" aria-label="DGE Dataviz Components" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg>
+
+    </a>
+    DGE Dataviz Components
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/datagrandest/dge-dataviz-components" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dge-dataviz-components
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-start.html" class="md-nav__link">
+        Pour débuter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-figure.html" class="md-nav__link">
+        DGE Figure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-table.html" class="md-nav__link">
+        DGE Table
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-chart.html" class="md-nav__link">
+        DGE Chart
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-map.html" class="md-nav__link">
+        DGE Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-image.html" class="md-nav__link">
+        DGE Image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-text.html" class="md-nav__link">
+        DGE Text
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Exemples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Exemples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-figure.html" class="md-nav__link">
+        dge-figure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-table.html" class="md-nav__link">
+        dge-table
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-chart.html" class="md-nav__link">
+        dge-chart
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-map.html" class="md-nav__link">
+        dge-map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-image.html" class="md-nav__link">
+        dge-image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-text.html" class="md-nav__link">
+        dge-text
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Notes de version
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="versions.html" class="md-nav__link md-nav__link--active">
+        Notes de version
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v451-20220601" class="md-nav__link">
+    v4.5.1 - 20220601
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v450-20220501" class="md-nav__link">
+    v4.5.0 - 20220501
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v440-20220303" class="md-nav__link">
+    v4.4.0 - 20220303
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v431-20220117" class="md-nav__link">
+    v4.3.1 - 20220117
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v430-20220111" class="md-nav__link">
+    v4.3.0 - 20220111
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v420-20211219" class="md-nav__link">
+    v4.2.0 - 20211219
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v414-20211201" class="md-nav__link">
+    v4.1.4 - 20211201
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v413-20211129" class="md-nav__link">
+    v4.1.3 - 20211129
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v412-20211128" class="md-nav__link">
+    v4.1.2 - 20211128
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v411-20211121" class="md-nav__link">
+    v4.1.1 - 20211121
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v410-20211121" class="md-nav__link">
+    v4.1.0 - 20211121
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v401-20211111" class="md-nav__link">
+    v4.0.1 - 20211111
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v400-20210910" class="md-nav__link">
+    v4.0.0 - 20210910
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="about.html" class="md-nav__link">
+        A propos
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="notes-de-version">Notes de version<a class="headerlink" href="#notes-de-version" title="Permanent link">#</a></h1>
+<p>Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.<br />
+Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.</p>
+<h2 id="v451-20220601">v4.5.1 - 20220601<a class="headerlink" href="#v451-20220601" title="Permanent link">#</a></h2>
+<h3 id="telechargements">Téléchargements<a class="headerlink" href="#telechargements" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.1/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.1/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.1/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.1/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.1/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-all.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.1/dge-all.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.5.1.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.5.1/dist_4.5.1.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.5.1.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.5.1/dist_4.5.1.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions">Evolutions<a class="headerlink" href="#evolutions" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-figure</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Correction des propriétés <code>filter</code> et <code>search</code></li>
+</ul>
+</li>
+<li><code>dist</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Mise à jour des différentes bibliothèques vers leurs dernières versions</li>
+</ul>
+</li>
+<li><code>documentation</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Corrections mineures</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Organisation des propriétés par ordre alphabétique</li>
+</ul>
+</li>
+</ul>
+<h2 id="v450-20220501">v4.5.0 - 20220501<a class="headerlink" href="#v450-20220501" title="Permanent link">#</a></h2>
+<h3 id="telechargements_1">Téléchargements<a class="headerlink" href="#telechargements_1" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.0/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.0/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.0/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.0/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.0/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-all.js</td>
+<td>JS</td>
+<td><a href="dist/4.5.0/dge-all.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.5.0.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.5.0/dist_4.5.0.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.5.0.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.5.0/dist_4.5.0.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_1">Evolutions<a class="headerlink" href="#evolutions_1" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-figure</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout du paramètre <code>value</code> afind e pouvoir afficher une valeur directement sans utiliser de données externes. Il est ainsi possible d'ajouter la valeur via une varaible de la page (ex.: <code>value="'&lt;?php echo $value; ?&gt;'"</code>)</li>
+</ul>
+</li>
+<li><code>dist</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Mise à jour des différentes bibliothèques vers leurs dernières versions</li>
+</ul>
+</li>
+</ul>
+<h2 id="v440-20220303">v4.4.0 - 20220303<a class="headerlink" href="#v440-20220303" title="Permanent link">#</a></h2>
+<h3 id="telechargements_2">Téléchargements<a class="headerlink" href="#telechargements_2" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.4.0/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.4.0/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.4.0/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.4.0/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.4.0/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-all.js</td>
+<td>JS</td>
+<td><a href="dist/4.4.0/dge-all.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.4.0.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.4.0/dist_4.4.0.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.4.0.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.4.0/dist_4.4.0.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_2">Evolutions<a class="headerlink" href="#evolutions_2" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-figure</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'une fonction pour parser les données et convertir les chaïnes de caractère en nombre quand c'est possible</li>
+</ul>
+</li>
+<li><code>dge-table</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Correction de prise en compte du paramètre <code>page=</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Correction d'un problème de récupération des données de l'API de D4C</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>parsehtml</code> qui permet d'interpréter les URL et balises HTML dans la table</li>
+</ul>
+</li>
+<li><code>dist</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Mise à jour de Bootstrap Icons vers la version 1.8.1</li>
+</ul>
+</li>
+</ul>
+<h2 id="v431-20220117">v4.3.1 - 20220117<a class="headerlink" href="#v431-20220117" title="Permanent link">#</a></h2>
+<h3 id="telechargements_3">Téléchargements<a class="headerlink" href="#telechargements_3" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.1/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.1/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.1/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.1/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.1/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-all.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.1/dge-all.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.3.1.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.3.1/dist_4.3.1.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.3.1.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.3.1/dist_4.3.1.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_3">Evolutions<a class="headerlink" href="#evolutions_3" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-map</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de "https" lors de l'appel du serveur OSM par défaut</li>
+</ul>
+</li>
+<li><code>documentation</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Corriger les exemples de <code>dge-map</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="v430-20220111">v4.3.0 - 20220111<a class="headerlink" href="#v430-20220111" title="Permanent link">#</a></h2>
+<h3 id="telechargements_4">Téléchargements<a class="headerlink" href="#telechargements_4" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.0/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.0/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.0/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.0/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.0/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-all.js</td>
+<td>JS</td>
+<td><a href="dist/4.3.0/dge-all.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.3.0.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.3.0/dist_4.3.0.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.3.0.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.3.0/dist_4.3.0.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_4">Evolutions<a class="headerlink" href="#evolutions_4" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-figure</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>refresh</code> pour premetre une rechargement (mise à jour) des données à interval régulier</li>
+</ul>
+</li>
+<li><code>dge-table</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>refresh</code> pour premetre une rechargement (mise à jour) des données à interval régulier</li>
+</ul>
+</li>
+<li><code>dge-chart</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>refresh</code> pour premetre une rechargement (mise à jour) des données à interval régulier</li>
+</ul>
+</li>
+<li><code>documentation</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Mise à jour vers la version 8.1.6 du template <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la description des différentes sources de données (fichiers CSV, fichiers et API JSON, flux WFS et API Data4Citizen). Cf. <a href="documentation-start.html#les-sources-de-donnees">documentation</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la section "CSS et mise en forme". Cf. <a href="documentation-start.html#css-et-mise-en-forme">documentation</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="v420-20211219">v4.2.0 - 20211219<a class="headerlink" href="#v420-20211219" title="Permanent link">#</a></h2>
+<h3 id="telechargements_5">Téléchargements<a class="headerlink" href="#telechargements_5" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.2.0/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.2.0/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.2.0/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.2.0/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.2.0/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-all.js</td>
+<td>JS</td>
+<td><a href="dist/4.2.0/dge-all.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.2.0.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.2.0/dist_4.2.0.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.2.0.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.2.0/dist_4.2.0.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_5">Evolutions<a class="headerlink" href="#evolutions_5" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-map</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>gesturehandling</code> qui nécessite d'appuyer sur la touche "contrôle" pour pouvoir zoomer si elle est activée.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>data</code> pour ajouter plusieurs couches WMS ou GeoJSON.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>osm</code> pour afficher ou non le fond de carte OSM par défaut.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>baselayers</code> qui permet d'indiquer plusieurs fonds de carte. Si plusieurs fonds de carte, alors une sélection dans le menu des layers est possible. La propriété <code>baselayer</code> est conservée pour le moment et sera déprécié dans une future version.</li>
+</ul>
+</li>
+<li><code>dge-table</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété générale <code>pagination</code> qui reprend les propriétés de pagination existantes en une seule propriété.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>selectpages</code>.</li>
+</ul>
+</li>
+<li><code>dge-figure</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété générale <code>image</code>.</li>
+</ul>
+</li>
+<li><code>dge-chart</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Modification des propriété <code>download</code> sous forme d'objet pour pouvoir la gérer plus facilement et utiliser des icons ou du texte pour le lien de téléchargement du graphique en image.</li>
+</ul>
+</li>
+<li><code>dge-helpers</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Amélioration de la fonction "getJsonFromString()" pour la gestion des propriétés de la forme <code>property="att1:value1;att2:value2"</code>. Désormais la valeur des attributs peut contenir le caractère ":" (utile pour les URL).</li>
+</ul>
+</li>
+<li><code>all</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Modification des propriété <code>attribution</code> et <code>datalink</code> sous forme d'objet pour pouvoir les gérer plus facilement et utiliser des icons ou du texte.</li>
+</ul>
+</li>
+<li>Application - Réorganisation et optimisation du code l'application pour faciliter le développement et la compilation:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création de différents fichiers de configuration "rollup" pour permettre la compilation du code individuellement par composant ou de façon globale.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'une version compilée <code>dge-all.js</code> comprenant l'ensemble des composants (évite la duplication de certaines bibliothèques comme "Paparse" et "Alasql" par composant).</li>
+</ul>
+</li>
+<li>Documentation:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la présente page listant les versions.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Documentation des priopriétés manquantes</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Amélioration de la documentation dans son ensemble</li>
+</ul>
+</li>
+</ul>
+<h2 id="v414-20211201">v4.1.4 - 20211201<a class="headerlink" href="#v414-20211201" title="Permanent link">#</a></h2>
+<h3 id="telechargements_6">Téléchargements<a class="headerlink" href="#telechargements_6" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.4/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.4/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.4/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.4/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.4/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.4.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.1.4/dist_4.1.4.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.4.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.1.4/dist_4.1.4.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_6">Evolutions<a class="headerlink" href="#evolutions_6" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-chart</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajouter la capacité de télécharger le graphique sous forme d'image. Activé via la propriété <code>download</code> qui permet également de préciser le nom du lien à afficher. Ex.: <code>download="Télécharger"</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="v413-20211129">v4.1.3 - 20211129<a class="headerlink" href="#v413-20211129" title="Permanent link">#</a></h2>
+<h3 id="telechargements_7">Téléchargements<a class="headerlink" href="#telechargements_7" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.3/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.3/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.3/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.3/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.3/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.3.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.1.3/dist_4.1.3.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.3.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.1.3/dist_4.1.3.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_7">Evolutions<a class="headerlink" href="#evolutions_7" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-chart</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de graphique de type "wordCloud" via le pluin "chartjs-chart-wordcloud" (cf. <a href="https://github.com/sgratzl/chartjs-chart-wordcloud">https://github.com/sgratzl/chartjs-chart-wordcloud</a>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="v412-20211128">v4.1.2 - 20211128<a class="headerlink" href="#v412-20211128" title="Permanent link">#</a></h2>
+<h3 id="telechargements_8">Téléchargements<a class="headerlink" href="#telechargements_8" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.2/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.2/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.2/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.2/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.2/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.2.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.1.2/dist_4.1.2.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.2.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.1.2/dist_4.1.2.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_8">Evolutions<a class="headerlink" href="#evolutions_8" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-chart</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'un type de graphique "treemap" via le pluin "chartjs-chart-treemap" (cf. <a href="https://chartjs-chart-treemap.pages.dev">https://chartjs-chart-treemap.pages.dev</a>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="v411-20211121">v4.1.1 - 20211121<a class="headerlink" href="#v411-20211121" title="Permanent link">#</a></h2>
+<h3 id="telechargements_9">Téléchargements<a class="headerlink" href="#telechargements_9" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.1/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.1/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.1/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.1/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.1/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.1.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.1.1/dist_4.1.1.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.1.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.1.1/dist_4.1.1.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_9">Evolutions<a class="headerlink" href="#evolutions_9" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-chart</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>labels</code> qui permet de préciser le nom des étiquettes pour les valeurs des abscisses (x).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>reverse</code> qui permet d'inverser les données, c'est à dire de transposer une série en ligne, en colonne. Les en-tête de colonne deveniennent alors les valeurs d'abscisse (x). Il faut dans ce cas utiliser conjointement la proriété <code>labels</code> pour définir le nom des étiquettes en abscisse (par défaut: elles sont du type <code>y0</code>, <code>y1</code>, etc.).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout des propriétés <code>width</code> et <code>height</code> pour définir la taille du graphique. Les dimensions sont calculées automatiquement de façon responsive à partir du rapport entre la hauteur et la largeur. Par défaut ces valeurs sont respectivement de 4 et 3 soit un rapport de 4/3.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Amélioration du calcul des étiquettes quand <code>dlformat="percent"</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout du type <code>chart="bar-hs"</code> pour un graphique horizontal "stacked".</li>
+</ul>
+</li>
+</ul>
+<h2 id="v410-20211121">v4.1.0 - 20211121<a class="headerlink" href="#v410-20211121" title="Permanent link">#</a></h2>
+<h3 id="telechargements_10">Téléchargements<a class="headerlink" href="#telechargements_10" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.0/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.0/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.0/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.0/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.1.0/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.0.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.1.0/dist_4.1.0.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.1.0.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.1.0/dist_4.1.0.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_10">Evolutions<a class="headerlink" href="#evolutions_10" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li><code>dge-chart</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la propriété <code>animation</code> (ex.: <code>animation="duration:5000"</code>). Cf. <a href="https://www.chartjs.org/docs/latest/configuration/animations.html#animation">https://www.chartjs.org/docs/latest/configuration/animations.html#animation</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'un type <code>chart="gauge"</code>. La configuration se fait via la propriété <code>gauge="circumference:270;rotation:-135;cutout:75%;radius:98%;borderRadius:2;offset:15"</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'un propriété pour affihcer un texte au centre du graphique (de type doughnut ou gauge de préférence). Le texte peut être sur plusieurs lignes (séparateur "|" dans la propriété). Des variables de données peuvent être utilisées sous la forme "%operation,decimal,[ligne],[colonne]%". Une seule variable peut être utilisée par ligne de texte. Ex.: <code>textcenter="label:OUI;color:rgba(120,180,60,1);baseLine:middle;fontSize:12;fontFamily:Arial;fontStyle:normal;fontWeight:normal;y:40|label:%percent,2,0%%;color:rgba(180,120,60,1);baseLine:middle;fontSize:15;fontWeight:bold;fontFamily:Arial;y:50;x:20"</code></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout des variables de données dans le titre pour <code>dge-chart</code> et <code>dge-table</code>. Une seule variable peut être indiquée dans le titre. La forme est "%operation,decimal,[ligne],[colonne]%".</li>
+</ul>
+<h2 id="v401-20211111">v4.0.1 - 20211111<a class="headerlink" href="#v401-20211111" title="Permanent link">#</a></h2>
+<h3 id="telechargements_11">Téléchargements<a class="headerlink" href="#telechargements_11" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.1/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.1/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.1/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.1/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.1/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.0.1.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.0.1/dist_4.0.1.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.0.1.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.0.1/dist_4.0.1.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_11">Evolutions<a class="headerlink" href="#evolutions_11" title="Permanent link">#</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Résolution d'un problème de filtre quand il y a une apostropphe dans les valeurs d'une liste (propriété <code>filter</code>): besoin déchapper les caractères dans la requête SQL.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout des paramètres "%filter%" et "%search%" comme variable de la propriété <code>text</code> (<code>dge-figure</code>) et <code>title</code> (<code>dge-table</code> et <code>dge-chart</code>) pour afficher directement les valeurs du filtre appliqué</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout de la possibilité de choisir une valeur par défault pour la propriété <code>filter</code> parmis celles de la liste déroulante sans indiquer de valeur globalisante.</li>
+</ul>
+<h2 id="v400-20210910">v4.0.0 - 20210910<a class="headerlink" href="#v400-20210910" title="Permanent link">#</a></h2>
+<h3 id="telechargements_12">Téléchargements<a class="headerlink" href="#telechargements_12" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Format</th>
+<th>Téléchargement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dge-figure.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.0/dge-figure.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-table.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.0/dge-table.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-chart.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.0/dge-chart.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-text.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.0/dge-text.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dge-image.js</td>
+<td>JS</td>
+<td><a href="dist/4.0.0/dge-image.js" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.0.0.zip</td>
+<td>ZIP</td>
+<td><a href="dist/4.0.0/dist_4.0.0.zip" target="_blank">téléchargement</a></td>
+</tr>
+<tr>
+<td>dist_4.0.0.7z</td>
+<td>7Z</td>
+<td><a href="dist/4.0.0/dist_4.0.0.7z" target="_blank">téléchargement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="evolutions_12">Evolutions<a class="headerlink" href="#evolutions_12" title="Permanent link">#</a></h3>
+<ul>
+<li><code>dge-map</code>: <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout du paramètre paramètre <code>baselayer</code> pour pouvoir changer le fond de carte par défaut (OSM) par un autre fonds WMS</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Modification du paramètre <code>attribution</code> afin de pouvoir ajouter plusieurs attribution. Il est désormais de la forme "nom1,url1|nom2,url2"</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2022 - DataGrandEst
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/datagrandest/dge-dataviz-components" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tracking", "navigation.instant", "navigation.tabs", "navigation.top", "toc.integrate", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      
+        <script src="dist/bootstrap/js/bootstrap.min.js"></script>
+      
+        <script src="dist/4.5.1/dge-all.js"></script>
+      
+    
+  </body>
+</html>
