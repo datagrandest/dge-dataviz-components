@@ -1,5 +1,5 @@
 site_name: DGE Dataviz Components
-site_url: 'https://www.datagrandest.fr/tools/dge-dataviz-components/documentation'
+site_url: 'https://datagrandest.github.io/dge-dataviz-components'
 use_directory_urls: false
 
 extra_css:
@@ -8,7 +8,7 @@ extra_css:
     - dist/bootstrap-icons/bootstrap-icons.css
 extra_javascript:
     - dist/bootstrap/js/bootstrap.min.js
-    - dist/4.5.1/dge-all.js
+    - dist/4.6.0/dge-all.js
 
 nav:
     - Accueil: 'index.md'
@@ -35,10 +35,11 @@ repo_name: 'dge-dataviz-components'
 repo_url: 'https://github.com/datagrandest/dge-dataviz-components'
 #edit_uri: 'blob/master/docs'
 edit_uri: 'blob/main/documentation/docs'
-copyright: 'Copyright © 2022 - DataGrandEst'
+copyright: 'Copyright © 2023 - DataGrandEst'
  
 theme:
   name: material #mkdocs
+  custom_dir: overrides
   highlightjs: true
   palette:
     primary: 'blue'
@@ -56,7 +57,7 @@ theme:
     # - navigation.sections
     # - navigation.expand
     # - navigation.indexes
-  custom_dir: 'docs'
+  # custom_dir: 'docs'
   # favicon: img/favicon.ico
   # logo: img/logo.png
   icon:
@@ -135,5 +136,6 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.snippets
   - pymdownx.progressbar
+  - pymdownx.keys
   - codehilite:
       linenums: true

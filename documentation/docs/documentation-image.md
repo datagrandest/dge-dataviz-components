@@ -57,6 +57,15 @@ Identifiant du composant. Il peut être utilisé pour appliquer une mise en form
 
 Exemple: `id="dge-image-1"`
 
+### klass
+
+| Propriété | Type   | Défaut      |
+|-----------|--------|-------------|
+| klass     | String | ""          |
+
+Classes CSS définies pour le composant. Attention, la propriété est "klass" et non "class"!
+
+Exemple: `klass="primary-color"`
 
 ### legend
 

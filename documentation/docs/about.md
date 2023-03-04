@@ -1,6 +1,6 @@
 # A propos
 
-DGE Dataviz Components est développé dan le cadre de l'évolution du programme [GéoGrandEst](https://www.datagrandest.fr) vers DataGrandEst.
+DGE Dataviz Components est développé dan le cadre de l'évolution du programme [DataGrandEst](https://www.datagrandest.fr) vers DataGrandEst.
 
 ## Licence
 
@@ -12,9 +12,9 @@ Ces outils utilisent plusieurs librairies externes parmis lesquelles:
 
 | Librairie                                                                                  | dge-text | dge-image | dge-figure | dge-table | dge-chart | dge-map |
 |--------------------------------------------------------------------------------------------|:--------:|:---------:|:----------:|:---------:|:---------:|:-------:|
-| [bootstrap 5.1.x](https://getbootstrap.com/)                                               | X        | X         | X          | X         | X         | X       |
-| [bootstrap-icons 1.8.x](https://icons.getbootstrap.com/)                                   |          |           | X          |           |           |         |
-| [alasql 1.7.x](http://alasql.org/)                                                         |          |           | X          | X         | X         | X       |
+| [bootstrap 5.2.x](https://getbootstrap.com/)                                               | X        | X         | X          | X         | X         | X       |
+| [bootstrap-icons 1.10.x](https://icons.getbootstrap.com/)                                   |          |           | X          |           |           |         |
+| [alasql 3.1.x](http://alasql.org/)                                                         |          |           | X          | X         | X         | X       |
 | [papaparse 5.3.x](https://www.papaparse.com/)                                              |          |           | X          | X         | X         |         |
-| [chartjs 3.6](https://www.chartjs.org/)  (+ [plugins](https://github.com/chartjs/awesome)) |          |           |            |           | X         |         |
+| [chartjs 4.2](https://www.chartjs.org/)  (+ [plugins](https://github.com/chartjs/awesome)) |          |           |            |           | X         |         |
 | [leaflet 1.8.x](https://leafletjs.com/)                                                    |          |           |            |           |           | X       |

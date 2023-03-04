@@ -3,6 +3,42 @@
 Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.  
 Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.
 
+## v4.6.0 - 20230304
+
+### Téléchargements
+
+| Fichier        | Format | Téléchargement                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------- |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.6.0/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.6.0/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.6.0/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.6.0/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.6.0/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.6.0/dge-all.js){:target="\_blank"}                           |
+| dist_4.6.0.zip | ZIP    | [téléchargement](./dist/4.6.0/dist_4.6.0.zip){:target="\_blank"}                       |
+| dist_4.6.0.7z  | 7Z     | [téléchargement](./dist/4.6.0/dist_4.6.0.7z){:target="\_blank"}                        |
+
+### Evolutions
+
+- `dge-figure`: 
+    - [x] Ajout de la propriété `Klass`
+- `dge-table`: 
+    - [x] Ajout de la propriété `Klass`
+    - [x] Ajout des propriété `positiveSticks`, `stacked`, `type`, `min`, `max` et `display` dans `xaxis`
+    - [x] Ajout des propriété `positiveSticks`, `stacked`, `type`, `min`, `max` et `display` dans `yaxis`
+    - [x] Correction d'erreurs dans les propriétés `xaxis` et `yaxis`
+- `dge-chart`: 
+    - [x] Ajout de la propriété `Klass`
+- `dge-text`: 
+    - [x] Ajout de la propriété `Klass`
+- `dge-image`: 
+    - [x] Ajout de la propriété `Klass`
+- `dist`:
+    - [x] Mise à jour des différentes bibliothèques vers leurs dernières versions dont notamment Bootstrap (v5.2.x), Bootstrap Icons (v1.10.x), AlaSQL (v3.1.x), ChartJS (v4.2.x)
+- `documentation`: 
+    - [x] Corrections mineures
+    - [x] Description des nouvelles propriétés (dont `klass` et évolutions de `xaxis` et `yaxis`)
+
 ## v4.5.1 - 20220601
 
 ### Téléchargements

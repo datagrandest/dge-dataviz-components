@@ -21,14 +21,14 @@ Il existe 4 grands types de propriétés:
 
 - "String": chaîne de caractères (ex.: `title="Un titre"`) 
 - "Integer": Un nombre (ex.: `decimal="3"`) 
-- "Boolean": une valeur binaire (vrai ou faux): "true"/"false" (ex.: `localcss="true"`) 
+- "Boolean": une valeur binaire (vrai ou faux): "true"/"false" (ex.: `localcss="true"`)
 - "Objects": ensemble de couples clé/valeur inclus dans une propriété (Ex.: `property="att1:value1;att2:value2;att3:value3..."`). Dans ce cas, vous trouverez dans la documentation un tableau qui précise la nature de chaque attribut attendu. Pour certains attributs, ils peuvent aussi exister sous forme de propriété individuelle (ex: `attribution="text:DataGrandEst"` est équivalent à `attributiontext="DataGrandEst"`)
 
-Il est important de respecter le type de valeur attendu par les propriétés et attributs pour le bon fonctionnement des composants web.
+Il est important de respecter le type de valeur attendu par les propriétés et attributs pour le bon fonctionnement des composants web.  
+Leur développement s'appuie notamment sur la librairies [AlaSQL](http://alasql.org/) qui permet de ne pas privilégier la simplicité au détriment de la puissance de traitement. Ainsi, en combinant les propriéts `datasets`, `fields`, `from`, `where`, `orderby`, `having`, etc. il est possible de sélectionner finement et exploiter pleinement le potentiel des données sources. 
 
-Par ailleurs, le traitement des données se fait via des requêtes SQL qui s'apuient sur des mots-clés réservés (cf. https://github.com/agershun/alasql/wiki/AlaSQL%2DKeywords
-). Ils ne devraient pas être utilisés comme nom de champs.  
-Une solution de contournement existe en "échappant" c'est noms de champs avec ``fieldname`` ou `[fieldname]` (ex.: `operation="sum|`value`"`).
+A noter que comme dans tout requêtage SQL il y a [des mots-clés réservés](https://github.com/agershun/alasql/wiki/AlaSQL%2DKeywords). Ils ne doivent pas être utilisés comme nom de champs.  
+Une solution de contournement existe cependant en les "échappant" avec ``fieldname`` ou `[fieldname]` (ex.: `operation="sum|``value``"`).  
 
 ### api
 
@@ -190,7 +190,7 @@ Exemples:
 Propriété qui permet dans le cas de l'utilisation de plusieurs datasets de préciser la jointure entre les sources de données. 
 Elle est équivalente à la partie "FROM" de la requête SQL ou le nom des tables est remplacé par des "?", en respectant l'ordre défini dans la propriété `datasets=""`.
 
-Exemple: `? AS table1 join ? AS table2 ON table1.field2=table2.field1 JOIN ? AS table3 ON table1.field3=table3.field1`
+Exemple: `? AS table1 join ? AS table2 ON table1.field2=table2.field1 INNER JOIN ? AS table3 ON table1.field3=table3.field1`
 
 ### groupby
 
@@ -237,6 +237,16 @@ Identifiant du composant. Il peut être utilisé pour appliquer une mise en form
 
 Exemple: `id="dge-chart-1"`
 
+### klass
+
+| Propriété | Type   | Défaut      |
+|-----------|--------|-------------|
+| klass     | String | ""          |
+
+Classes CSS définies pour le composant. Attention, la propriété est "klass" et non "class"!
+
+Exemple: `klass="primary-color"`
+
 ### labels
 
 | Propriété      | Type   | Défaut      |
@@ -267,7 +277,7 @@ Exemple: `labels="OUI|NON|NE SAIS PAS"`
 | textDirection | String  | null                | --            | Forcer la direction du texte                                                           |
 | title         | Object  | null                | --            | Configuration du titre de la légende                                                   |
 
-Propriété permettant de configurer la légende. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`,`).  
+Propriété permettant de configurer la légende. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`;`).  
 Les propriétés disponibles sont celles de la librairie chartjs: [options de lengende](https://www.chartjs.org/docs/latest/configuration/legend.html).
 Les propriétés de type "Object" et 'Function" ne sont pas implémentées et n'ont pas été testées.
 
@@ -444,10 +454,6 @@ Exemples:
 - `where="commande=3`
 - `where="object='cahier'`
 
-
-
-
-
 ### x
 
 | Propriété      | Type   | Défaut      |
@@ -464,16 +470,28 @@ Exemple: `x="nom_commune"`
 |----------------|--------|-------------|
 | xaxis          | String | false       |
 
-Propriété permettant de configurer l'axe des abscisses. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`,`).
+Propriété permettant de configurer l'axe des abscisses. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`;`).
 L'axe des abscisses est unique.
 
 Les propriétés disponibles sont:
 
+- display: afficher ou non l'axe des abscisses (boolean - true)
 - type: type d'axe des abscisses (valeurs: `linear|logarithmic|category|time|timeseries`)
+- stacked: empiler les valeurs sur l'axe des abscisses (boolean - false)
+- start: précise si l'axe commence à la valeur 0 ou à une valeur proche du minimal de la série (boolean - false)
+- reverse: renverser l'axe des abscisses (boolean - false)
+- position: définir la position de l'axe des abscisses (valeurs: `top|bottom|left|right|center`)
+- drawGrid: afficher la grille sur l'axe des abscisses (boolean - true)
+- drawBorder: afficher les bordures du graphique surl'axe des abscisses (boolean - true)
+- drawLines: afficher les lignes du graphique sur l'axe des abscisses (boolean - true)
+- drawTicks: affichier les indicateurs de valeurs sur l'axe des abscisses (boolean - true)
+- positiveSticks: afficher l'axe des abscisses uniquement avec des valeurs positives. Utile par exemple pour les graphiques de type "pyramide des âges". (boolean - false)
+- min: modifier la valeur minimale de l'axe des abscisses (integer - calculée par défaut de façon automatique)
+- max: modifier la valeur maximale de l'axe des abscisses (integer - calculée par défaut de façon automatique)
 
 Exemple:
 
-- `x=type:time`
+- `x="stacked:true;positiveSticks:true"`
 
 ### y
 
@@ -497,14 +515,24 @@ Exemple:
 |----------------|--------|-------------|
 | yaxis          | String | false       |
 
-Propriété permettant de configurer l'axe des ordonnées des différentes séries de données. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`,`).
+Propriété permettant de configurer l'axe des ordonnées des différentes séries de données. La notation se fait sous la forme `clé:valeur` séparées par des virgules (`;`).
 Chaque axe des ordonnées peut être configuré séparémment. le séparateur est `|`.
 
 Les propriétés disponibles sont:
 
-- start: précise si l'axe commence à la valeur 0 ou à une valeur proche du minimal de la série (valeurs: `0|1`)
-- position: précise ou placer l'axe (valeurs: `left|right`)
-- drawGrid: précise si les lignes de la grille doivent être affichées (valeurs: `0|1`)
+- display: afficher ou non l'axe des abscisses (boolean - true)
+- type: type d'axe des abscisses (valeurs: `linear|logarithmic|category|time|timeseries`)
+- stacked: empiler les valeurs sur l'axe des abscisses (boolean - false)
+- start: précise si l'axe commence à la valeur 0 ou à une valeur proche du minimal de la série (boolean - false)
+- reverse: renverser l'axe des abscisses (boolean - false)
+- position: définir la position de l'axe des abscisses (valeurs: `top|bottom|left|right|center`)
+- drawGrid: afficher la grille sur l'axe des abscisses (boolean - true)
+- drawBorder: afficher les bordures du graphique surl'axe des abscisses (boolean - true)
+- drawLines: afficher les lignes du graphique sur l'axe des abscisses (boolean - true)
+- drawTicks: affichier les indicateurs de valeurs sur l'axe des abscisses (boolean - true)
+- positiveSticks: afficher l'axe des abscisses uniquement avec des valeurs positives. Utile par exemple pour les graphiques de type "pyramide des âges". (boolean - false)
+- min: modifier la valeur minimale de l'axe des abscisses (integer - calculée par défaut de façon automatique)
+- max: modifier la valeur maximale de l'axe des abscisses (integer - calculée par défaut de façon automatique)
 
 Exemple:
 
@@ -714,7 +742,7 @@ Les exemples suivants présentent les types de graphiques possibles, sans toute 
 
 !!! example "Graphique en aire polaire"
     <div style="width:50%">
-        <dge-chart id="dge-chart-1" 
+        <dge-chart id="dge-chart-10" 
             title="Nombre d'habitants par ville"
             attribution="text:DataGrandEst;url:https://www.datagrandest.fr"
             api="csv"
@@ -792,6 +820,23 @@ Les exemples suivants présentent les types de graphiques possibles, sans toute 
         animation="duration:5000" where="id=1 OR id=2"
         dldisplay="true" dldisplaylimit="8" dlcolor="#eee" dlalign="center" dlanchor="center" dlformat="percent"
         dlunit="%" />
+    </div>
+
+!!! example "Graphique de type 'pyramide des âges'"
+    <div style="width:50%">
+        <dge-chart 
+            id="dge-chart-bar-h" 
+            api="csv"
+            url="data/data1.csv"
+            fields="age,nb1,nb2"
+            x="age" 
+            y="nb1|nb2" 
+            orderby="age,DESC"
+            series="nb1|nb2"
+            chart="bar-hs" 
+            title="Graphique de type pyramide des âges"
+            xaxis="positiveSticks:true"
+        />
     </div>
 
 ## Exemples

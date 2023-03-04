@@ -59,15 +59,15 @@ Voici un premier exemple:
 Pour utiliser DGE Dataviz Components vous devez tout d'abord télécharger et intégrer le code javascript du composant à utiliser dans votre page.  
 Pour télécharger les différents composants:
 
-* `dge-figure`: [téléchargement](./dist/4.5.1/dge-figure.js){:target="_blank"}
-* `dge-table`: [téléchargement](./dist/4.5.1/dge-table.js){:target="_blank"}
-* `dge-chart`: [téléchargement](./dist/4.5.1/dge-chart.js){:target="_blank"}
-* `dge-text`: [téléchargement](./dist/4.5.1/dge-text.js){:target="_blank"}
-* `dge-image`: [téléchargement](./dist/4.5.1/dge-image.js){:target="_blank"}
+* `dge-figure`: [téléchargement](./dist/4.6.0/dge-figure.js){:target="_blank"}
+* `dge-table`: [téléchargement](./dist/4.6.0/dge-table.js){:target="_blank"}
+* `dge-chart`: [téléchargement](./dist/4.6.0/dge-chart.js){:target="_blank"}
+* `dge-text`: [téléchargement](./dist/4.6.0/dge-text.js){:target="_blank"}
+* `dge-image`: [téléchargement](./dist/4.6.0/dge-image.js){:target="_blank"}
 
 Vous pouvez également télécharger l'ensemble des composants sous la forme d'un seul fichier. Cela limite la taille gloable du chargement cumulé des différents composants du fait de la redondance de certaines bibliothèques externes entre composants (ex. : "Papaparse" et "AlaSQL").
 
-* `dge-all`: [téléchargement](./dist/4.5.1/dge-all.js){:target="_blank"}
+* `dge-all`: [téléchargement](./dist/4.6.0/dge-all.js){:target="_blank"}
 
 Le code à ajouter à votre page web est le suivant (une ligne par composant en adaptant au besoin le chemin vers le fichier):
 
@@ -105,8 +105,8 @@ Voici l'exemple du code d'un composant `dge-chart`:
 !!! Info "Package pour démarrer"
     Pour simplifier la mise en oeuvre initiale vous pouvez télécharger le "package de démarrage". Il comprend l'ensemble des fichiers nécessaires pour débuter (framework `Bootstrap v5` inclu):
 
-    * [Format ZIP](dist/4.5.1/dist_4.5.1.zip)
-    * [Format 7Z](dist/4.5.1/dist_4.5.1.7z)
+    * [Format ZIP](dist/4.6.0/dist_4.6.0.zip)
+    * [Format 7Z](dist/4.6.0/dist_4.6.0.7z)
 
 
 ## Les sources de données
@@ -212,8 +212,13 @@ La propriété `localcss="true"` permet cependant de charger ses propres fichier
 - `./dist/bootstrap-icons/bootstrap-icons.css`
 - `./dist/global.css`
 
-Il est ainsi possible d'utiiser une mise en forme fournie par [Bootwatch](https://bootswatch.com/) en plçant le fichier `bootstrap.min.css` sur le serveur dans le dossier `./dist/bootstrap/css/`.  
-Le fichier `./dist/global.css` permet quant à lui généralement de spécifier des mises en formes ponctuelles. A noter que certaines balises des éléments des composants web contiennent des classes qui peuvent être utilisées dans le fichier `global.css`. De même l'identifiant du composant (propriété `id=...`) peut aussi être utilisé comme référence pour la mise en forme.
+Il est ainsi possible d'utiliser une mise en forme fournie par [Bootwatch](https://bootswatch.com/) en plaçant le fichier `bootstrap.min.css` sur le serveur dans le dossier `./dist/bootstrap/css/`.  
+Le fichier `./dist/global.css` permet quant à lui généralement de spécifier des mises en formes ponctuelles. A noter que certaines balises des éléments des composants web contiennent des classes qui peuvent être utilisées dans le fichier `global.css`.
+
+De même chaque composant possède 2 proprité permtennat d'interagir directement avec la mise en forme:
+
+- La propriété `id=...` qui définit l'identifiant CSS du composant.
+- La propriété `klass=...` qui définit les classes CSS associées au composant (avec un "**k**" et non un "**c**").
 
 Exemple:
 
@@ -228,4 +233,4 @@ Exemple:
 }
 ```
 
-Pour plus de détail sur la structure des composants, vous pouvez utiliser la console de développement de votre navigateur accessible via la touche `F12`.
+Pour plus de détail sur la structure des composants, vous pouvez utiliser la console de développement de votre navigateur accessible via la touche ++f12++.

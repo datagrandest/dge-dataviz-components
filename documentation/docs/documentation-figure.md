@@ -267,6 +267,16 @@ Lien (URL) de l'image à afficher.
 
 Exemple: `imageurl="https://www.rue89strasbourg.com/wp-content/uploads/2020/11/33963593718-dcde964cd0-k.jpg"`
 
+### klass
+
+| Propriété | Type   | Défaut      |
+|-----------|--------|-------------|
+| klass     | String | ""          |
+
+Classes CSS définies pour le composant. Attention, la propriété est "klass" et non "class"!
+
+Exemple: `klass="primary-color"`
+
 ### localcss
 
 | Propriété   | Type    | Défaut     |
