@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>DataGrandEst dataviz components - Example</title>
+    <link rel='icon' type='image/png' href='favicon.png'>
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="dge-components/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="dge-components/bootstrap-icons/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="dge-components/style.css"> -->
+
+    <script src="dge-components/jquery/jquery-3.6.0.slim.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
+    <script src="dge-components/popper/popper.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/cjs/popper.min.js"></script> -->
+    <script src="dge-components/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script> -->
+
+    <script defer src='dge-components/dataviz-v4/dge-figure.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-table.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-image.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-text.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-chart.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-map.js'></script>
+    <!-- <script defer src='dge-components/index.js'></script> -->
+</head>
+
+<body>
+
+    <div class="container my-3">
+        <div class="row mt-1 mb-5">
+            <div class="col-12 text-center">
+                <h1>DataGrandEst Dataviz Components</h1>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12">
+                Fichier de test
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-figure"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 1:</p>
+                <p>Calcul et affichage de la somme des contenances des propriétés foncières de la Région Grand Est à
+                    partir d'un flux WFS GeoServer.<br />
+                    Cet exemple utilise un paramétrage CSS sur la mise en forme de l'indicateur (couleur et bordure).
+                </p>
+            </div>
+            <div class="col pt-3">
+                <code>
+                            &lt;dge-figure id="dge-figure-1" attribution="GéoGrandEst|https://www.geograndest.fr" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="region-grand-est:propriete_fonciere_region" max="200" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est" /&gt;
+                        </code>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-1" attribution="Géo2France|https://www.geo2france.fr" api="wfs"
+                    url="https://www.geo2france.fr/geoserver/geo2france/ows"
+                    datasets="geo2france:plan_arbre_surf" max="500" icon="tree"
+                    operation="count|id" unit="projets" localcss="1"
+                    text="Nb total de projets financés"></dge-figure>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col">
+                <dge-figure id="dge-figure-1" attribution="Géo2France|https://www.geo2france.fr" api="wfs"
+                    url="https://www.geo2france.fr/geoserver/geo2france/ows" 
+                    datasets="plan_arbre_surf" max="500"
+                    icon="cash-coin" 
+                    fields="cout_global"
+                    operation="sum|cout_global" unit="€" localcss="1" text="Coût">
+                </dge-figure>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-1" attribution="Géo2France|https://www.geo2france.fr" api="wfs"
+                    url="https://www.geo2france.fr/geoserver/geo2france/ows" datasets="plan_arbre_surf" max="500"
+                    icon="cash" fields="cout_global,type_porteur" operation="sum|cout_global" where="type_porteur='Région'" unit="€" localcss=""
+                    text="Porteur Région">
+                </dge-figure>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-1" attribution="Géo2France|https://www.geo2france.fr" api="wfs"
+                    url="https://www.geo2france.fr/geoserver/geo2france/ows" datasets="plan_arbre_surf" max="500"
+                    icon="cash-stack" fields="cout_global,type_porteur,porteur_projet" operation="sum|cout_global"
+                    where="type_porteur='Commune'" filter="Porteur|porteur_projet" unit="€" localcss="" text="Pour les communes">
+                </dge-figure>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-6">
+                <dge-table id="dge-table-1" api="wfs" url="https://www.geo2france.fr/geoserver/geo2france/ows"
+                datasets="plan_arbre_surf" fields="cout_global,type_porteur,porteur_projet"
+                columns="porteur_projet|type_porteur|cout_global"
+                labels="PORTEUR|TYPE|COUT"
+                max="6000" title="Liste des communes du Grand Est" attribution="Geo2F"
+                smalltable="1" filter="Type porteur|type_porteur" displaytotal="1" displaypagination="1" perpage="5"
+                page="1" />
+            </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-6">
+                <dge-chart id="dge-chart-1" title="Test" attribution="GéoGrandEst|https://www.geograndest.fr" max="500" datasets="plan_arbre_surf"
+                api="wfs" url="https://www.geo2france.fr/geoserver/geo2france/wfs" x="type_porteur" y="cout_global" series="Cout global" chart="bar" />
+            </div>
+            <div class="col-6">
+                <dge-chart id="dge-chart-7" title="Graphique cout global group by type porteur"
+                attribution="Geo2France|https://www.geograndest.fr" api="wfs" url="https://www.geo2france.fr/geoserver/geo2france/ows"
+                max="500" datasets="plan_arbre_surf"
+                fields="dispositif_soutien,type_porteur,cout_global,particip_financ"
+                x="type_porteur"
+                y="SUM(cout_global),cout" series="Coût global"
+                groupby="type_porteur"
+                chart="bar" />
+</div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-6">
+                <dge-chart id="dge-chart-7" title="Graphique cout global group by type porteur"
+                attribution="Geo2France|https://www.geograndest.fr" api="wfs" url="https://www.geo2france.fr/geoserver/geo2france/ows"
+                max="500" datasets="plan_arbre_surf"
+                fields="dispositif_soutien,type_porteur,cout_global,particip_financ"
+                x="type_porteur"
+                y="SUM(cout_global),cout|SUM(particip_financ),part" series="Coût global|Participation"
+                groupby="type_porteur"
+                chart="bar|line" />
+            </div>
+            <div class="col-6">
+                <dge-chart id="dge-chart-7" title="Taux de participation moyen par type de porteur"
+                attribution="Geo2France|https://www.geograndest.fr" api="wfs" url="https://www.geo2france.fr/geoserver/geo2france/ows"
+                max="500" datasets="plan_arbre_surf"
+                fields="dispositif_soutien,type_porteur,cout_global,particip_financ"
+                x="type_porteur"
+                y="SUM(particip_financ)/SUM(cout_global)*100,pourcentage" series="Taux de participation (%)"
+                groupby="type_porteur"
+                chart="bar" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-6">
+                <dge-map id="dge-text-1" height="50vh" title="Communes de l'EMS" attributions="GéoGrandEst,https://www.geograndest.fr|OpenStreetMap,https://www.openstreetmap.org/copyright" center="50|2.9" zoom="8" url="https://www.geo2france.fr/geoserver/geo2france/wms" api="wms" layers="plan_arbre_surf" layersname="Plan arbres" styles="" version="1.1.0" format="image/png" transparent="1" queryable="plan_arbre_surf" fields="dispositif_soutien|type_porteur|cout_global|particip_financ" labels="DISPOSITIF|TYPE|COUT (€)|PARTICIPATION (€)" baselayer="https://osm.geograndest.fr/mapcache/?|relief" />
+            </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>DataGrandEst dataviz components - Example</title>
+    <link rel='icon' type='image/png' href='favicon.png'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="dge-components/style.css"> -->
+
+    <script src="dge-components/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="dge-components/popper/popper.min.js"></script>
+    <script src="dge-components/bootstrap/js/bootstrap.min.js"></script>
+
+    <script defer src='dge-components/dge-figure.js'></script>
+    <script defer src='dge-components/dge-table.js'></script>
+    <script defer src='dge-components/dge-image.js'></script>
+    <script defer src='dge-components/dge-text.js'></script>
+    <script defer src='dge-components/dge-chart.js'></script>
+    <script defer src='dge-components/dge-map.js'></script>
+    <!-- <script defer src='dge-components/index.js'></script> -->
+</head>
+
+<body>
+    <!-- <svelte-component siret="44293040000027"></svelte-component> -->
+
+    <div class="container my-3">
+        <div class="row mt-1 mb-5">
+            <div class="col-12 text-center">
+                <h1>DataGrandEst Dataviz Components</h1>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12">
+                <p class="alert alert-danger"><i class="bi-exclamation-triangle mr-3"></i> Les éléments présentés ci-dessous sont en cours de développement. les propriétés sont susceptibles de changer dans un avenir proche.</p>
+                <p class="alert alert-warning"><i class="bi-exclamation-circle mr-3"></i> Les données et calculs présentés ici ne le sont qu'à titre de démonstration.</p>
+                <p>Cette page présente des exemples d'utilisation de 6 composants web facilitant l'intégration et la visualisation de données provenant de divers API (flux WFS, API, Data4Citizen, fichier JSON et fichiers CSV).<br />
+                    Ces composants sont:</p>
+                <ul>
+                    <li>dge-figure pour l'affichage d'indicateurs</li>
+                    <li>dge-table pour l'affichage de tableaux</li>
+                    <li>dge-chart pour l'affichage de graphiques</li>
+                    <li>dge-map pour l'affichage de cartes</li>
+                    <li>dge-image pour l'affichage de image</li>
+                    <li>dge-text pour l'affichage de texte</li>
+                </ul>
+                <p>Les composants web fonctionnement comme des "widgets" et peuvent être intégrés dans une page HTML de façon autonome et paramétrés via des attributs.</p>
+                <p>Pour toute question sur ce travail, merci de contacter GéoGrandEst via l'adresse <a href="mailto:guillaume.ryckelynck@grandest.fr">guillaume.ryckelynck[at]grandest.fr</a>.</p>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-figure"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 1:</p>
+                <p>Calcul et affichage de la somme des contenances des propriétés foncières de la Région Grand Est à partir d'un flux WFS GeoServer.<br />
+                    Cet exemple utilise un paramétrage CSS sur la mise en forme de l'indicateur (couleur et bordure).</p>
+            </div>
+            <div class="col pt-3">
+                <code>
+                    &lt;dge-figure id="dge-figure-1" attribution="GéoGrandEst|https://www.geograndest.fr" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="region-grand-est:propriete_fonciere_region" max="200" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-1" attribution="GéoGrandEst|https://www.geograndest.fr" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="region-grand-est:propriete_fonciere_region" max="200" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est"></dge-figure>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 2:</p>
+                <p>Calcul et affichage de la moyenne de la population des cantons de la Marne à partir de l'API de Data4Citizen.<br />
+                    Cet exemple utilise un paramétrage CSS sur la mise en forme de l'indicateur.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure id="dge-figure-2" api="d4c" url="https://dev.geograndest.fr/data4citizen/d4c/api/records/1.0/search" datasets="zonages-administratifs-cantons-haute-marne" icon="people-fill" operation="average|pop" unit="hab." text="Population moyenne des cantons de la Haute Marne" localcss="1" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-2" api="d4c" url="https://dev.geograndest.fr/data4citizen/d4c/api/records/1.0/search" datasets="zonages-administratifs-cantons-haute-marne" icon="people-fill" operation="average|pop" unit="hab." text="Population moyenne des cantons de la Haute Marne" localcss="1" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 3:</p>
+                <p>Calcul et affichage de la contenance de la plus petite propriété foncière de la Région GrandEst à partir d'un fichier JSON.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="json" url="./data/test.json" icon="people-fill" operation="min|contenance" unit="m²" text="Contenance minimale de data/test.json" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="json" url="./data/test.json" icon="people-fill" operation="min|contenance" unit="m²" text="Contenance minimale de data/test.json" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 4:</p>
+                <p>Calcul et affichage du nombre de commandes (lignes) dans un tableau CSV.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="csv" url="./data/test.csv" icon="list-check" operation="count|id" unit="commandes" text="Nombre de commandes dans data/test.csv" attribution="GéoGrandEst|https://www.geograndest.fr" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="csv" url="./data/test.csv" icon="list-check" operation="count|id" unit="commandes" text="Nombre de commandes dans data/test.csv" attribution="GéoGrandEst|https://www.geograndest.fr" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 5:</p>
+                <p>Calcul et affichage de la somme totale des commandes à partir d'un tableau CSV.<br />
+                    Cet exemple montre comment réaliser un calcul à partir de plusieurs colonnes de la source de données.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="csv" url="./data/test.csv" icon="cash" operation="sql|SUM(quantite*prix)" unit="€" decimal="2" text="Somme totale des commandes de data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="csv" url="./data/test.csv" icon="cash" operation="sql|SUM(quantite*prix)" unit="€" decimal="2" text="Somme totale des commandes de data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 6:</p>
+                <p>Calcul et affichage de la somme des prix des crayons de la commande 2 et des cahiers de la commande 3 à partir d'un tableau CSV.<br />
+                    Cet exemple montre comment réaliser un filtre et un calcul à partir des données sources.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="csv" url="./data/test.csv" icon="pencil" filter="(commande='2' AND objet='crayon') OR (commande='3' AND objet='cahier')" operation="sql|SUM(quantite*prix)" unit="€" decimal="2"
+                    text="Somme des prix des crayons de la commande 2 et des cahiers de la commande 3 de data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="csv" url="./data/test.csv" icon="pencil" filter="(commande='2' AND objet='crayon') OR (commande='3' AND objet='cahier')" operation="sql|SUM(quantite*prix)" unit="€" decimal="2"
+                    text="Somme des prix des crayons de la commande 2 et des cahiers de la commande 3 de data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 7:</p>
+                <p>Calcul et affichage de la somme du coût de l'ensemble des commandes du fichier commandes.csv à partir des prix du fichier objets.csv.<br />
+                    Cet exemple montre comment réaliser un cacul entre plusieurs sources de données via une requête SQL.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="csv" url="./data/test.csv" icon="pencil" filter="(commande='2' AND objet='crayon') OR (commande='3' AND objet='cahier')" operation="sql|SUM(quantite*prix)" unit="€" decimal="2"
+                    text="Somme des prix des crayons de la commande 2 et des cahiers de la commande 3 de data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="csv" url="./data/" datasets="commandes.csv|objets.csv|contacts.csv"
+                sql="SELECT t0.id AS f0, t0.commande AS f1, t0.objet AS f2, t0.quantite AS f3, t1.id AS f4, t1.objet AS f5, t1.prix AS f6, t0.quantite*t1.prix AS f7 FROM ? AS t0 JOIN ? AS t1 ON t0.objet=t1.id WHERE t0.commande='3'" icon="pencil" operation="sum|f7" unit="€" decimal="2" text="Somme de l'ensemble des commandes de la table commande.csv à partir des prix de la table objets.csv" />
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-table"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 8:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 à partir d'un fichier CSV.<br />
+                    Cet exemple très simple utilise la fonction de filtre sur les données.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/test.csv" fields="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter="commande='3'"
+                    title="Liste des fournitures de la commande 3 du fichier data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/test.csv" fields="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter="commande='3'"
+                    title="Liste des fournitures de la commande 3 du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 9:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 à partir d'un fichier CSV.<br />
+                    Cet exemple est identique au précédent, cependant, le nom du fichier est ici indiqué via le paramètre "datasets".</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter="commande='3'"
+                    title="Liste des fournitures de la commande 3 du fichier data/test.csv" select="Sélectionner un objet|objet" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter="commande='3'"
+                    title="Liste des fournitures de la commande 3 du fichier data/test.csv" select="Sélectionner un objet|objet" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 10:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 et calcul du coût de la comande par objet à partir d'un fichier CSV.<br />
+                    Cet exemple très similaire au précédent, montre ici comment réaliser une opération (cacul du coût - quantite x prix - de la commande 3 par objet).</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id|commande|objet|quantite|prix" columns="id|commande|objet|quantite*prix" labels="ID|Commande|Objet|Coût (€)" filter="commande='3'" title="Liste des fournitures de la commande 3 avec le coût par produit à partir du fichier data/test.csv" select="Sélectionner un objet|objet" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id|commande|objet|quantite|prix" columns="id|commande|objet|quantite*prix" labels="ID|Commande|Objet|Coût (€)" filter="commande='3'" title="Liste des fournitures de la commande 3 avec le coût par produit à partir du fichier data/test.csv" select="Sélectionner un objet|objet" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 11:</p>
+                <p>Affichage sous forme de tableau de la liste des communes du Grand Est à partir d'un flux WFS.<br />
+                    Cet exemple montre la possibilité de faire une recherche sur les valeurs du tableau, ainsi que la pagination.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" filter="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" search="Recherche par code INSEE ou nom de commune|6708" displaytotal="1" displaypagination="1" perpage="5" page="2" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" filter="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" search="Recherche par code INSEE ou nom de commune|6708" displaytotal="1" displaypagination="1" perpage="5" page="2" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 12:</p>
+                <p>Affichage sous forme de tableau de la liste des communes du Grand Est à partir d'un flux WFS.<br />
+                    Cet exemple est identique au précédent, sauf qu'ici, au lieu d'une recherche "full text", il est proposé de filtrer les communes via la liste des EPCI.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" filter="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" select="Sélectionner un EPCI|epci_nom_complet" displaytotal="1" displaypagination="1" perpage="5" page="1" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" filter="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" select="Sélectionner un EPCI|epci_nom_complet" displaytotal="1" displaypagination="1" perpage="5" page="1" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 13:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 et calcul du coût de la comande par objet à partir d'un fichier CSV.<br />
+                    Cet exemple est identique à l'exemple 10 en utilisant une requête SQL afin de réaliser un cacul sur les champs de la table.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" sql="SELECT id AS f0, commande AS f1, objet AS f2, quantite AS f3, prix AS f4, quantite*prix AS f5 FROM ? WHERE commande='3'" columns="f0|f1|f2|f5" labels="ID|Commande|Objet|Coût (€)" title="Liste des fournitures de la commande 3 du fichier data/test.csv" select="Sélectionner un objet|f2" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" sql="SELECT id AS f0, commande AS f1, objet AS f2, quantite AS f3, prix AS f4, quantite*prix AS f5 FROM ? WHERE commande='3'" columns="f0|f1|f2|f5" labels="ID|Commande|Objet|Coût (€)" title="Liste des fournitures de la commande 3 du fichier data/test.csv" select="Sélectionner un objet|f2" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 14:</p>
+                <p>Affichage sous forme de tableau de la liste des commandes à partir de plusieurs fichiers CSV.<br />
+                    Cet exemple montre l'utilisation d'une requête SQL pour réaliser des caluls sur plusieurs fichiers liés.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="commandes.csv|objets.csv|contacts.csv" sql="SELECT t0.id AS f0, t0.commande AS f1, t0.objet AS f2, t0.quantite AS f3, t1.id AS f4, t1.objet AS f5, t1.prix AS f6, t0.quantite*t1.prix AS f7, t2.id AS f8, t2.nom AS f9 FROM ? AS t0 JOIN ? AS t1 ON t0.objet=t1.id JOIN ? AS t2 on t0.contact=t2.id" columns="f5|f7|f9" labels="Commande|Coût (€)|Contact" filter="t0.commande='3'" title="Liste des fournitures de la commande 3 du fichier data/test.csv" select="Sélectionner un contact|f9" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/" datasets="commandes.csv|objets.csv|contacts.csv" sql="SELECT t0.id AS f0, t0.commande AS f1, t0.objet AS f2, t0.quantite AS f3, t1.id AS f4, t1.objet AS f5, t1.prix AS f6, t0.quantite*t1.prix AS f7, t2.id AS f8, t2.nom AS f9 FROM ? AS t0 JOIN ? AS t1 ON t0.objet=t1.id JOIN ? AS t2 on t0.contact=t2.id" columns="f5|f7|f9" labels="Commande|Coût (€)|Contact" filter="t0.commande='3'" title="Liste des fournitures de la commande 3 du fichier data/test.csv" select="Sélectionner un contact|f9" />
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-chart"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 15:</p>
+                <p>Affichage du champ quantité pour chaque ligne à partir d'un fichier CSV.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" sql="SELECT commande AS x, quantite AS y1, quantite*prix AS y2 FROM ?" x="x" y="y1|y2" series="Y1|Y2" chart="bar|line" title="Quantité pour chaque ligne de commande du fichier data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" sql="SELECT commande AS x, quantite AS y1, quantite*prix AS y2 FROM ?" x="x" y="y1|y2" series="Y1|Y2" chart="bar|line" title="Quantité pour chaque ligne de commande du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 16:</p>
+                <p>Affichage du champ quantité pour chaque ligne à partir d'un fichier CSV.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" x="commande" y="quantite" chart="bar" title="Quantité pour chaque ligne de commande du fichier data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" x="commande" y="quantite" chart="bar" title="Quantité pour chaque ligne de commande du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 17:</p>
+                <p>Affichage du champ quantité pour chaque ligne à partir d'un fichier CSV.<br />
+                    Cet exemple est identique à l'exemple précédent, mais sous forme de radar.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" x="commande" y="quantite" chart="radar" title="Quantité pour chaque ligne de commande du fichier data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" x="commande" y="quantite" chart="radar" title="Quantité pour chaque ligne de commande du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 18:</p>
+                <p>Affichage des quantités de chaque produit de la commande 3 à partir du fichier CSV ./data/test.csv.<br />
+                    Cet exemple montre notamment la possibilité de filtrer les données à afficher (ici: "commande=3").</p>
+            </div>
+            <div class="col-6 mt-1">
+                <code>
+                    &lt;dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" x="objet" y="quantite" filter="commande='3'" chart="bar" title="Liste des fournitures de la commande 3 du fichier data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col-6">
+                <dge-chart id="dge-chart-1" api="csv" url="./data/test.csv" x="objet" y="quantite" filter="commande='3'" chart="bar" title="Liste des fournitures de la commande 3 du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 19:</p>
+                <p>Affichage de la population (2018) et de la superficie (km²) des communes du SCOT Sud Ardennes à partir d'un flux WFS des communes du Grand Est. <br />
+                    Cet exemple montre notamment la possibilité de filtrer les résultats via une recherche "full text" sur les champs indiqués.<br />
+                    A noter que la courbe de la superficie des communes n'est pas visible du fait de la différence d'échelle (cf. exemple suivant).
+                </p>
+            </div>
+            <div class="col-6 mt-1">
+                <code>
+                    &lt;dge-chart id="dge-chart-2" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle"
+                    fields="insee_com|nom_com|superf_km|pmun_rp2018|epci_nom_complet|scot_nom_complet" x="nom_com" y="pmun_rp2018|superf_km" chart="bar" series="Population 2018|Superficie (km²)" max="6000" filter="scot_nom_complet='SCOT Sud Ardennes'" title="Population 2018 et superficie (km²) des communes du SCOT Sud Ardennes" attribution="Région Grand Est|https://www.grandest.fr" displaysearch="1" search="Rechercher un EPCI du SCOT Sud Ardenne|CC du Pays Réthelois" /&gt;
+                </code>
+            </div>
+            <div class="col-6">
+                <dge-chart id="dge-chart-2" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle"
+                    fields="insee_com|nom_com|superf_km|pmun_rp2018|epci_nom_complet|scot_nom_complet" x="nom_com" y="pmun_rp2018|superf_km" chart="bar" series="Population 2018|Superficie (km²)" max="6000" filter="scot_nom_complet='SCOT Sud Ardennes'" title="Population 2018 et superficie (km²) des communes du SCOT Sud Ardennes" attribution="Région Grand Est|https://www.grandest.fr" displaysearch="1" search="Rechercher un EPCI du SCOT Sud Ardenne|CC du Pays Réthelois" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 20:</p>
+                <p>Affichage de la population (2018) et de la superficie (ha) des communes du SCOT Sud Ardennes à partir d'un flux WFS des communes du Grand Est. <br />
+                    Cet exemple montre notamment la possibilité de filtrer les résultats via une liste de sélection (ici, les EPCI du SCOT) et également d'appliquer un calcul sur les données avant leur affichage (ici, conversion des km² en ha).</p>
+            </div>
+            <div class="col-6 mt-1">
+                <code>
+                    &lt;dge-chart id="dge-chart-2" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle"
+                    fields="insee_com|nom_com|superf_km|pmun_rp2018|epci_nom_complet|scot_nom_complet" x="nom_com" y="superf_km*100|pmun_rp2018" chart="bar|line" series="Superficie (ha)|Population 2018" max="50" filter="scot_nom_complet='SCOT Sud Ardennes'" title="Population 2018 et superficie (ha) des communes du SCOT Sud Ardennes (filtre par EPCI)" attribution="Région Grand Est|https://www.grandest.fr" select="Sélectionner un EPCI|epci_nom_complet" colors="rgba(226,58,112,0.5)|rgba(52,85,186,0.5)" /&gt;
+                </code>
+            </div>
+            <div class="col-6">
+                <dge-chart id="dge-chart-2" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle"
+                    fields="insee_com|nom_com|superf_km|pmun_rp2018|epci_nom_complet|scot_nom_complet" x="nom_com" y="superf_km*100|pmun_rp2018" chart="bar|line" series="Superficie (ha)|Population 2018" max="50" filter="scot_nom_complet='SCOT Sud Ardennes'" title="Population 2018 et superficie (ha) des communes du SCOT Sud Ardennes (filtre par EPCI)" attribution="Région Grand Est|https://www.grandest.fr" select="Sélectionner un EPCI|epci_nom_complet" colors="rgba(226,58,112,0.5)|rgba(52,85,186,0.5)" />
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-image"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 21:</p>
+                <p>Affichage d'une image simple.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-image id="dge-image-1" url="https://viago.ca/wp-content/uploads/2017/09/Essentiels_Japon-768x432.jpg" legend="Essentiels Japon" title="Exemple d'image"
+                    attribution="Viago|https://viago.ca/top-10-des-activites-a-faire-au-japon/" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-image id="dge-image-1" url="https://viago.ca/wp-content/uploads/2017/09/Essentiels_Japon-768x432.jpg" legend="Essentiels Japon" title="Exemple d'image"
+                    attribution="Viago|https://viago.ca/top-10-des-activites-a-faire-au-japon/" />
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-text"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 22:</p>
+                <p>Affichage d'un texte simple avec titre et source.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-text id="dge-text-1" text="Mon texte descriptif ici..." title="Exemple de texte" attribution="GéoGrandEst|https://www.geograndest.fr" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-text id="dge-text-1" text="Mon texte descriptif ici..." title="Exemple de texte" attribution="GéoGrandEst|https://www.geograndest.fr" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 23:</p>
+                <p>Affichage d'un texte mis en forme (HTML).<br />
+                    Dans cet exemple, les attributs <em>titre</em> et <em>source</em> ne sont pas utilisés.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-text id="dge-text-1"&gt;
+                    &lt;div slot="text"&gt;
+                    &lt;h5&gt;Le titre de mon texte dans le &lt;em&gt;slot&lt;/em&gt;&lt;/h5&gt;
+                    &lt;p class="m-0 p-0"&gt;Le texte avec un &lt;em&gt;slot&lt;/em&gt; de mise en forme...&lt;br /&gt;
+                    et la possibilité d'utiliser du &lt;em&gt;HTML&lt;/em&gt;.
+                    &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;/dge-text&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-text id="dge-text-1">
+                    <div slot="text">
+                        <h5>Le titre de mon texte dans le <em>slot</em></h5>
+                        <p class="m-0 p-0">Le texte avec un <em>slot</em> de mise en forme...<br />
+                            et la possibilité d'utiliser du <em>HTML</em>, par exemple ajouter un bouton.
+                        </p>
+                        <button type="button" class="btn btn-primary mt-3 float-right">Action</button>
+                    </div>
+                </dge-text>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-map"</h2>
+            </div>
+            <div class="col-12">
+                <p>En cours de développement</p>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 24:</p>
+                <p>Affichage d'une carte à partir d'un fichier GeoJson.<br />
+                    Cet exemple montre notamment la détection automatique des URL et des images lors de l'affichage du popup d'interrogation d'un éléments (cf. Bas-Rhin).</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-map id="dge-text-2" height="50vh" attribution="GéoGrandEst|https://www.geograndest.fr" center="48.6|7.75" zoom="10" url="./data/departements.geojson" layersname="Départements" api="geojson"
+                    fields="code|nom|site|logo" labels="CODE|NOM|SITE|LOGO" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-map id="dge-text-2" height="50vh" attribution="GéoGrandEst|https://www.geograndest.fr" center="48.6|7.75" zoom="10" url="./data/departements.geojson" layersname="Départements" api="geojson" fields="code|nom|site|logo" labels="CODE|NOM|SITE|LOGO" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 25:</p>
+                <p>Affichage d'une carte à partir d'un flux WMS GeoServer.<br />
+                    Cet exemple montre l'ensemble des fonctionnalités actuellement disponibles: ajout d'un titre et des sources à la carte, définition du centre et du niveau de zoom initial, affichage de plusieurs couches, dont une interrogeable, configuration des champs à afficher dans l'infobulle et de leur alias, application d'un filtre sur les données récupérées (ici, les communes de l'EMS uniquement).</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-map id="dge-text-1" height="50vh" title="Communes de l'EMS" attribution="GéoGrandEst|https://www.geograndest.fr" center="48.6|7.75" zoom="10"
+                    url="https://www.geograndest.fr/geoserver/region-grand-est/ows?" api="wms" layers="commune_actuelle_3857|commune_actuelle_centroide" layersname="Communes (poly)|Commmunes (point)" styles="" version="1.1.0" format="image/png" transparent="1" filters="id_epci='246700488'" queryable="commune_actuelle_3857" fields="insee_com|nom_com|id_epci|epci_nom_complet" labels="INSEE|COMMUNE|EPCI
+                    ID|EPCI" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-map id="dge-text-1" height="50vh" title="Communes de l'EMS" attribution="GéoGrandEst|https://www.geograndest.fr" center="48.6|7.75" zoom="10"
+                    url="https://www.geograndest.fr/geoserver/region-grand-est/ows?" api="wms" layers="commune_actuelle_3857|commune_actuelle_centroide" layersname="Communes (poly)|Commmunes (point)" styles="" version="1.1.0" format="image/png" transparent="1" filters="id_epci='246700488'" queryable="commune_actuelle_3857" fields="insee_com|nom_com|id_epci|epci_nom_complet" labels="INSEE|COMMUNE|EPCI ID|EPCI" />
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

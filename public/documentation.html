@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Svelte Web Component</title>
+    <link rel='icon' type='image/png' href='favicon.png'>
+
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="dge-components/style.css"> -->
+
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- <script defer src='dge-components/gs-chart.js'></script>
+    <script defer src='dge-components/d4c-chart.js'></script>
+    <script defer src='dge-components/gs-figure.js'></script>
+    <script defer src='dge-components/d4c-figure.js'></script>
+    <script defer src='dge-components/gs-table.js'></script> -->
+    <script defer src='dge-components/dge-figure.js'></script>
+    <script defer src='dge-components/dge-table.js'></script>
+    <!-- <script defer src='dge-components/index.js'></script> -->
+</head>
+
+<body>
+    <!-- <svelte-component siret="44293040000027"></svelte-component> -->
+
+    <div class="container my-3">
+        <div class="row mt-1 mb-5">
+            <div class="col-12 text-center">
+                <h1>DataGrandEst Dataviz Components</h1>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12">
+                <p class="alert alert-danger"><i class="bi-exclamation-triangle mr-3"></i> Les éléments présentés ci-dessous sont en cours de développement.</p>
+                <p class="alert alert-warning"><i class="bi-exclamation-circle mr-3"></i> Les données et calculs présentés ici ne le sont qu'à titre de démonstration.</p>
+                <p>Cette page présente une déclinaison de l'utilisation de 4 composants web facilitant l'intégration et la visualisation de données provenant de divers API (flux WFS, API, Data4Citizen, fichier JSON et fichiers CSV).<br />
+                Ces composants sont:</p>
+                <ul>
+                    <li>dge-figure pour l'affichage d'indicateurs</li>
+                    <li>dge-table pour l'affichage de tableaux</li>
+                    <li>dge-chart pour l'affichage de graphiques - En cours de développement</li>
+                    <li>dge-map pour l'affichage de cartes - A l'étude</li>
+                    <li>dge-map pour l'affichage de texte - A l'étude</li>
+                    <li>dge-map pour l'affichage de image - A l'étude</li>
+                </ul>
+                <p>Les composants web fonctionnement comme des "widgets" et peuvent être intégrés dans une page HTML de façon autonome et paramétrés via des attributs.</p>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-figure"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 1:</p>
+                <p>Calcul et affichage de la somme des contenances des propriétés foncières de la Région Grand Est à partir d'un flux WFS GeoServer.<br />
+                Cet exemple utilise un paramétrage CSS sur la mise en forme de l'indicateur.</p>
+            </div>
+            <div class="col pt-3">
+                <code>
+                    &lt;dge-figure id="dge-figure-1" source="GéoGrandEst|https://www.geograndest.fr" api="wfs" dataset="region-grand-est:propriete_fonciere_region" max="200" fields="contenance" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-1" source="GéoGrandEst|https://www.geograndest.fr" api="wfs" dataset="region-grand-est:propriete_fonciere_region" max="200" fields="contenance" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est"></dge-figure>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 2:</p>
+                <p>Calcul et affichage de la moyenne de la population des cantons de la Marne à partir de l'API de Data4Citizen.<br />
+                Cet exemple utilise un paramétrage CSS sur la mise en forme de l'indicateur.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure id="dge-figure-2" api="d4c" dataset="zonages-administratifs-cantons-haute-marne" icon="people-fill" operation="average|pop" unit="hab." text="Population moyenne des cantons de la Haute Marne" localcss="1" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-2" api="d4c" dataset="zonages-administratifs-cantons-haute-marne" icon="people-fill" operation="average|pop" unit="hab." text="Population moyenne des cantons de la Haute Marne" localcss="1" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 3:</p>
+                <p>Calcul et affichage de la contenance de la plus petite propriété foncière de la Région GrandEst à partir d'un fichier JSON.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="json" url="./data/test.json" icon="people-fill" operation="min|contenance" unit="m²" text="Contenance minimale de data/test.json" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="json" url="./data/test.json" icon="people-fill" operation="min|contenance" unit="m²" text="Contenance minimale de data/test.json" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 4:</p>
+                <p>Calcul et affichage du nombre de commandes (lignes) dans un tableau CSV.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="csv" url="./data/test.csv" icon="list-check" operation="count|id" unit="commandes" text="Nombre de commandes dans data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="csv" url="./data/test.csv" icon="list-check" operation="count|id" unit="commandes" text="Nombre de commandes dans data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 5:</p>
+                <p>Calcul et affichage de la somme totale des commandes à partir d'un tableau CSV.<br />
+                Cet exemple montre comment réaliser un calcul "complexe" à partir de plusieurs colonnes du tableau source.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="csv" url="./data/test.csv" icon="cash" operation="sql|SUM(quantite*prix)" unit="€" decimal="2" text="Somme totale des commandes de data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="csv" url="./data/test.csv" icon="cash" operation="sql|SUM(quantite*prix)" unit="€" decimal="2" text="Somme totale des commandes de data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 6:</p>
+                <p>Calcul et affichage de la somme des prix des crayons de la commande 2 et des cahiers de la commande 3 à partir d'un tableau CSV.<br />
+                Cet exemple montre comment réaliser un filtre et un calcul "complexe" à partir des données sources.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-figure api="csv" url="./data/test.csv" icon="pencil" filter="(commande='2' AND objet='crayon') OR (commande='3' AND objet='cahier')" operation="sql|SUM(quantite*prix)" unit="€" decimal="2" text="Somme des prix des crayons de la commande 2 et des cahiers de la commande 3 de data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure api="csv" url="./data/test.csv" icon="pencil" filter="(commande='2' AND objet='crayon') OR (commande='3' AND objet='cahier')" operation="sql|SUM(quantite*prix)" unit="€" decimal="2" text="Somme des prix des crayons de la commande 2 et des cahiers de la commande 3 de data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-table"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 1:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 à partir d'un fichier CSV.<br />
+                Cet exemple utilise la fonction de filtre sur les données.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/test.csv" fields="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter="commande='3'" title="Liste des fournitures de la commande 3 du fichier data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/test.csv" fields="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter="commande='3'" title="Liste des fournitures de la commande 3 du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 1:</p>
+                <p>Affichage sous forme de tableau de la liste des communes du Grand Est à partir d'un flux WFS.<br />
+                Cet exemple utilise notamment la fonction de recherche (pré-renseignée) et la pagination en spécifiant le nomre d'élément par page et la page à afficher.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" dataset="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" filter="" title="Liste des communes du Grand Est" source="Région Grand Est|https://www.grandest.fr" smalltable="1" displaysearch="1" search="6708" displaytotal="1" displaypagination="1" perpage="5" page="2" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" dataset="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" filter="" title="Liste des communes du Grand Est" source="Région Grand Est|https://www.grandest.fr" smalltable="1" displaysearch="1" search="6708" displaytotal="1" displaypagination="1" perpage="5" page="2" />
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-chart"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <!-- <div class="col-12">
+                <p class="h5">Exemple 1:</p>
+                <p>Calcul et affichage de la somme des contenances des propriétés foncières de la Région Grand Est à partir d'un flux WFS GeoServer.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-figure id="dge-figure-1" source="GéoGrandEst|https://www.geograndest.fr" api="wfs" dataset="region-grand-est:propriete_fonciere_region" max="200" fields="contenance" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-1" source="GéoGrandEst|https://www.geograndest.fr" api="wfs" dataset="region-grand-est:propriete_fonciere_region" max="200" fields="contenance" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est"></dge-figure>
+            </div> -->
+        </div>
+
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-map"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <!-- <div class="col-12">
+                <p class="h5">Exemple 1:</p>
+                <p>Calcul et affichage de la somme des contenances des propriétés foncières de la Région Grand Est à partir d'un flux WFS GeoServer.</p>
+            </div>
+            <div class="col mt-1">
+                <code>
+                    &lt;dge-figure id="dge-figure-1" source="GéoGrandEst|https://www.geograndest.fr" api="wfs" dataset="region-grand-est:propriete_fonciere_region" max="200" fields="contenance" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-figure id="dge-figure-1" source="GéoGrandEst|https://www.geograndest.fr" api="wfs" dataset="region-grand-est:propriete_fonciere_region" max="200" fields="contenance" icon="bounding-box-circles" operation="sum|contenance" unit="m²" filter="" localcss="1" text="Contenance totale des propriétés foncières de la Région Grand Est"></dge-figure>
+            </div> -->
+        </div>
+    </div>
+
+</body>
+
+</html>

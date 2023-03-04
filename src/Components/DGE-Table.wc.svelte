@@ -9,6 +9,7 @@
 
     // PROPERTIES
     export let id = "dge-table";
+    export let klass = "";
     export let title = "";
     export let localcss = false;
     $: localcss = dgeHelpers.checkValueFormat(localcss);
@@ -394,7 +395,7 @@
     }
 </script>
 
-<div {id} class="mt-3 card table-responsive">
+<div {id} class="mt-3 card table-responsive {klass}">
     <div hidden={!loading || refresh}>
         <div class="d-flex justify-content-center">
             <div class="m-5 text-center">
@@ -520,7 +521,7 @@
                 {#if datalink.icon || datalink.text}
                     <span class="datalink me-1">
                         {datalink.prefix}
-                        <a href={datalink.url} title={datalink.title || "Lien vers les données"} target="_blank"
+                        <a href={datalink.url} title={datalink.title || "Lien vers les données"} target="_blank" rel="noreferrer"
                             >{#if datalink.icon}<i
                                     class="bi-{datalink.icon}"
                                     style={"font-size: " + datalink.size + "; color: " + datalink.color + ";"}
@@ -533,7 +534,7 @@
                     {#if att.icon || att.text}
                         <span class="attribution me-1">
                             {att.prefix}
-                            <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank"
+                            <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank" rel="noreferrer"
                                 >{#if att.icon}<i
                                         class="bi-{att.icon}"
                                         style={"font-size: " + att.size + "; color: " + att.color + ";"}

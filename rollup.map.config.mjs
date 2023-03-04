@@ -3,9 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from '@rollup/plugin-commonjs';
 // import del from "rollup-plugin-delete";
 // import css from "rollup-plugin-import-css";
-import {
-    terser
-} from "rollup-plugin-terser";
+import terser from '@rollup/plugin-terser';
 // import summary from "rollup-plugin-summary";
 // import pkg from "./package.json";
 

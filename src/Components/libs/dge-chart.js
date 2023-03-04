@@ -62,6 +62,7 @@ function updateChart(graph, chart, series, xField, yFields, colors, items, xAxis
         var xValues = [];
         var yValues = [];
 
+        chartOptions.plugins.title = { display: false};
         
         if (chartOptions.plugins.dge.reverse) {
             yValues[0] = reverseData(yFields, items[0]);
@@ -94,48 +95,79 @@ function updateChart(graph, chart, series, xField, yFields, colors, items, xAxis
 
         let type = chart[0].startsWith('bar') ? 'bar' : chart[0];
         type = chart[0] == 'gauge' ? 'doughnut' : type;
-        if (['bar-h', 'bar-s', 'bar-hs', 'gauge', 'pie', 'doughnut', 'wordCloud'].includes(chart[0])) {
+        if (['bar-h', 'bar-s', 'bar-hs', 'gauge', 'pie', 'doughnut', 'polarArea', 'wordCloud'].includes(chart[0])) {
             graph.config.type = type;
         }
+
         if (["bar", "line"].includes(type)) {
-            if (xAxis) {
-                    graph.config.options.scales.x = {
-                        beginAtZero: parseInt(xAxis.start) == 0 ? true : false,
-                        position: xAxis.position || false,
-                        grid: {
-                            display: xAxis.drawGrid || false,
-                            drawBorder: xAxis.drawBorder || false,
-                            drawOnChartArea: xAxis.drawLines || false,
-                            drawTicks: xAxis.drawTicks || false,
-                        }
-                    }
-            }
-            if (yAxis.length) {
-                for (var i = 0, n = yAxis.length; i < n; i++) {
-                    graph.config.options.scales['y' + i] = {
-                        beginAtZero: parseInt(yAxis[i].start) == 0 ? true : false,
-                        position: yAxis[i].position || false,
-                        grid: {
-                            display: yAxis[i].drawGrid || false,
-                            drawBorder: yAxis[i].drawBorder || false,
-                            drawOnChartArea: yAxis[i].drawLines || false,
-                            drawTicks: yAxis[i].drawTicks || false,
-                        }
-                    }
-                }
-            }
             if (chart[0].endsWith("-h") || chart[0].endsWith("-hs")) {
                 graph.config.options.indexAxis = 'y';
             }
             if (["bar-s", "bar-hs"].includes(chart[0])) {
                 graph.config.options.scales = {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true,
+                    x: { stacked: xAxis ? dgeHelpers.getBooleanValue(xAxis.stacked, true) : true },
+                    y: { 
+                        stacked: yAxis.length ? dgeHelpers.getBooleanValue(yAxis[0].stacked, true) : true,
+                        reverse: yAxis.length ? dgeHelpers.getBooleanValue(yAxis[0].reverse, false) : false 
                     }
                 };
+            }
+            if (xAxis) {
+                graph.config.options.scales.x = {
+                    stacked: dgeHelpers.getBooleanValue(xAxis.stacked, false),
+                    display: dgeHelpers.getBooleanValue(xAxis.display, true),
+                    beginAtZero: parseInt(xAxis.start) == 0 ? true : false,
+                    reverse: dgeHelpers.getBooleanValue(xAxis.reverse, false),
+                    position: xAxis.position || 'bottom',
+                    grid: {
+                        display: dgeHelpers.getBooleanValue(xAxis.drawGrid, true),
+                        drawBorder: dgeHelpers.getBooleanValue(xAxis.drawBorder, true),
+                        drawOnChartArea: dgeHelpers.getBooleanValue(xAxis.drawLines, true),
+                        drawTicks: dgeHelpers.getBooleanValue(xAxis.drawTicks, true),
+                    }
+                }
+                const positiveSticks = dgeHelpers.getBooleanValue(xAxis.positiveSticks, false);
+                if (positiveSticks) {
+                    graph.config.options.scales.x.ticks = {
+                        beginAtZero: true,
+                        callback: (v) => { return v < 0 ? -v : v }
+                    }
+                }
+                if (xAxis.type) {
+                    graph.config.options.scales.x.type = xAxis.type;
+                }
+                if (xAxis.min) {
+                    graph.config.options.scales.x.min = xAxis.min;
+                }
+                if (xAxis.max) {
+                    graph.config.options.scales.x.max = xAxis.max;
+                }
+            }
+            if (yAxis.length) {
+                for (var i = 0, n = yAxis.length; i < n; i++) {
+                    graph.config.options.scales['y' + i] = {
+                        stacked: dgeHelpers.getBooleanValue(yAxis[i].stacked, false),
+                        display: dgeHelpers.getBooleanValue(yAxis[i].display, true),
+                        beginAtZero: parseInt(yAxis[i].start) == 0 ? true : false,
+                        reverse: dgeHelpers.getBooleanValue(yAxis[i].reverse, false),
+                        position: yAxis[i].position || 'left',
+                        grid: {
+                            display: dgeHelpers.getBooleanValue(yAxis[i].drawGrid, true),
+                            drawBorder: dgeHelpers.getBooleanValue(yAxis[i].drawBorder, true),
+                            drawOnChartArea: dgeHelpers.getBooleanValue(yAxis[i].drawLines, true),
+                            drawTicks: dgeHelpers.getBooleanValue(yAxis[i].drawTicks, true),
+                        },
+                    }
+                    if (yAxis[i].type) {
+                        graph.config.options.scales.x.type = yAxis[i].type;
+                    }
+                    if (yAxis[i].min) {
+                        graph.config.options.scales.x.min = yAxis[i].min;
+                    }
+                    if (yAxis[i].max) {
+                        graph.config.options.scales.x.max = yAxis[i].max;
+                    }
+                }
             }
         }
         
@@ -218,7 +250,7 @@ function updateChart(graph, chart, series, xField, yFields, colors, items, xAxis
                     backgroundColor: color,
                     borderColor: color,
                     borderWidth: 1,
-                    type: ['bar-h', 'bar-s', 'bar-hs', 'pie', 'doughnut', 'gauge'].includes(datasetChart) ? null : datasetType,
+                    type: ['bar-h', 'bar-s', 'bar-hs', 'pie', 'doughnut', 'polarArea', 'gauge'].includes(datasetChart) ? null : datasetType,
                     yAxisID: yAxis ? "y" + f : "y"
                 };
             }           

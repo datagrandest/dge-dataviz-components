@@ -9,6 +9,7 @@
     import { onMount } from "svelte";
 
     export let id = "dge-map";
+    export let klass = "";
     export let title = "";
     export let height = "50vh";
     export let localcss = false;
@@ -314,7 +315,7 @@
     });
 </script>
 
-<div {id} class="card" class:px-2={title} class:py-1={title}>
+<div {id} class="card {klass}" class:px-2={title} class:py-1={title}>
     {#if title}
         <div class="title text-center">
             <h6>{title}</h6>

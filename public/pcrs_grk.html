@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>DataGrandEst dataviz components - Example</title>
+    <link rel='icon' type='image/png' href='favicon.png'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="dge-components/style.css"> -->
+
+    <script src="dge-components/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="dge-components/popper/popper.min.js"></script>
+    <script src="dge-components/bootstrap/js/bootstrap.min.js"></script>
+
+    <script defer src='dge-components/dataviz-v4/dge-figure.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-table.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-image.js'></script>
+    <script defer src='dge-components/dataviz-v4/dge-text.js'></script>
+    <!-- <script defer src='dge-components/dataviz-v4/dge-chart.js'></script> -->
+    <script defer src='dge-components/dataviz-v4/dge-map.js'></script>
+    <script defer src='dge-components/index.js'></script>
+</head>
+
+<body>
+    <!-- <svelte-component siret="44293040000027"></svelte-component> -->
+
+    <div class="container my-3">
+        <div class="row mt-1 mb-5">
+            <div class="col-12 text-center">
+                <h1>DataGrandEst Dataviz PCRS</h1>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Test sur données PCRS:</p>
+                <p>Affichage de la population et de la superficie des projets PCRS en fonction de leur état d'avancement<br />
+                 Cet test permet de filtrer sur un état d'avancement et de consulter les projets en fonction de leur population et de leur surface</p>
+            </div>
+            <div class="col-6 mt-1">
+                <code>
+                    &lt;dge-chart id="dge-chart-2"
+                    api="wfs"
+                    url="https://www.geograndest.fr/geoserver/geograndest/wfs"
+                    datasets="pcrs_Projets"
+                    fields="POPULATION,AVANCEMENT,SURFACE,LABEL"
+                    x="LABEL" 
+                    y="POPULATION|SURFACE*100"
+                    chart="line|bar"
+                    series="Population|Superficie"
+                    title="Avancement des projets PCRS" 
+                    attribution="Région Grand Est|https://www.grandest.fr"
+                    filter="Sélectionner un etat d'avancement|AVANCEMENT"
+                    colors="rgba(255,156,51,0.5)|rgba(51,187,255,0.5)" /&gt;
+                </code>
+            </div>
+            <div class="col-6">
+                <dge-chart id="dge-chart-2"
+				api="wfs"
+				url="https://www.geograndest.fr/geoserver/geograndest/wfs"
+				datasets="pcrs_Projets"
+				fields="POPULATION,AVANCEMENT,SURFACE,LABEL"
+				x="LABEL" 
+				y="POPULATION|SURFACE*100"
+				chart="line|bar"
+				series="Population|Superficie"
+				title="Avancement des projets PCRS" 
+				attribution="Région Grand Est|https://www.grandest.fr"
+				filter="Sélectionner un etat d'avancement|AVANCEMENT"
+				colors="rgba(255,156,51,0.5)|rgba(51,187,255,0.5)" />
+            </div>
+    </div>
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Test sur données PCRS:</p>
+                <p>Affichage de la population et de la superficie des projets PCRS en fonction de leur état d'avancement<br />
+                Cet test permet de filtrer sur un état d'avancement et de consulter les projets en fonction de leur population et de leur surface</p>
+            </div>
+            <div class="col-6 mt-1">
+                <code>
+                &lt;dge-chart id="dge-chart-2"
+				api="wfs"
+				url="https://www.geograndest.fr/geoserver/geograndest/wfs"
+				datasets="pcrs_Projets"
+				fields="POPULATION,AVANCEMENT,SURFACE,LABEL"
+				x="AVANCEMENT" 
+				y="SUM(POPULATION),TotalPop|SUM(SURFACE)*100,TotalSurf"
+				chart="bars|line"
+				series="Population totale|Surface totale"
+                groupby="AVANCEMENT"
+                orderby="AVANCEMENT"
+                yaxis="start:1,position:left|start:0,position:right,drawGrid:0"
+                legend="display:1"
+				title="Avancement des projets PCRS" 
+				attribution="Région Grand Est|https://www.grandest.fr"
+				colors="rgba(255,156,51,0.5);rgba(255,200,51,0.5);rgba(255,156,200,0.5)|rgba(51,187,255,0.5) /&gt;
+                </code>
+            </div>
+            <div class="col-6">
+                <dge-chart id="dge-chart-2"
+				api="wfs"
+				url="https://www.geograndest.fr/geoserver/geograndest/wfs"
+				datasets="pcrs_Projets"
+				fields="POPULATION,AVANCEMENT,SURFACE,LABEL"
+				x="AVANCEMENT" 
+				y="SUM(POPULATION),TotalPop|SUM(SURFACE)*100,TotalSurf"
+				chart="bars|line"
+				series="Population totale|Surface totale"
+                groupby="AVANCEMENT"
+                orderby="AVANCEMENT"
+                yaxis="start:1,position:left|start:0,position:right,drawGrid:0"
+                legend="display:1"
+				title="Avancement des projets PCRS" 
+				attribution="Région Grand Est|https://www.grandest.fr"
+				colors="rgba(255,156,51,0.5);rgba(255,200,51,0.5);rgba(255,156,200,0.5)|rgba(51,187,255,0.5)"/>
+            </div>
+     </div>
+
+    </div>
+
+</body>
+
+</html>

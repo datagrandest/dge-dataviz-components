@@ -2,9 +2,7 @@ import svelte from "rollup-plugin-svelte";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from '@rollup/plugin-commonjs';
 // import del from "rollup-plugin-delete";
-import {
-    terser
-} from "rollup-plugin-terser";
+import terser from '@rollup/plugin-terser';
 // import summary from "rollup-plugin-summary";
 
 import { readFile } from 'fs/promises';

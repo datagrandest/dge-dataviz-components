@@ -3,8 +3,8 @@
 // curl --location --request GET "https://nocodb.shogun.ovh/nc/test_1_IoKA/api/v1/Table%202" --header "Accept: application/json" --header "Authorization: Bearer 0tcganM3Q6jGTIId2mmYJ4hE7ovewtIm-DitTv_X"
 
 //The URL we are connecting to.
-$url = 'https://nocodb.shogun.ovh/xxx';
-$token = 'xxxxxxxxx';
+$url = 'https://nocodb.shogun.ovh/nc/test_59y7/api/v1/COMPANY';
+$token = 'Xg1ZKFG2fPYw-Y1eKJNBNT7JRxFo56ENUldaFhEA';
 
 //Initiate cURL.
 $ch = curl_init($url);

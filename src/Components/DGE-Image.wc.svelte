@@ -6,6 +6,7 @@
 
     // PROPERTIES
     export let id = "dge-image";
+    export let klass = "";
     export let title = "";
     export let localcss = false;
     $: localcss = dgeHelpers.checkValueFormat(localcss);
@@ -41,7 +42,7 @@
     onMount(() => {});
 </script>
 
-<div {id} class="card">
+<div {id} class="card {klass}">
     <div class="card-body p-2">
         {#if title}
             <div class="title text-center">
@@ -61,7 +62,7 @@
                     {#each attribution as att}
                         {#if att.icon || att.text}
                             {att.prefix}
-                            <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank"
+                            <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank" rel="noreferrer"
                                 >{#if att.icon}<i
                                         class="bi-{att.icon}"
                                         style={"font-size: " + att.size + "; color: " + att.color + ";"}

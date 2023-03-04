@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>DataGrandEst dataviz components - Example</title>
+    <link rel='icon' type='image/png' href='favicon.png'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="dge-components/style.css"> -->
+
+    <script src="dge-components/jquery/jquery-3.6.0.slim.min.js"></script>
+    <script src="dge-components/popper/popper.min.js"></script>
+    <script src="dge-components/bootstrap/js/bootstrap.min.js"></script>
+
+    <script defer src='dge-components/index.js'></script>
+</head>
+
+<body>
+
+    <div class="container my-3">
+        
+        <div class="row my-2">
+            <div class="col-12">
+                <h2>Composant "dge-table"</h2>
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 8:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 à partir d'un fichier CSV.<br />
+                    Cet exemple très simple utilise la fonction de filtre sur les données.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/test.csv" fields="id,commande,objet,prix" labels="ID|Commande|Objet|Prix" filter="commande='3'"
+                    title="Liste des fournitures de la commande 3 du fichier data/test.csv" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="data/test.csv" fields="id,commande,objet,prix" labels="ID|Commande|Objet|Prix" filter=""
+                    title="Liste des fournitures du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 9:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 à partir d'un fichier CSV.<br />
+                    Cet exemple est identique au précédent, cependant, le nom du fichier est ici indiqué via le paramètre "datasets".</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter="commande='3'"
+                    title="Liste des fournitures de la commande 3 du fichier data/test.csv" filter="Sélectionner un objet|objet" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <!-- <dge-table id="dge-table-2" api="csv" url="data/" datasets="test.csv" fields="id,commande,objet,prix" labels="ID|Commande|Objet|Prix" _where="commande='3'"
+                    title="Liste des fournitures de la commande 3 du fichier data/test.csv" _filter="Sélectionner un objet|objet" /> -->
+                <dge-table id="dge-table-1" api="csv" url="data/" datasets="test.csv" fields="id,commande,objet,prix" labels="ID|Commande|Objet|Prix" filter=""
+                    title="Liste des fournitures du fichier data/test.csv" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 10:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 et calcul du coût de la comande par objet à partir d'un fichier CSV.<br />
+                    Cet exemple très similaire au précédent, montre ici comment réaliser une opération (cacul du coût - quantite x prix - de la commande 3 par objet).</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id|commande|objet|quantite|prix" columns="id|commande|objet|quantite*prix" labels="ID|Commande|Objet|Coût (€)" filter="commande='3'" title="Liste des fournitures de la commande 3 avec le coût par produit à partir du fichier data/test.csv" filter="Sélectionner un objet|objet" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id,commande,objet,quantite,prix" columns="id|commande|objet|quantite*prix,cout" labels="ID|Commande|Objet|Coût (€)" where="commande='3'" title="Liste des fournitures de la commande 3 avec le coût par produit à partir du fichier data/test.csv" filter="Sélectionner un objet|objet" />
+            </div>
+        </div>
+
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 11:</p>
+                <p>Affichage sous forme de tableau de la liste des communes du Grand Est à partir d'un flux WFS.<br />
+                    Cet exemple montre la possibilité de faire une recherche sur les valeurs du tableau, ainsi que la pagination.</p>
+                </div>
+                <div class="col mt-3">
+                    <code>
+                        &lt;dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" where="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" search="Recherche par code INSEE ou nom de commune|6708" displaytotal="1" displaypagination="1" perpage="5" page="2" /&gt;
+                    </code>
+                </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com,nom_com,superf_km,pmun_rp2018" columns="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" where="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" search="Recherche par code INSEE ou le nom de la commune|insee_com,nom_com|0800" displaytotal="1" displaypagination="1" perpage="5" page="2" />
+            </div>
+        </div>
+        
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 12:</p>
+                <p>Affichage sous forme de tableau de la liste des communes du Grand Est à partir d'un flux WFS.<br />
+                    Cet exemple est identique au précédent, sauf qu'ici, au lieu d'une recherche "full text", il est proposé de filtrer les communes via la liste des EPCI.</p>
+                </div>
+                <div class="col mt-3">
+                    <code>
+                        &lt;dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" where="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" filter="Sélectionner un EPCI|epci_nom_complet" displaytotal="1" displaypagination="1" perpage="5" page="1" /&gt;
+                    </code>
+                </div>
+                <div class="col">
+                    <dge-table id="dge-table-1" api="wfs" url="https://www.geograndest.fr/geoserver/region-grand-est/wfs" datasets="commune_actuelle" fields="insee_com,nom_com,superf_km,pmun_rp2018,epci_nom_complet" columns="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000" where="" title="Liste des communes du Grand Est" attribution="Région Grand Est|https://www.grandest.fr" smalltable="1" filter="Sélectionner un EPCI|epci_nom_complet" displaytotal="1" displaypagination="1" perpage="5" page="1" />
+                </div>
+            </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 13:</p>
+                <p>Affichage sous forme de tableau du détail de la commande numéro 3 et calcul du coût de la comande par objet à partir d'un fichier CSV.<br />
+                    Cet exemple est identique à l'exemple 10 en utilisant une requête SQL afin de réaliser un cacul sur les champs de la table.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" sql="SELECT id AS f0, commande AS f1, objet AS f2, quantite AS f3, prix AS f4, quantite*prix AS f5 FROM ?" where="commande='3'" columns="f0|f1|f2|f5" labels="ID|Commande|Objet|Coût (€)" title="Liste des fournitures de la commande 3 du fichier data/test.csv" filter="Sélectionner un objet|f2" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/" datasets="test.csv" fields="id,commande,objet,quantite,prix"  where="commande='3'" columns="id|commande|objet|prix*quantite,cout" labels="ID|Commande|Objet|Coût (€)" title="Liste des fournitures de la commande 3 du fichier data/test.csv" filter="Sélectionner un objet|objet" />
+            </div>
+        </div>
+
+        <div class="row mt-1 mb-5">
+            <div class="col-12">
+                <p class="h5">Exemple 14:</p>
+                <p>Affichage sous forme de tableau de la liste des commandes à partir de plusieurs fichiers CSV.<br />
+                    Cet exemple montre l'utilisation d'une requête SQL pour réaliser des caluls sur plusieurs fichiers liés.</p>
+            </div>
+            <div class="col mt-3">
+                <code>
+                    &lt;dge-table id="dge-table-1" api="csv" url="./data/" datasets="commandes.csv|objets.csv|contacts.csv" sql="SELECT t0.id AS f0, t0.commande AS f1, t0.objet AS f2, t0.quantite AS f3, t1.id AS f4, t1.objet AS f5, t1.prix AS f6, t0.quantite*t1.prix AS f7, t2.id AS f8, t2.nom AS f9 FROM ? AS t0 JOIN ? AS t1 ON t0.objet=t1.id JOIN ? AS t2 on t0.contact=t2.id" columns="f5|f7|f9" labels="Commande|Coût (€)|Contact" where="t0.commande='3'" title="Liste des fournitures de la commande 3 du fichier data/test.csv" filter="Sélectionner un contact|f9" /&gt;
+                </code>
+            </div>
+            <div class="col">
+                <dge-table id="dge-table-1" api="csv" url="./data/" datasets="commandes.csv,cmd|objets.csv,obj|contacts.csv,cnt" fields="id,commande,objet,quantite|id,objet,prix|id,nom" from="? AS cmd JOIN ? AS obj ON cmd.objet=obj.id JOIN ? AS cnt on cmd.contact=cnt.id" columns="cmd.commande|cmd.quantite*obj.prix,cout|cnt.nom" labels="Commande|Coût (€)|Contact" where="cmd.commande='3'" title="Liste des fournitures de la commande 3 du fichier data/test.csv" filter="Sélectionner un contact|cnt.nom" />
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

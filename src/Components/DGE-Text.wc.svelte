@@ -6,6 +6,7 @@
 
     // PARAMETRES DU COMPOSANT
     export let id = "dge-text";
+    export let klass = "";
     export let title = "";
     export let text = null;
     export let localcss = false;
@@ -40,7 +41,7 @@
     onMount(() => {});
 </script>
 
-<div {id} class="card">
+<div {id} class="card {klass}">
     <div class="card-body">
         {#if title}
             <div class="title text-center">
@@ -65,7 +66,7 @@
                     {#if att.icon || att.text}
                         <span class="attribution me-1">
                             {att.prefix}
-                            <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank"
+                            <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank" rel="noreferrer"
                                 >{#if att.icon}<i
                                         class="bi-{att.icon}"
                                         style={"font-size: " + att.size + "; color: " + att.color + ";"}

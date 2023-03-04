@@ -25,7 +25,15 @@ function checkValueFormat(value) {
     };
 }
 
+function getBooleanValue(value, defaultValue) {
+    if (value == undefined) {
+        return defaultValue;
+    }
+    return [0, false, 'off'].includes(value) ? false : true;
+}
+
 export default {
     getJsonFromString: getJsonFromString,
-    checkValueFormat: checkValueFormat
+    checkValueFormat: checkValueFormat,
+    getBooleanValue: getBooleanValue
 }

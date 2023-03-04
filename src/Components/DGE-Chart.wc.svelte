@@ -11,6 +11,7 @@
 
     // PROPERTIES
     export let id = "dge-chart";
+    export let klass = '';
     export let height = 2;
     $: height = dgeHelpers.checkValueFormat(height);
     export let width = 3;
@@ -598,7 +599,7 @@
     });
 </script>
 
-<div {id} class="mt-3 card table-responsive">
+<div {id} class="mt-3 card table-responsive {klass}">
     <div class="card-body">
         <div hidden={!loading || refresh}>
             <div class="d-flex justify-content-center">
@@ -669,7 +670,7 @@
                     {#if datalink.icon || datalink.text}
                         <span class="datalink me-1">
                             {datalink.prefix}
-                            <a href={datalink.url} title={datalink.title || "Lien vers les données"} target="_blank"
+                            <a href={datalink.url} title={datalink.title || "Lien vers les données"} target="_blank" rel="noreferrer"
                                 >{#if datalink.icon}<i
                                         class="bi-{datalink.icon}"
                                         style={"font-size: " + datalink.size + "; color: " + datalink.color + ";"}
@@ -682,7 +683,7 @@
                         {#if att.icon || att.text}
                             <span class="attribution me-1">
                                 {att.prefix}
-                                <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank"
+                                <a href={att.url} title={att.title || att.url || "Attribution"} target="_blank" rel="noreferrer"
                                     >{#if att.icon}<i
                                             class="bi-{att.icon}"
                                             style={"font-size: " + att.size + "; color: " + att.color + ";"}
