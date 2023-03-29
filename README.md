@@ -13,7 +13,7 @@ Les composants disponibles sont:
 
 ## Documentation et démonstration
 
-Pour voir ce que ça donne et disposer de plus de détails sur la manière d'utiliser ces composants, rendez-vous sur le [site dédié](https://www.datagrandest.fr/tools/dge-dataviz-components/documentation/index.html).
+Pour voir ce que ça donne et disposer de plus de détails sur la manière d'utiliser ces composants, rendez-vous sur le [site dédié](https://datagrandest.github.io/dge-dataviz-components).
 
 ## Développement
 
