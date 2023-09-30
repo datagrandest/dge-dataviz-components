@@ -1,4 +1,12 @@
-<svelte:options tag="dge-image" immutable={true} />
+<svelte:options
+    customElement={{
+        tag: 'dge-image',
+        shadow: 'open',
+        _props: {
+            attribution: { reflect: false, type: 'String', attribute: 'attribution' }
+        },
+    }}
+/>
 
 <script>
     import { onMount } from "svelte";
@@ -14,7 +22,7 @@
     export let legend = "";
 
     // attribution properties
-    export let attribution = false;
+    export let attribution = '';
     export let attribtionicon = false;
     export let attribtiontext = false;
     export let attribtionprefix = "";

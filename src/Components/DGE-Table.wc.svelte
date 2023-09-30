@@ -1,4 +1,13 @@
-<svelte:options tag="dge-table" immutable={true} />
+<svelte:options
+    customElement={{
+        tag: 'dge-table',
+        shadow: 'open',
+        _props: {
+            attribution: { reflect: false, type: 'String', attribute: 'attribution' }
+        },
+    }}
+/>
+
 
 <script>
     import dgeHelpers from "./libs/dge-helpers.js";
@@ -13,23 +22,27 @@
     export let title = "";
     export let localcss = false;
     $: localcss = dgeHelpers.checkValueFormat(localcss);
-    export let url = false;
+    export let url = '';
     export let api = "d4c";
-    export let datasets = false;
+    export let datasets = '';
+    export let properties = "";
+    $: properties = properties ? properties.split("|") : false;
     export let fields = "";
-    export let from = false;
-    export let where = false;
-    export let groupby = false;
-    export let having = false;
-    export let orderby = false;
+    export let from = '';
+    export let where = '';
+    export let groupby = '';
+    export let having = '';
+    export let orderby = '';
     export let search = "";
     export let filter = "";
     export let max = 50; // For 'wfs' and 'd4c'
     export let columns = "";
     export let labels = "";
     export let smalltable = false;
+    $: smalltable = dgeHelpers.checkValueFormat(smalltable);
     export let displaytotal = false;
-    export let sortcolumns = false;
+    $: displaytotal = dgeHelpers.checkValueFormat(displaytotal);
+    export let sortcolumns = '';
     $: sortcolumns = sortcolumns ? sortcolumns.split(",") : [];
     export let parsehtml = false;
     $: parsehtml = dgeHelpers.checkValueFormat(parsehtml);
@@ -53,7 +66,7 @@
     }
 
     // attribution properties
-    export let attribution = false;
+    export let attribution = '';
     export let attribtionicon = false;
     export let attribtiontext = false;
     export let attribtionprefix = "";
@@ -79,11 +92,11 @@
     }
 
     // datalink properties
-    export let datalink = false;
-    export let datalinkicon = false;
-    export let datalinktext = false;
+    export let datalink = '';
+    export let datalinkicon = '';
+    export let datalinktext = '';
     export let datalinkprefix = "";
-    export let datalinkurl = false;
+    export let datalinkurl = '';
     export let datalinksize = "1rem";
     export let datalinkcolor = null;
     export let datalinktitle = null;
@@ -124,7 +137,7 @@
 
     $: sort_columns_array = labels_array.length ? Array(labels_array.length).fill("DESC") : [];
 
-    function getPromiseData(url, datasets, fields_array, max, api) {
+    function getPromiseData(url, datasets, properties, fields_array, max, api) {
         const datasets_list = datasets ? getDatasets(datasets) : [{ name: url.substring(url.lastIndexOf("/") + 1) }];
         const url_base = datasets ? url : url.substring(0, url.lastIndexOf("/")) + "/";
 
@@ -132,7 +145,8 @@
         for (let i = 0, n = datasets_list.length; i < n; i++) {
             const apiFields = fields_array[i] ? fields_array[i] : false;
             const apiUrl = dgeData.getDataUrl(url_base, datasets_list[i].name, max, apiFields, api);
-            dataRequests.push(dgeData.getData(apiUrl, api));
+            const property = properties[i] ? properties[i] : false;
+            dataRequests.push(dgeData.getData(apiUrl, api, property));
         }
         loading++;
         Promise.all(dataRequests).then((response) => {
@@ -381,9 +395,9 @@
         // Get data
         // getPromiseData(url, datasets, fields_array, max, api);
         if (refresh) {
-            setInterval(getPromiseData, refresh * 1000, url, datasets, fields_array, max, api);
+            setInterval(getPromiseData, refresh * 1000, url, datasets, properties, fields_array, max, api);
         } else {
-            getPromiseData(url, datasets, fields_array, max, api);
+            getPromiseData(url, datasets, properties, fields_array, max, api);
         }
     });
 

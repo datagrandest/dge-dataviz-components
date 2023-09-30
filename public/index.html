@@ -33,13 +33,13 @@
 <body>
 
     <div class="container my-3">
-        <!-- <div class="row my-5">
+        <div class="row my-5">
             <div class="col-12">
                 <h1>DGE Dataviz Components <small class="text-muted"> - Exemples</small></h1>
                 <p>Ceci est une page d'exemples. Pour plus d'informations, merci de consulter la <a
                         href="./documentation/index.html" target="_blank">documentation</a>.</p>
             </div>
-        </div> -->
+        </div>
 
 
         <!-- TEXT -->
@@ -65,14 +65,14 @@
         <!-- <div class="row my-3">
             <div class="col-6">
                 <dge-image id="dge-image-1"
-                    src="https://viago.ca/wp-content/uploads/2017/09/Essentiels_Japon-768x432.jpg"
-                    legend="Essentiels Japon" title="Exemple d'image" localcss="1"
-                    attribution="text:Viago;url:https://viago.ca/top-10-des-activites-a-faire-au-japon/" />
+                    src="https://images.pexels.com/photos/356269/pexels-photo-356269.jpeg"
+                    legend="Japon" title="Exemple d'image" localcss="1"
+                    attribution="text:Pexels;url:https://images.pexels.com" />
             </div>
         </div> -->
 
         <!-- FIGURES -->
-        <!-- <div class="row my-3">
+        <div class="row my-3">
             <div class="col-6">
                 <dge-figure id="dge-figure-1"
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr|Région Grand Est:icon;url:test"
@@ -88,7 +88,7 @@
                 <dge-figure id="dge-figure-3"
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr|Région Grand Est:icon;url:test"
                     api="csv" url="data/test.csv" fields="id,quantite,objet,prix" operation="value|sum(quantite*prix)"
-                    unit="€" text="Test quantité*prix" refresh="2" />
+                    unit="€" text="Test quantité*prix" _refresh="2" />
             </div>
             <div class="col-6">
                 <dge-figure id="dge-figure-4"
@@ -132,15 +132,15 @@
                 <dge-figure id="dge-figure-2" api="csv" url="./data/values.csv" fields="contenance"
                     operation="sum|`value`" text="Test avec un champ 'value'"></dge-figure>
             </div>
-        </div> -->
+        </div>
 
         <!-- TABLES -->
-        <!-- <div class="row my-3">
+        <div class="row my-3">
             <div class="col-6">
                 <dge-table id="dge-table-1" api="csv" url="data/test.csv" fields="id,commande,prix,objet"
                     columns="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter=""
                     title="Liste des fournitures du fichier data/test.csv" displaytotal="1"
-                    pagination="display:1;perpage:6;page:1;selectpages:2,6,12,24,48" orderby="objet,DESC" refresh="2" />
+                    pagination="display:1;perpage:6;page:1;selectpages:2,6,12,24,48" orderby="objet,DESC" _refresh="2" />
             </div>
             <div class="col-6">
                 <dge-table id="dge-table-1" api="csv" url="data/test3.csv" fields="id,commande,prix,objet"
@@ -169,14 +169,14 @@
                     datasets="commune_actuelle" fields="insee_com,nom_com,superf_km,pmun_rp2018"
                     columns="insee_com|nom_com|superf_km|pmun_rp2018" labels="INSEE|COMMUNE|KM²|HAB." max="6000"
                     where="" title="Liste des communes du Grand Est"
-                    attribution="Région Grand Est|https://www.grandest.fr" smalltable="1"
+                    smalltable="1"
                     search="Recherche par code INSEE ou le nom de la commune|insee_com,nom_com|0800" displaytotal="1"
                     displaypagination="1" perpage="5" page="1" localcss="1"
-                    datalink="icon:table;title:Lien vers les données"
+                    datalink="icon:table;title:Lien vers les données;url:https://www.datagrandest.fr"
                     attribution="icon:info-circle-fill;title:DataGrandEst;url:https://www.datagrandest.fr"
                     sortcolumns="true" />
             </div>
-        </div> -->
+        </div>
 
         <!-- CHARTS -->
         <div class="row my-3">
@@ -187,20 +187,19 @@
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr" />
             </div>
 
-            <!-- <div class="col-6"> -->
+            <div class="col-6">
                 <!-- NOCODB -->
-                <!-- <dge-chart id="dge-test-1" api="json" url="data/nocodb.php" fields="ID,NAME,AGE" x="ID" y="AGE"
+                <dge-chart id="dge-test-1" api="json" url="data/nocodb.php" properties="list" fields="ID,NAME,AGE" x="ID" y="AGE"
                     series="Age" chart="bar" title="NocoDB Test" colors="rgba(20,90,186,0.5)"
                     download="icon:cloud-download;size:1rem"
                     attribution="icon:info-circle;url:https://www.datagrandest.fr;title:Source: DataGrandEst"
-                    datalink="icon:table;title:Lien vers les données" localcss="1" /> -->
-            <!-- </div> -->
+                    datalink="icon:table;title:Lien vers les données" localcss="1" />
+            </div>
 
-            <!--
             <div class="col-6">
                 <dge-chart id="dge-chart-test" api="csv" url="data/test.csv" fields="quantite,prix,objet,commande"
                     x="objet" y="quantite|quantite*prix,cout" chart="bar|line" title="Test" legend="display:true"
-                    download="text:télécharger" where="commande=3" refresh="2" animation="duration=0"
+                    download="text:télécharger" where="commande=3" _refresh="2" animation="duration=0"
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr" />
             </div>
 
@@ -219,17 +218,17 @@
                     dldisplay="true" dldisplaylimit="0" dlcolor="#eee" dlalign="center" dlanchor="center"
                     dlformat="percent,2" dlunit="%" />
             </div>
+
             <div class="col-6">
                 <dge-chart id="dge-chart-gauge" api="csv" url="data/gauge2.csv" fields="question,oui,mais,non,saispas"
                     x="question" y="oui|mais|non|saispas" series="Oui/Non" chart="gauge" title="Total: %sum,0% votes"
                     colors="rgba(2,150,2,0.7);rgba(2,150,2,0.5);rgba(200,90,86,0.5);rgba(20,90,186,0.5)"
                     labels="OUI|OUI, MAIS|NON|NE SAIS PAS" animation="duration:5000" where="id=1"
-                    gauge="circumference:270;rotation:-90" reverse="true"
+                    gauge="circumference:270;rotation:-90" reverse="1"
                     textcenter="label:OUI;color:rgba(120,180,60,1);baseLine:middle;align:center;fontSize:12;fontFamily:Arial;fontStyle:normal;fontWeight:normal;y:0;x:0|label:%percent,2,0-1%%;color:rgba(180,120,60,1);baseLine:middle;align:center;fontSize:15;fontWeight:bold;fontFamily:Arial;y:0"
                     dldisplay="true" dldisplaylimit="0" dlcolor="#eee" dlalign="center" dlanchor="center"
                     dlformat="percent,2" dlunit="%" />
             </div>
-        -->
 
             <div class="col-6">
                 <dge-chart id="dge-chart-bar-s" height="1" api="csv" url="data/gauge2.csv"
@@ -250,8 +249,6 @@
                     dlformat="percent" dlunit="%" />
             </div>
 
-
-
             <div class="col-6">
                 <dge-chart id="dge-chart-bar-s" height="2" api="csv" url="data/gauge2.csv"
                     fields="id,question,oui,non,saispas" x="question" y="oui|non|saispas" series="OUI|NON|NE SAIS PAS"
@@ -267,7 +264,7 @@
                     height="2" 
                     api="csv"
                     url=""
-                    datasets="http://127.0.0.1:8080/data/data1.csv,d1|http://127.0.0.1:8080/data/data2.csv,d2"
+                    datasets="http://127.0.0.1:8080/public/data/data1.csv,d1|http://127.0.0.1:8080/public/data/data2.csv,d2"
                     fields="age,nb1|age,nb1"
                     x="d1.age" 
                     y="d1.nb1|d2.nb1" 
@@ -285,7 +282,7 @@
                     id="dge-chart-bar-h" 
                     height="2" 
                     api="csv"
-                    url="http://127.0.0.1:8080/data/"
+                    url="http://127.0.0.1:8080/public/data/"
                     datasets="data1.csv"
                     fields="age,nb1,nb2"
                     x="age" 
@@ -308,7 +305,7 @@
                     dlanchor="center" dlformat="percent" dlunit="%" xaxis="display:false" yaxis="drawGrid:0" />
             </div> 
 
-             <div class="col-6">
+            <div class="col-6">
                 <dge-chart id="dge-chart-1" 
                     title="Nombre d'habitants par ville"
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr"
@@ -320,8 +317,9 @@
                     chart="bar"
                     xaxis="drawGrid:true;display:false"
                      />
-                </div>
             </div>
+        </div>
+
 
         <!-- MAPS -->
         <!-- <div class="row my-3">
@@ -334,7 +332,7 @@
             <div class="col-6">
                 <dge-map id="dge-map-1" height="50vh" title="Communes de l'EMS"
                     attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
-                    center="48.6|7.75" zoom="10" url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?"
+                    center="48.6|7.75" zoom="10" url="https://www.datagrandest.fr/geoserver/region-grand-est/ows"
                     api="wms" layers="commune_actuelle_3857,commune_actuelle_centroide"
                     layersname="Communes (poly),Commmunes (point)" styles="" version="1.1.0" format="image/png"
                     transparent="true" filters="id_epci='246700488'" queryable="commune_actuelle_3857"
@@ -345,7 +343,7 @@
                 <dge-map id="dge-map-3" height="50vh" title="Communes de l'EMS"
                     attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
                     center="48.6|7.75" zoom="10" data="
-                    url:https://www.datagrandest.fr/geoserver/region-grand-est/ows?;
+                    url:https://www.datagrandest.fr/geoserver/region-grand-est/ows;
                     api:wms;
                     layers:commune_actuelle_3857,commune_actuelle_centroide;
                     layersname:Communes (poly),Commmunes (point);

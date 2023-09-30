@@ -66,7 +66,7 @@ function replaceText(text, data, type) {
     return text;
 }
 
-function getItems(api, json) {
+function getItems(api, json, property) {
     var items = [];
     if (api == "d4c") {
         items = json.records.map((record) => {
@@ -79,6 +79,12 @@ function getItems(api, json) {
         });
     }
     if (api == "json" || api == "csv") {
+        if (property) {
+            const properties = property.split('.');
+            for (let p in properties) {
+                json = properties[p] in json ? json[properties[p]] : json;
+            }
+        }
         items = json;
     }
     return items;
@@ -117,7 +123,7 @@ function getDataUrl(url, dataset, max, fields, api) {
     return false;
 }
 
-function getData(apiUrl, api) {
+function getData(apiUrl, api, property) {
         return fetch(apiUrl)
             .then((response) => {
                 if (!response.ok) {
@@ -128,21 +134,21 @@ function getData(apiUrl, api) {
             .then(function (data) {
                 var json =
                     api == "csv" ? Papa.parse(data, {header: true, dynamicTyping: true}).data : data;
-                return getItems(api, json);
+                return getItems(api, json, property);
             });
     }
 
-    function addFulltextField(items, itemFields, fieldName) {
-        fieldName = fieldName || '_search';
-        return items.map((item) => {
-            var _search = [];
-            for (let i = 0, n = itemFields.length; i < n; i++) {
-                _search.push(item[itemFields[i]]);
-            }
-            item[fieldName] = _search.join(" ");
-            return item;
-        });
-    }
+function addFulltextField(items, itemFields, fieldName) {
+    fieldName = fieldName || '_search';
+    return items.map((item) => {
+        var _search = [];
+        for (let i = 0, n = itemFields.length; i < n; i++) {
+            _search.push(item[itemFields[i]]);
+        }
+        item[fieldName] = _search.join(" ");
+        return item;
+    });
+}
     
 export default {
     getData: getData,

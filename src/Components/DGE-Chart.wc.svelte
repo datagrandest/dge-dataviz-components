@@ -1,4 +1,13 @@
-<svelte:options tag="dge-chart" immutable={true} />
+<svelte:options
+    customElement={{
+        tag: 'dge-chart',
+        shadow: 'open',
+        _props: {
+            attribution: { reflect: false, type: 'String', attribute: 'attribution' }
+        },
+    }}
+/>
+
 
 <script>
     import ChartDataLabels from "chartjs-plugin-datalabels";
@@ -11,7 +20,7 @@
 
     // PROPERTIES
     export let id = "dge-chart";
-    export let klass = '';
+    export let klass = "";
     export let height = 2;
     $: height = dgeHelpers.checkValueFormat(height);
     export let width = 3;
@@ -19,28 +28,30 @@
     export let title = "";
     export let localcss = false;
     $: localcss = dgeHelpers.checkValueFormat(localcss);
-    export let url = false;
+    export let url = "";
     export let api = "json";
-    export let datasets = false;
+    export let datasets = "";
+    export let properties = "";
+    $: properties = properties ? properties.split("|") : false;
     export let fields = "";
-    export let from = false;
-    export let where = false;
-    export let groupby = false;
-    export let having = false;
-    export let orderby = false;
+    export let from = "";
+    export let where = "";
+    export let groupby = "";
+    export let having = "";
+    export let orderby = "";
     export let search = "";
     export let filter = "";
     export let max = 50; // For 'wfs' and 'd4c'
     export let x = "";
     export let y = "";
     export let chart = "bar";
-    export let series = false;
-    export let colors = false;
-    export let xaxis = false;
-    export let yaxis = false;
+    export let series = "";
+    export let colors = "";
+    export let xaxis = "";
+    export let yaxis = "";
 
     // attribution properties
-    export let attribution = false;
+    export let attribution = "";
     export let attribtionicon = false;
     export let attribtiontext = false;
     export let attribtionprefix = "";
@@ -66,7 +77,7 @@
     }
 
     // datalink properties
-    export let datalink = false;
+    export let datalink = "";
     export let datalinkicon = false;
     export let datalinktext = false;
     export let datalinkprefix = "";
@@ -153,7 +164,7 @@
         chartOptions.plugins.treemap = { ...defaultTreemapOptions, ...treemapOptions };
     }
 
-    export let gauge = false;
+    export let gauge = "";
     $: {
         const defaultGaugeOptions = {
             circumference: 270,
@@ -209,7 +220,7 @@
     }
 
     // datalabels plugins properties (cf. )
-    export let datalabels = false;
+    export let datalabels = "";
     export let dlalign = "center";
     export let dlanchor = "center";
     export let dlbackgroundcolor = "rgba(0, 0, 0, 0.1)";
@@ -228,7 +239,7 @@
     export let dlfontweight = undefined;
     export let dlfontlineheight = 1.2;
     export let dllabels = undefined;
-    export let dlformat = false;
+    export let dlformat = "";
     export let dllistener = {};
     export let dloffset = 4;
     export let dlopacity = 1;
@@ -276,18 +287,18 @@
         chartOptions.plugins.datalabels = { ...defaultDatalabelsOptions, ...datalabelsOptions };
     }
 
-    export let labels = false;
+    export let labels = "";
     export let reverse = false;
     $: {
         const defaultDgeOptions = {
             labels: labels ? labels.split("|") : false,
-            reverse: reverse == "true" ? true : false,
+            reverse: dgeHelpers.checkValueFormat(reverse),
         };
         chartOptions.plugins.dge = defaultDgeOptions;
     }
 
     // download properties
-    export let download = false;
+    export let download = "";
     export let downloadicon = false;
     export let downloadtext = false;
     export let downloadprefix = "";
@@ -330,7 +341,7 @@
 
     let image = false;
 
-    function getPromiseData(url, datasets, fields_array, max, api) {
+    function getPromiseData(url, datasets, properties, fields_array, max, api) {
         const datasets_list = datasets ? getDatasets(datasets) : [{ name: url.substring(url.lastIndexOf("/") + 1) }];
         const url_base = datasets ? url : url.substring(0, url.lastIndexOf("/")) + "/";
 
@@ -338,7 +349,8 @@
         for (let i = 0, n = datasets_list.length; i < n; i++) {
             const apiFields = fields_array[i] ? fields_array[i] : false;
             const apiUrl = dgeData.getDataUrl(url_base, datasets_list[i].name, max, apiFields, api);
-            dataRequests.push(dgeData.getData(apiUrl, api));
+            const property = properties[i] ? properties[i] : false;
+            dataRequests.push(dgeData.getData(apiUrl, api, property));
         }
         loading++;
         Promise.all(dataRequests).then((response) => {
@@ -592,9 +604,9 @@
         // Get data
         // getPromiseData(url, datasets, fields_array, max, api);
         if (refresh) {
-            setInterval(getPromiseData, refresh * 1000, url, datasets, fields_array, max, api);
+            setInterval(getPromiseData, refresh * 1000, url, datasets, properties, fields_array, max, api);
         } else {
-            getPromiseData(url, datasets, fields_array, max, api);
+            getPromiseData(url, datasets, properties, fields_array, max, api);
         }
     });
 </script>

@@ -343,6 +343,20 @@ Propriété permettant d'indiquer le nombre de ligne à afficher par page.
 
 Exemple: `perpage="25"`
 
+### properties
+
+| Propriété       | Type   | Défaut      |
+|-----------------|--------|-------------|
+| properties      | String | false       |
+
+Chemin vers la propriété contenant la liste des données à utiliser dans le résultat de la requête. Les propriétés doivent être séparées par un point ".".  
+Si plusieurs jeux de données sont concernés, le séparateur entre les jeux de donénes est "|".
+
+Exemples: 
+
+- `properties="list"`
+- `properties="|list|records.data"`
+
 ### refresh
 
 | Propriété      | Type    | Défaut      |

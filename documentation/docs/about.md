@@ -10,11 +10,12 @@ DGE Dataviz Components est dsponible sous licence ouverte MIT.
 
 Ces outils utilisent plusieurs librairies externes parmis lesquelles:
 
-| Librairie                                                                                  | dge-text | dge-image | dge-figure | dge-table | dge-chart | dge-map |
-|--------------------------------------------------------------------------------------------|:--------:|:---------:|:----------:|:---------:|:---------:|:-------:|
-| [bootstrap 5.2.x](https://getbootstrap.com/)                                               | X        | X         | X          | X         | X         | X       |
-| [bootstrap-icons 1.10.x](https://icons.getbootstrap.com/)                                   |          |           | X          |           |           |         |
-| [alasql 3.1.x](http://alasql.org/)                                                         |          |           | X          | X         | X         | X       |
-| [papaparse 5.3.x](https://www.papaparse.com/)                                              |          |           | X          | X         | X         |         |
-| [chartjs 4.2](https://www.chartjs.org/)  (+ [plugins](https://github.com/chartjs/awesome)) |          |           |            |           | X         |         |
-| [leaflet 1.8.x](https://leafletjs.com/)                                                    |          |           |            |           |           | X       |
+| Librairie                                                                                    | dge-text | dge-image | dge-figure | dge-table | dge-chart | dge-map |
+|----------------------------------------------------------------------------------------------|:--------:|:---------:|:----------:|:---------:|:---------:|:-------:|
+| [bootstrap 5.3.x](https://getbootstrap.com/)                                                 | X        | X         | X          | X         | X         | X       |
+| [bootstrap-icons 1.11.x](https://icons.getbootstrap.com/)                                    |          |           | X          |           |           |         |
+| [alasql 4.1.x](http://alasql.org/)                                                           |          |           | X          | X         | X         | X       |
+| [papaparse 5.4.x](https://www.papaparse.com/)                                                |          |           | X          | X         | X         |         |
+| [chartjs 4.4.x](https://www.chartjs.org/)  (+ [plugins](https://github.com/chartjs/awesome)) |          |           |            |           | X         |         |
+| [leaflet 1.9.x](https://leafletjs.com/)                                                      |          |           |            |           |           | X       |
+| [sveltejs 4.2.x](https://svelte.dev/)                                                        | X        | X         | X          | X         | X         | X       |

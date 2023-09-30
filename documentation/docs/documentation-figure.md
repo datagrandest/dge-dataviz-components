@@ -335,6 +335,19 @@ Exemples:
 - `operation="value|quantité"` (Affiche la première ligne du résultat. Peut être utilisé avec la propriété `filter` pour cibler une ligne particulière.)
 - `operation="value|sum(prix*quantité)"` (Equivalent à `operation="sum|prix*quantité"`)
 
+### properties
+
+| Propriété       | Type   | Défaut      |
+|-----------------|--------|-------------|
+| properties      | String | false       |
+
+Chemin vers la propriété contenant la liste des données à utiliser dans le résultat de la requête. Les propriétés doivent être séparées par un point ".".  
+Si plusieurs jeux de données sont concernés, le séparateur entre les jeux de donénes est "|".
+
+Exemples: 
+
+- `properties="list"`
+- `properties="|list|records.data"`
 
 ### refresh
 

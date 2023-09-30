@@ -1,4 +1,12 @@
-<svelte:options tag="dge-test" immutable={true} />
+<svelte:options
+    customElement={{
+        tag: 'dge-test',
+        shadow: 'open',
+        props: {
+            attribution: { reflect: false, type: 'String', attribute: 'attribution' }
+        },
+    }}
+/>
 
 <script>
     import { onMount } from "svelte";

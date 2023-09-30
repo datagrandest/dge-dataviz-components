@@ -1,4 +1,12 @@
-<svelte:options tag="dge-text" immutable={true} />
+<svelte:options
+    customElement={{
+        tag: 'dge-text',
+        shadow: 'open',
+        props: {
+            attribution: { reflect: false, type: 'String', attribute: 'attribution' }
+        },
+    }}
+/>
 
 <script>
     import { onMount } from "svelte";
@@ -13,7 +21,7 @@
     $: localcss = dgeHelpers.checkValueFormat(localcss);
 
     // attribution properties
-    export let attribution = false;
+    export let attribution = '';
     export let attributionicon = false;
     export let attributiontext = false;
     export let attributionprefix = "";

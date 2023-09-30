@@ -58,7 +58,7 @@ export default [{
             dedupe: ['svelte']
         }),
         commonjs(),
-        // terser(),
+        terser(),
         // summary(),
     ],
 }];

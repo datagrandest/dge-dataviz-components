@@ -1,4 +1,12 @@
-<svelte:options tag="dge-map" immutable={true} />
+<svelte:options
+    customElement={{
+        tag: 'dge-map',
+        shadow: 'open',
+        _props: {
+            attribution: { reflect: false, type: 'String', attribute: 'attribution' }
+        },
+    }}
+/>
 
 <script>
     import * as L from "leaflet";
@@ -28,17 +36,17 @@
     export let transparent = "true"; // Deprecated in future version
     export let filters = ""; // Deprecated in future version
     export let queryable = ""; // Deprecated in future version
-    export let baselayer = false; // Deprecated in future version
+    export let baselayer = ""; // Deprecated in future version
 
     // use Ctrl to zoom on the map
     export let gesturehandling = false;
 
     // data property
-    export let data = false;
+    export let data = "";
     let data_array = [];
     $: {
         const defaultDataOptions = {
-            url: false,
+            url: "false",
             api: "wms",
             layers: "",
             layersname: "",
@@ -60,7 +68,7 @@
     }
 
     //  baselayers property
-    export let baselayers = false;
+    export let baselayers = "";
     let baselayers_array = [];
     $: {
         const defaultBaselayersOptions = {
@@ -85,7 +93,7 @@
     $: osm = dgeHelpers.checkValueFormat(osm);
 
     // attribution properties
-    export let attribution = false;
+    export let attribution = "";
     export let attribtionicon = false;
     export let attribtiontext = false;
     export let attribtionprefix = "";

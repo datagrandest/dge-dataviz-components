@@ -3,6 +3,35 @@
 Ci-dessous les notes relatives aux différentes versions publiées de DGE-DataViz-Components.  
 Si certaines évolutions ne sont pas documentées, n'hésitez pas à me contacter.
 
+## v4.7.0 - 20230930
+
+### Téléchargements
+
+| Fichier        | Format | Téléchargement                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------- |
+| dge-figure.js  | JS     | [téléchargement](./dist/4.7.0/dge-figure.js){:target="\_blank"}                        |
+| dge-table.js   | JS     | [téléchargement](./dist/4.7.0/dge-table.js){:target="\_blank"}                         |
+| dge-chart.js   | JS     | [téléchargement](./dist/4.7.0/dge-chart.js){:target="\_blank"}                         |
+| dge-text.js    | JS     | [téléchargement](./dist/4.7.0/dge-text.js){:target="\_blank"}                          |
+| dge-image.js   | JS     | [téléchargement](./dist/4.7.0/dge-image.js){:target="\_blank"}                         |
+| dge-all.js     | JS     | [téléchargement](./dist/4.7.0/dge-all.js){:target="\_blank"}                           |
+| dist_4.7.0.zip | ZIP    | [téléchargement](./dist/4.7.0/dist_4.7.0.zip){:target="\_blank"}                       |
+| dist_4.7.0.7z  | 7Z     | [téléchargement](./dist/4.7.0/dist_4.7.0.7z){:target="\_blank"}                        |
+
+### Evolutions
+
+- `dge-figure`: 
+    - [x] Ajout de la propriété `properties`
+- `dge-table`: 
+    - [x] Ajout de la propriété `properties`
+- `dge-chart`: 
+    - [x] Ajout de la propriété `properties`
+- `dist`:
+    - [x] Mise à jour des différentes bibliothèques vers leurs dernières versions dont notamment Bootstrap (v5.3.x), AlaSQL (v4.0.x), ChartJS (v4.4.x), Paparse (v5.4.x), Svelte JS (v4.2.x)
+- `documentation`: 
+    - [x] Description de la propriété `properties`
+
+
 ## v4.6.0 - 20230304
 
 ### Téléchargements
