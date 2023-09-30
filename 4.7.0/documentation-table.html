@@ -1,0 +1,1646 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://datagrandest.github.io/dge-dataviz-components/4.7.0/documentation-table.html">
+      
+      
+        <link rel="prev" href="documentation-figure.html">
+      
+      
+        <link rel="next" href="documentation-chart.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
+    
+    
+      
+        <title>DGE Table - DGE Dataviz Components</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Arial";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="dist/style.css">
+    
+      <link rel="stylesheet" href="dist/bootstrap/css/bootstrap-grid.min.css">
+    
+      <link rel="stylesheet" href="dist/bootstrap-icons/bootstrap-icons.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dge-table" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../."> 
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="index.html" title="DGE Dataviz Components" class="md-header__button md-logo" aria-label="DGE Dataviz Components" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DGE Dataviz Components
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DGE Table
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/datagrandest/dge-dataviz-components" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dge-dataviz-components
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="index.html" class="md-tabs__link">
+      Accueil
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="documentation-start.html" class="md-tabs__link md-tabs__link--active">
+        Documentation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="examples-figure.html" class="md-tabs__link">
+        Exemples
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="versions.html" class="md-tabs__link">
+      Notes de version
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="about.html" class="md-tabs__link">
+      A propos
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="DGE Dataviz Components" class="md-nav__button md-logo" aria-label="DGE Dataviz Components" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12Z"/></svg>
+
+    </a>
+    DGE Dataviz Components
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/datagrandest/dge-dataviz-components" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dge-dataviz-components
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-start.html" class="md-nav__link">
+        Pour débuter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-figure.html" class="md-nav__link">
+        DGE Figure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          DGE Table
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="documentation-table.html" class="md-nav__link md-nav__link--active">
+        DGE Table
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#liste-des-proprietes" class="md-nav__link">
+    Liste des propriétés
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemples" class="md-nav__link">
+    Exemples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-chart.html" class="md-nav__link">
+        DGE Chart
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-map.html" class="md-nav__link">
+        DGE Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-image.html" class="md-nav__link">
+        DGE Image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentation-text.html" class="md-nav__link">
+        DGE Text
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Exemples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Exemples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-figure.html" class="md-nav__link">
+        dge-figure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-table.html" class="md-nav__link">
+        dge-table
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-chart.html" class="md-nav__link">
+        dge-chart
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-map.html" class="md-nav__link">
+        dge-map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-image.html" class="md-nav__link">
+        dge-image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples-text.html" class="md-nav__link">
+        dge-text
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="versions.html" class="md-nav__link">
+        Notes de version
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="about.html" class="md-nav__link">
+        A propos
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="dge-table">DGE table<a class="headerlink" href="#dge-table" title="Permanent link">#</a></h1>
+<p>Un composant pour afficher facilement un tableau.</p>
+<div style="width:40%">
+    <dge-table 
+        id="dge-table-1" 
+        api="csv" 
+        url="./data/test1.csv" 
+        fields="id,couleur,objet,prix" 
+        labels="ID|Couleur|Objet|Prix" 
+        where="couleur='bleu'"
+        title="Liste des fournitures de couleur bleue du fichier data/test1.csv"
+        />
+</div>
+
+<h2 id="liste-des-proprietes">Liste des propriétés<a class="headerlink" href="#liste-des-proprietes" title="Permanent link">#</a></h2>
+<p>Il existe 4 grands types de propriétés:</p>
+<ul>
+<li>"String": chaîne de caractères (ex.: <code>title="Un titre"</code>) </li>
+<li>"Integer": Un nombre (ex.: <code>decimal="3"</code>) </li>
+<li>"Boolean": une valeur binaire (vrai ou faux): "true"/"false" (ex.: <code>localcss="true"</code>) </li>
+<li>"Objects": ensemble de couples clé/valeur inclus dans une propriété (Ex.: <code>property="att1:value1;att2:value2;att3:value3..."</code>). Dans ce cas, vous trouverez dans la documentation un tableau qui précise la nature de chaque attribut attendu. Pour certains attributs, ils peuvent aussi exister sous forme de propriété individuelle (ex: <code>attribution="text:DataGrandEst"</code> est équivalent à <code>attributiontext="DataGrandEst"</code>)</li>
+</ul>
+<p>Il est important de respecter le type de valeur attendu par les propriétés et attributs pour le bon fonctionnement des composants web.</p>
+<p>Par ailleurs, le traitement des données se fait via des requêtes SQL qui s'apuient sur des mots-clés réservés (cf. <a href="https://github.com/agershun/alasql/wiki/AlaSQL%2DKeywords">https://github.com/agershun/alasql/wiki/AlaSQL%2DKeywords</a>
+). Ils ne devraient pas être utilisés comme nom de champs.<br />
+Une solution de contournement existe en "échappant" c'est noms de champs avec <code>fieldname</code> ou <code>[fieldname]</code> (ex.: <code>operation="sum|</code>value<code>"</code>).</p>
+<h3 id="api">api<a class="headerlink" href="#api" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>api</td>
+<td>String</td>
+<td>"json"</td>
+</tr>
+</tbody>
+</table>
+<p>Typde de source de données. Les valeurs possibles sont:</p>
+<ul>
+<li>"json": fichier JSON</li>
+<li>"csv": fichier CSV</li>
+<li>"wfs": flux WFS</li>
+<li>"dc4": API provenant d'une plateforme Data4Citizen</li>
+</ul>
+<p>Exemple: <code>api="csv"</code></p>
+<h3 id="attribution">attribution<a class="headerlink" href="#attribution" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>attribution</td>
+<td>Object</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Type</th>
+<th>Défaut</th>
+<th>Propriété  équivalente</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>null</td>
+<td>attributiontext</td>
+<td>Texte à afficher qude support au lien vers le site indiqué (cf. attribut <code>url</code>)</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>String</td>
+<td>null</td>
+<td>attributionicon</td>
+<td>Nom de l'îcon (cf. bibliothèque "<a href="https://icons.getbootstrap.com/">Bootstrap Icons v1.7.x</a>")</td>
+</tr>
+<tr>
+<td>prefix</td>
+<td>String</td>
+<td>null</td>
+<td>attributionprefix</td>
+<td>Texte prefixant l'attribut <code>text</code></td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>null</td>
+<td>attributionurl</td>
+<td>Lien vers un site internet</td>
+</tr>
+<tr>
+<td>size</td>
+<td>String</td>
+<td>1rem</td>
+<td>attributionsize</td>
+<td>Taille de l'icon. L'unité doit être précisée (ex.: "1.5rem" ou "18px")</td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td>#000</td>
+<td>attributioncolor</td>
+<td>Couleur de l'icon (ex.: "#393" ou "#99564c" ou "rgba(50,200,35,0.6)")</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>text</td>
+<td>attributiontitle</td>
+<td>Titre du texte ou de l'icon qui appraît au survol par la souris</td>
+</tr>
+</tbody>
+</table>
+<p>Sources des données utilisées par le composant. 
+Cette propriété est de type object et se compose d'une liste d'attributs permettant de préciser le texte ou l'icon à afficher, l'URL, etc.</p>
+<p>Exemple: <code>attribution="text:DataGrandEst;url:https://www.datagrandest.fr"</code></p>
+<h3 id="columns">columns<a class="headerlink" href="#columns" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>columns</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Ordre des champs pour l'affichage des colonnes de la table.</p>
+<p>Exemples:
+- <code>columns="id,ville,population"</code>
+- <code>columns="commandes.id|objets.objet|objets.couleur|commandes.quantite|objets.prix|commandes.quantite*objets.prix,cout|contacts.nom"</code></p>
+<h3 id="datalink">datalink<a class="headerlink" href="#datalink" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datalink</td>
+<td>Object</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Type</th>
+<th>Défaut</th>
+<th>Propriété  équivalente</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>null</td>
+<td>datalinktext</td>
+<td>Texte à afficher comme support au lien vers le site indiqué (cf. attribut <code>url</code>)</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>String</td>
+<td>null</td>
+<td>datalinkicon</td>
+<td>Nom de l'îcon (cf. bibliothèque "<a href="https://icons.getbootstrap.com/">Bootstrap Icons v1.7.x</a>")</td>
+</tr>
+<tr>
+<td>prefix</td>
+<td>String</td>
+<td>null</td>
+<td>datalinkprefix</td>
+<td>Texte prefixant l'attribut <code>text</code></td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>null</td>
+<td>datalinkurl</td>
+<td>Lien vers un site internet</td>
+</tr>
+<tr>
+<td>size</td>
+<td>String</td>
+<td>1rem</td>
+<td>datalinksize</td>
+<td>Taille de l'icon. L'unité doit être précisée (ex.: "1.5rem" ou "18px")</td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td>#000</td>
+<td>datalinkcolor</td>
+<td>Couleur de l'icon (ex.: "#393" ou "#99564c" ou "rgba(50,200,35,0.6)")</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>text</td>
+<td>datalinktitle</td>
+<td>Titre du texte ou de l'icon qui appraît au survol par la souris</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant de préciser sous forme de texte ou d'icon un lien vers les données sources.</p>
+<p>Exemples: </p>
+<ul>
+<li><code>icon="text:data;url:https://datagrandest.fr/public/data/villes.csv"</code></li>
+<li><code>icontext="data" iconurl="https://datagrandest.fr/public/data/villes.csv"</code></li>
+</ul>
+<h3 id="datasets">datasets<a class="headerlink" href="#datasets" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datasets</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Nom du ou des jeux de données utilisés. Si plusieurs jeux de données sont précisés (exemples: plusieurs fichiers JSON ou CSV) il doivent être séprés par un "|" et provenir de la même source (propriété <code>url</code>).</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12m15 0-5-5v3H8v4h4v3l5-5Z"/></svg></span> Pour un flux WFS il s'agit du ou des noms des couches de données ("layer").<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12m15 0-5-5v3H8v4h4v3l5-5Z"/></svg></span> Pour un fichier JSON ou CSV il s'agit du ou des noms de fichiers, extension comprise.</p>
+<p>Un alias peut être donné aux datasets, notamment lors de l'utilisation de plusieurs sources de données. Il permet, comme dans le language SQL de préfixer le nom des champs dans d'autres propriété (<code>where</code>, <code>from</code>, etc.) et éviter les confusions. </p>
+<p>Exemples:</p>
+<ul>
+<li><code>datasets="commune_actuelle"</code></li>
+<li><code>datasets="commandes.csv,cmd|contact.csv,cnt"</code></li>
+</ul>
+<h3 id="displaytotal">displaytotal<a class="headerlink" href="#displaytotal" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>displaytotal</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant d'afficher le nombre de lignes total en dessous du tableau.</p>
+<p>Exemple: <code>dsplaytotal="1"</code></p>
+<h3 id="displaypagination">displaypagination<a class="headerlink" href="#displaypagination" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>displaypagination</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant d'afficher la pagination en bas de page.</p>
+<p>Exemple: <code>displaypagination="1"</code></p>
+<h3 id="fields">fields<a class="headerlink" href="#fields" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fields</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Liste des champs renvoyé lors de la récupération des données. Cette propriété est obligatoire dans le cas de l'utilisation de plusieurs datasets. 
+La liste doit d'ailleurs dans ce cas respecter l'ordre des sources de données définies dans la propriété <code>datasets=""</code>.</p>
+<p>Cette propriété est également conseillée pour les flux WFS. Elle permet d'alléger le volume de données en évitant que le serveur renvoi les géométries au format GeoJSON. 
+Ce paramètre n'a pas d'influence avec les sources de données Data4Citizen et les fichiers JSON et CSV.</p>
+<p>Le séparateur de champ est ",". Si plusieurs datasets sont précisés, les champs doivent être indiqué dans l'ordre des datasets, séparés par des "|".</p>
+<p>Exemples: </p>
+<ul>
+<li><code>fields="id,code,name,color"</code></li>
+<li><code>fields="id,code_id,name,color|id,code,value"</code></li>
+</ul>
+<h3 id="filter">filter<a class="headerlink" href="#filter" title="Permanent link">#</a></h3>
+<p>Affichage d'une liste de sélection pour filtrer les données.</p>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filter</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Ce paramètre se compose de 3 parties:</p>
+<ul>
+<li>Le texte à afficher par défaut quand aucune valeur n'est sélectionnée (si cette valeur est vide, aucune valeur par défaut n'est utilisée)</li>
+<li>Le champ à utiliser pour le filtre</li>
+<li>Eventuellement une valeur de filtre prédéfinie</li>
+</ul>
+<p>Exemples:</p>
+<ul>
+<li><code>filter="Sélectionner un EPCI|epci"</code></li>
+<li><code>filter="Sélectionner une commune|f4|Strasbourg"</code></li>
+<li><code>filter="|year|"</code></li>
+</ul>
+<h3 id="from">from<a class="headerlink" href="#from" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété qui permet dans le cas de l'utilisation de plusieurs datasets de préciser la jointure entre les sources de données. 
+Elle est équivalente à la partie "FROM" de la requête SQL ou le nom des tables est remplacé par des "?", en respectant l'ordre défini dans la propriété <code>datasets=""</code>.</p>
+<p>Exemple: <code>? AS table1 join ? AS table2 ON table1.field2=table2.field1 JOIN ? AS table3 ON table1.field3=table3.field1</code></p>
+<h3 id="groupby">groupby<a class="headerlink" href="#groupby" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupby</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant de grouper les résultats selon un champ (une "catégorie" ou un "type" par exemple). </p>
+<p>Pour les graphiques, elle fonctionne en général conjointement à une formule de regroupement sur les ordonnées (ex.: <code>y="SUM(values)"</code>). 
+Les formulaes de regroupement sont celles du SQL: "SUM", "MIN", "MAX", "COUNT", "AVG".</p>
+<p>Exemples: <code>groupby="category"</code></p>
+<h3 id="having">having<a class="headerlink" href="#having" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>having</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété fonctionnant en lien avec <code>groupby=""</code> (et <code>y=""</code>). Comme dans le cadre des requêtes SQL, elle permet de réaliser un filtre sur le résultat d'un regroupement, là ou la propriété <code>where=""</code> permet un filtre sur les éléments retournés avant leur regroupement. 
+On aura donc conjointement par exemple: <code>y="SUM(values),somme" groupby="categorie" having="somme&gt;100"</code>.</p>
+<p>Exemple: <code>having="somme&gt;100"</code></p>
+<h3 id="id">id<a class="headerlink" href="#id" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>"dge-figure"</td>
+</tr>
+</tbody>
+</table>
+<p>Identifiant du composant. Il peut être utilisé pour appliquer une mise en forme spécifique via du CSS.</p>
+<p>Exemple: <code>id="dge-figure-1"</code></p>
+<h3 id="klass">klass<a class="headerlink" href="#klass" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>klass</td>
+<td>String</td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<p>Classes CSS définies pour le composant. Attention, la propriété est "klass" et non "class"!</p>
+<p>Exemple: <code>klass="primary-color"</code></p>
+<h3 id="localcss">localcss<a class="headerlink" href="#localcss" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localcss</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Indique si le composant utilise des fichiers CSS locaux ou distants. Ce paramètre permet notamment de pouvoir utiliser le composant dans un contexte hors ligne.<br />
+Par défaut, les fichiers CSS des bibliothèques Bootstrap et Bootstrap Icons sont chargées via les liens:</p>
+<ul>
+<li><a href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css</a></li>
+<li><a href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css</a></li>
+</ul>
+<p>Si la propriété localcss est activée (<code>localcss="1"</code>) alors le composant essaie de charger les fichiers suivants:</p>
+<ul>
+<li>"./bootstrap/css/bootstrap.min.css"</li>
+<li>"./bootstrap-icons/bootstrap-icons.css"</li>
+<li>"./global.css"</li>
+</ul>
+<p>Exemple: <code>localcss="1"</code></p>
+<h3 id="labels">labels<a class="headerlink" href="#labels" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>labels</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Alias des noms de colonnes à afficher dans l'ordre des colonnes définies par la propriété <code>columns</code>.</p>
+<p>Exemples:</p>
+<ul>
+<li><code>labels="ID|VILLE|POP. (HAB.)"</code></li>
+<li><code>labels="ID|OBJET|COULEUR|QUANTITE|PRIX (€)|COUT (€)|CONTACT"</code></li>
+</ul>
+<h3 id="max">max<a class="headerlink" href="#max" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max</td>
+<td>Integer</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Nombre d'entité à retourner lors de l'appel à l'API.<br />
+Cette propriété est notamment à utiliser avec les API <code>wfs</code> et <code>d4c</code> quilimitent par défaut le nombre de données retournées.</p>
+<p>Exemple: <code>max="500"</code></p>
+<h3 id="orderby">orderby<a class="headerlink" href="#orderby" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orderby</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété qui permet de trier et afficher les résultats d'une requête par ordre croissant (<code>ASC</code>) ou décroissant (<code>DESC</code>) selon un ou plusieurs champs (séparateur "|").</p>
+<p>Exemple: <code>orderby="type,DESC"</code></p>
+<h3 id="page">page<a class="headerlink" href="#page" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant d'indiquer la page à afficher au chargement du composant.</p>
+<p>Exemple: <code>page="2"</code></p>
+<h3 id="pagination">pagination<a class="headerlink" href="#pagination" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagination</td>
+<td>Object</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Type</th>
+<th>Défaut</th>
+<th>Propriété  équivalente</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>display</td>
+<td>String</td>
+<td>false</td>
+<td>displaypagination</td>
+<td>Afficher la pagination en bas de page</td>
+</tr>
+<tr>
+<td>perpage</td>
+<td>Integer</td>
+<td>10</td>
+<td>perpage</td>
+<td>Nombre de ligne à afficher par page</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>1</td>
+<td>page</td>
+<td>Première page à afficher au chargement du composant</td>
+</tr>
+<tr>
+<td>selectpages</td>
+<td>String</td>
+<td>"5,10,25,50,100"</td>
+<td>selectpages</td>
+<td>Liste du nombre de lignes à afficher par page dans la table</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant d'afficher une barre de pagination sous le tableau.<br />
+Elle reprend sous forme globale avec des attributs les propriétés <code>displaypagination</code>, <code>perpage</code>, <code>page</code> et <code>selectpages</code>.</p>
+<p>Exemples: </p>
+<ul>
+<li><code>pagination="display:true;perpage:5"</code></li>
+<li><code>displaypagination="1" page="2"</code></li>
+</ul>
+<h3 id="parsehtml">parsehtml<a class="headerlink" href="#parsehtml" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parsehtml</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant d'analyser les valeurs de la table et de les afficher au format HTML le cas échéant.</p>
+<p>Ainsi:</p>
+<ul>
+<li>Toute valeur commençant par la chaîne "http" est intéprété comme un URL et un lien est créé automatiquement.</li>
+<li>Toute balise HTML est interprétée. La valeur <code>&lt;b&gt;en gras&lt;/b&gt;</code> sera alors affichée en gras.</li>
+</ul>
+<p>Exemple: <code>parsehtml="true"</code> pour activer la reonnaissance des liens et balises HTML</p>
+<h3 id="perpage">perpage<a class="headerlink" href="#perpage" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>perpage</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant d'indiquer le nombre de ligne à afficher par page.</p>
+<p>Exemple: <code>perpage="25"</code></p>
+<h3 id="properties">properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>properties</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Chemin vers la propriété contenant la liste des données à utiliser dans le résultat de la requête. Les propriétés doivent être séparées par un point ".".<br />
+Si plusieurs jeux de données sont concernés, le séparateur entre les jeux de donénes est "|".</p>
+<p>Exemples: </p>
+<ul>
+<li><code>properties="list"</code></li>
+<li><code>properties="|list|records.data"</code></li>
+</ul>
+<h3 id="refresh">refresh<a class="headerlink" href="#refresh" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refresh</td>
+<td>Integer</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant de recharger régulièrement les données pour mettre à jour la table à interval de temps régulier sans recharger la page (l'interval est exprimé en secondes).<br />
+Cela peut-être utile notamment dans le cas de données mises à jour en temps réel.
+Si plusieurs sources de données sont indiquées, le rafraichissement est valable pour l'ensemble des datasets.</p>
+<p>Exemple: <code>refresh="60"</code> pour une mise à jour toutes les minutes</p>
+<h3 id="search">search<a class="headerlink" href="#search" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>search</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Affichage d'une barre de recherche pour filtrer les données.</p>
+<p>Ce paramètre se compose de 3 parties:</p>
+<ul>
+<li>Le texte à afficher par défaut dans la barre de recherche</li>
+<li>Le champ à utiliser pour le filtre</li>
+<li>Eventuellement une valeur de filtre prédéfinie</li>
+</ul>
+<p>Dans le cas de l'utilisation de la propriété <code>sql</code>, il faut utiliser ici le nom de l'alias du champ de recherche.</p>
+<p>Exemples:</p>
+<ul>
+<li><code>search="Rechercher un EPCI|epci"</code></li>
+<li><code>search="Rechercher une commune|f4|Str"</code></li>
+</ul>
+<h3 id="selectpages">selectpages<a class="headerlink" href="#selectpages" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selectpages</td>
+<td>String</td>
+<td>"5,10,25,50,100"</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant de définir la liste du nombre de lignes à afficher via la pagination.</p>
+<p>Exemple: <code>selectpages="6,12,24,48,96"</code></p>
+<h3 id="sortcolumns">sortcolumns<a class="headerlink" href="#sortcolumns" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sortcolumns</td>
+<td>String</td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<p>Activier le tri sur certaines colonnes du tableau indiquées avec le séparateur ',' (une double flêche apparaît à droite du titre de la colonne).<br />
+Pour activer le tri sur toutes les colonnes utiliser <code>sortcolumns="true"</code>.</p>
+<p>Exemple: <code>sortcolumns="nom, prenom, cmd_id"</code></p>
+<h3 id="smalltable">smalltable<a class="headerlink" href="#smalltable" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>smalltable</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Propriété permettant de réduire l'espaces autour du texte dans le tableau pour le compacter afin qu'il prenne moins de place sur la page.</p>
+<p>Exemple: <code>smalltable="1"</code></p>
+<h3 id="title">title<a class="headerlink" href="#title" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<p>Titre du composant.
+Si le paramètre <code>filter</code> ou <code>search</code> est utilisée, la valeur recherché peut être affiché respectivement via les variables <code>%filter%</code> et <code>%search%</code>.  </p>
+<p>Des variables calaculées à partir des données peuvent également être ajoutées dans le titre. Elles sont de la forme <code>%operation,decimal,[line],[field]%</code>. Une seule variable peut être utilisée par ligne de texte.
+- operation: "sum", "min", "max", "average", "percent", "value"
+- decimal: nombre de décimal à afficher
+- line: selection de la ligne ou valeur à afficher dans la série
+- field: colonne à sélectionner pour définir la série à afficher (dans le cas de <code>dge-table</code>)</p>
+<p>Exemples: </p>
+<ul>
+<li><code>title="Evolution de la population par commune"</code></li>
+<li><code>title="Nombre de projets pour l'année %filter%"</code> affiche "Nombre de projets pour l'année 2006" si on a ajouter un paramètre <code>filter</code> et si la valeur "2006" est sélectionnée dans la liste</li>
+<li><code>title="Total: %sum,0,0,cout%"</code></li>
+</ul>
+<h3 id="url">url<a class="headerlink" href="#url" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>URL de la source de données (cf. la propriété <code>api</code> pour connaîtres les sources de données possibles).</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12m15 0-5-5v3H8v4h4v3l5-5Z"/></svg></span> Pour les flux WFS, le workspace doit être précisé.<br />
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12m15 0-5-5v3H8v4h4v3l5-5Z"/></svg></span> Pour les fichiers JSON et CSV, le nom du fichier peut être indiqué dans la propriété <code>datasets</code>.</p>
+<p>Exemples:</p>
+<ul>
+<li><code>url="https://www.datagrandest.fr/geoserver/region-grand-est/wfs"</code></li>
+<li><code>url="https://dev.datagrandest.fr/data4citizen/d4c/api/records/1.0/search"</code></li>
+<li><code>url="./data/test.json"</code></li>
+<li><code>url="https://www.datagrandest.fr/tools/dge-dataviz-components/dge-components/data/test.csv"</code></li>
+</ul>
+<h3 id="where">where<a class="headerlink" href="#where" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Type</th>
+<th>Défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>where</td>
+<td>String</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Filtre appliqué sur les données récupérées. Il correspond à la partie "WHERE" de la requête SQL.
+Si la valeur recherchée est une chaïne de caractères il faut l'encadrer avec des apostrophes ("'"). Cla n'est pas nécessaire pour les nombres. La conversion des chaînes en nombre peux dépendre de la source de données.</p>
+<p>Exemples: </p>
+<ul>
+<li><code>where="commande=3</code></li>
+<li><code>where="object='cahier'</code></li>
+</ul>
+<h2 id="exemples">Exemples<a class="headerlink" href="#exemples" title="Permanent link">#</a></h2>
+<p>Pour plus de détails, vous pouvez consulter la page de <a href="examples-table.html">démo</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 - DataGrandEst
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/datagrandest/dge-dataviz-components" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tracking", "navigation.instant", "navigation.tabs", "navigation.top", "toc.integrate", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      
+        <script src="dist/bootstrap/js/bootstrap.min.js"></script>
+      
+        <script src="dist/4.7.0/dge-all.js"></script>
+      
+    
+  </body>
+</html>
