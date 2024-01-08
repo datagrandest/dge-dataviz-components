@@ -388,17 +388,20 @@
 
     $: labels_array = labels.includes("|") ? labels.split("|") : labels.split(",");
 
-    onMount(() => {
-        searchValue = search.split("|")[2];
-        filterValue = filter.split("|")[2];
+    $: {
         let fields_array = fields.split("|");
         // Get data
-        // getPromiseData(url, datasets, fields_array, max, api);
         if (refresh) {
             setInterval(getPromiseData, refresh * 1000, url, datasets, properties, fields_array, max, api);
         } else {
             getPromiseData(url, datasets, properties, fields_array, max, api);
         }
+    }
+
+    onMount(() => {
+        // Init parameters to default value
+        searchValue = search.split("|")[2];
+        filterValue = filter.split("|")[2];
     });
 
     function sortColumn(event, colId) {
