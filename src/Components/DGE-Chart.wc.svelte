@@ -594,20 +594,23 @@
         image = graph ? graph.toBase64Image() : false;
     }
 
-    onMount(() => {
-        searchValue = search.split("|")[2];
-        filterValue = filter.split("|")[2];
-        // Init empty graphic
-        let plugins = [ChartDataLabels, ChartjsPluginTextcenter.plugin];
-        graph = dgeChart.createChart(canvasElement, { plugins: plugins });
+    $: {
         let fields_array = fields.split("|");
         // Get data
-        // getPromiseData(url, datasets, fields_array, max, api);
         if (refresh) {
             setInterval(getPromiseData, refresh * 1000, url, datasets, properties, fields_array, max, api);
         } else {
             getPromiseData(url, datasets, properties, fields_array, max, api);
         }
+    }
+
+    onMount(() => {
+        // Init parameters to default value 
+        searchValue = search.split("|")[2];
+        filterValue = filter.split("|")[2];
+        // Init empty graphic
+        let plugins = [ChartDataLabels, ChartjsPluginTextcenter.plugin];
+        graph = dgeChart.createChart(canvasElement, { plugins: plugins });
     });
 </script>
 
