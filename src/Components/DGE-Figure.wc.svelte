@@ -349,7 +349,7 @@
         return 0;
     }
 
-    $: result = getResult(items, operation);
+    $: result = value ? value : getResult(items, operation);
 
     function getFilterValues(filterFieldId, items_list) {
         if (items_list.length && items_list[0].length && filterFieldId) {
