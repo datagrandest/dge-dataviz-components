@@ -364,9 +364,7 @@
 
     $: filterValues = getFilterValues(filterFieldId, data);
 
-    onMount(() => {
-        searchValue = search.split("|")[2];
-        filterValue = filter.split("|")[2];
+    $: {
         let fields_array = fields.split("|");
         // Get data
         if (!value) {
@@ -376,6 +374,11 @@
                 getPromiseData(url, datasets, properties, fields_array, max, api);
             }
         }
+    }
+
+    onMount(() => {
+        searchValue = search.split("|")[2];
+        filterValue = filter.split("|")[2];
     });
 </script>
 
