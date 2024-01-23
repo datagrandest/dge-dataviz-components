@@ -394,9 +394,9 @@
         let fields_array = fields.split("|");
         // Get data
         if (refresh) {
-            setInterval(getPromiseData, refresh * 1000, url, datasets, properties, fields_array, max, api);
+            setInterval(getPromiseData, refresh * 1000, url, datasets, properties, fields_array, max, api, cql_filter, wfs_filter);
         } else {
-            getPromiseData(url, datasets, properties, fields_array, max, api);
+            getPromiseData(url, datasets, properties, fields_array, max, api, cql_filter, wfs_filter);
         }
     }
 
