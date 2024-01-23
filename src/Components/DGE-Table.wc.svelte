@@ -27,6 +27,8 @@
     export let datasets = '';
     export let properties = "";
     $: properties = properties ? properties.split("|") : false;
+    export let cql_filter = '';
+    export let wfs_filter = '';
     export let fields = "";
     export let from = '';
     export let where = '';
@@ -137,14 +139,14 @@
 
     $: sort_columns_array = labels_array.length ? Array(labels_array.length).fill("DESC") : [];
 
-    function getPromiseData(url, datasets, properties, fields_array, max, api) {
+    function getPromiseData(url, datasets, properties, fields_array, max, api, cql_filter, wfs_filter) {
         const datasets_list = datasets ? getDatasets(datasets) : [{ name: url.substring(url.lastIndexOf("/") + 1) }];
         const url_base = datasets ? url : url.substring(0, url.lastIndexOf("/")) + "/";
 
         let dataRequests = [];
         for (let i = 0, n = datasets_list.length; i < n; i++) {
             const apiFields = fields_array[i] ? fields_array[i] : false;
-            const apiUrl = dgeData.getDataUrl(url_base, datasets_list[i].name, max, apiFields, api);
+            const apiUrl = dgeData.getDataUrl(url_base, datasets_list[i].name, max, apiFields, api, cql_filter, wfs_filter);
             const property = properties[i] ? properties[i] : false;
             dataRequests.push(dgeData.getData(apiUrl, api, property));
         }

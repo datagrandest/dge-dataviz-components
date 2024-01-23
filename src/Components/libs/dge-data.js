@@ -102,7 +102,7 @@ function parseData(x){
     return x==x*1?x*1:x;
 }
 
-function getDataUrl(url, dataset, max, fields, api) {
+function getDataUrl(url, dataset, max, fields, api, cql_filter, wfs_filter) {
     api = api || "d4c";
     if (api == "d4c") {
         url = url || "https://www.datagrandest.fr/data4citizen/d4c/api/records/1.0/search/";
@@ -115,6 +115,8 @@ function getDataUrl(url, dataset, max, fields, api) {
         var url = url + "/wfs?service=WFS&version=1.0.0&request=GetFeature&outputFormat=application%2Fjson";
         var properties = [url, "typeName=" + dataset, "maxFeatures=" + max];
         if (fields) properties.push("propertyName=" + fields);
+        if (cql_filter) properties.push("cql_filter=" + cql_filter);
+        if (wfs_filter) properties.push("filter=" + wfs_filter);
         return properties.join("&");
     }
     if (api == "json" || api == "csv") {
