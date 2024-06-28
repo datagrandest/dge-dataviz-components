@@ -119,6 +119,10 @@
     }
 
     let div = null;
+    let ready = false;
+    let firstLoad = true;
+    let map = null;
+    let layerControl = null;
 
     function addLayersToMap(map, layerControl, data) {
         for (var d = 0, n = data.length; d < n; d++) {
@@ -163,7 +167,7 @@
                 const layer = queryable.includes(layers[l])
                     ? betterWms.wms(data.url, layerOptions).addTo(map)
                     : L.tileLayer.wms(data.url, layerOptions).addTo(map);
-                layerControl.addOverlay(layer, layername);
+                if (firstLoad) layerControl.addOverlay(layer, layername);
             }
         }
     }
@@ -206,21 +210,27 @@
                                 }
                             },
                         }).addTo(map);
-                        layerControl.addOverlay(layer, layername);
+                        if (firstLoad) layerControl.addOverlay(layer, layername);
                     });
             }
         }
     }
 
-    onMount(() => {
-        L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
-        center = center.split("|");
-        const map = L.map(div, {
-            center: center,
-            zoom: zoom,
-            gestureHandling: gesturehandling,
-        });
-        const layerControl = L.control.layers().addTo(map);
+    
+    function loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version) {
+        console.log(111, center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version);
+        let c = center.split("|");
+        if (!map) {
+            L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
+            map = L.map(div, {
+                center: c,
+                zoom: zoom,
+                gestureHandling: gesturehandling,
+            });
+            layerControl = L.control.layers().addTo(map);
+        } else {
+            map.flyTo(c, zoom);
+        }
 
         let attribution_array = baselayers
             ? []
@@ -236,7 +246,7 @@
             const layer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                 attribution: attribution_string,
             }).addTo(map);
-            if (baselayer || baselayers) layerControl.addBaseLayer(layer, "OpenStreetMap");
+            if (firstLoad && (baselayer || baselayers)) layerControl.addBaseLayer(layer, "OpenStreetMap");
         }
         if (baselayer) {
             const baselayer_array = baselayer.split(",");
@@ -249,7 +259,7 @@
                 attribution: attribution_string,
             };
             const layer = L.tileLayer.wms(baselayer_array[0], blOptions).addTo(map);
-            if (osm || baselayers.length) layerControl.addBaseLayer(layer, baselayer_array[1]);
+            if (firstLoad && (osm || baselayers.length)) layerControl.addBaseLayer(layer, baselayer_array[1]);
         }
         if (baselayers) {
             for (var i = 0, n = baselayers_array.length; i < n; i++) {
@@ -276,7 +286,7 @@
                             // attribution: attributions[l],
                         };
                         const layer = L.tileLayer.wms(baselayers_array[i].url, baselayerOptions).addTo(map);
-                        if (osm || baselayer || baselayers.length > 1) layerControl.addBaseLayer(layer, layersname[l]);
+                        if (firstLoad && (osm || baselayer || baselayers.length > 1)) layerControl.addBaseLayer(layer, layersname[l]);
                     }
                 }
             }
@@ -320,6 +330,19 @@
             // Add layers from `data` property
             addLayersToMap(map, layerControl, data_array);
         }
+
+        firstLoad = false;
+    }
+
+    $: {
+        if (ready) {
+            loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version);
+        }
+    } 
+
+    onMount(() => {
+        loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version);
+        ready = true;
     });
 </script>
 

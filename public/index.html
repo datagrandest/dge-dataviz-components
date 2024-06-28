@@ -72,7 +72,7 @@
         </div> -->
 
         <!-- FIGURES -->
-        <div class="row my-3">
+        <!-- <div class="row my-3">
             <div class="col-6">
                 <dge-figure id="dge-figure-1"
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr|Région Grand Est:icon;url:test"
@@ -132,10 +132,10 @@
                 <dge-figure id="dge-figure-2" api="csv" url="./data/values.csv" fields="contenance"
                     operation="sum|`value`" text="Test avec un champ 'value'"></dge-figure>
             </div>
-        </div>
+        </div> -->
 
         <!-- TABLES -->
-        <div class="row my-3">
+        <!-- <div class="row my-3">
             <div class="col-6">
                 <dge-table id="dge-table-1" api="csv" url="data/test.csv" fields="id,commande,prix,objet"
                     columns="id|commande|objet|prix" labels="ID|Commande|Objet|Prix" filter=""
@@ -176,27 +176,27 @@
                     attribution="icon:info-circle-fill;title:DataGrandEst;url:https://www.datagrandest.fr"
                     sortcolumns="true" />
             </div>
-        </div>
+        </div> -->
 
         <!-- CHARTS -->
         <div class="row my-3">
 
-            <div class="col-6">
+            <!-- <div class="col-6">
                 <dge-chart id="dge-chart-wordcloud" api="csv" url="data/wordcloud.csv" fields="word,val" x="word"
                     y="val" chart="wordCloud" title="Word Cloud Test" legend="display:false" download="text:télécharger"
                     attribution="text:DataGrandEst;url:https://www.datagrandest.fr" />
-            </div>
+            </div> -->
 
             <div class="col-6">
                 <!-- NOCODB -->
-                <dge-chart id="dge-test-1" api="json" url="data/nocodb.php" properties="list" fields="ID,NAME,AGE" x="ID" y="AGE"
+                <!-- <dge-chart id="dge-test-1" api="json" url="data/nocodb.php" properties="list" fields="ID,NAME,AGE" x="ID" y="AGE"
                     series="Age" chart="bar" title="NocoDB Test" colors="rgba(20,90,186,0.5)"
                     download="icon:cloud-download;size:1rem"
                     attribution="icon:info-circle;url:https://www.datagrandest.fr;title:Source: DataGrandEst"
-                    datalink="icon:table;title:Lien vers les données" localcss="1" />
+                    datalink="icon:table;title:Lien vers les données" localcss="1" /> -->
             </div>
 
-            <div class="col-6">
+            <!-- <div class="col-6">
                 <dge-chart id="dge-chart-test" api="csv" url="data/test.csv" fields="quantite,prix,objet,commande"
                     x="objet" y="quantite|quantite*prix,cout" chart="bar|line" title="Test" legend="display:true"
                     download="text:télécharger" where="commande=3" _refresh="2" animation="duration=0"
@@ -317,19 +317,19 @@
                     chart="bar"
                     xaxis="drawGrid:true;display:false"
                      />
-            </div>
+            </div> -->
         </div>
 
 
         <!-- MAPS -->
-        <!-- <div class="row my-3">
-            <div class="col-6">
+        <div class="row my-3">
+            <!-- <div class="col-6">
                 <dge-map id="dge-map-1" height="50vh" attribution="text:GéoGrandEst;url:https://www.datagrandest.fr"
                     center="48.6|7.75" zoom="10" url="./data/departements.geojson" layersname="Départements"
                     api="geojson" fields="code,nom,site,logo" labels="CODE,NOM,SITE,LOGO" osm="true"
                     queryable="departements.geojson" />
-            </div>
-            <div class="col-6">
+            </div> -->
+            <!-- <div class="col-6">
                 <dge-map id="dge-map-1" height="50vh" title="Communes de l'EMS"
                     attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
                     center="48.6|7.75" zoom="10" url="https://www.datagrandest.fr/geoserver/region-grand-est/ows"
@@ -338,7 +338,7 @@
                     transparent="true" filters="id_epci='246700488'" queryable="commune_actuelle_3857"
                     fields="insee_com,nom_com,id_epci,epci_nom_complet" labels="INSEE,COMMUNE,EPCI ID,EPCI"
                     baselayer="https://osm.datagrandest.fr/mapcache/?,relief" osm="true" />
-            </div>
+            </div> -->
             <div class="col-6">
                 <dge-map id="dge-map-3" height="50vh" title="Communes de l'EMS"
                     attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
@@ -361,7 +361,7 @@
                     baselayers="url:https://osm.datagrandest.fr/mapcache/?;layers:relief;layersname:OSM Relief DataGrandEst"
                     osm="true" gesturehandling="true" />
             </div>
-        </div> -->
+        </div>
 
     </div>
 
