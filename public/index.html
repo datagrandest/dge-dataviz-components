@@ -339,7 +339,7 @@
                     fields="insee_com,nom_com,id_epci,epci_nom_complet" labels="INSEE,COMMUNE,EPCI ID,EPCI"
                     baselayer="https://osm.datagrandest.fr/mapcache/?,relief" osm="true" />
             </div> -->
-            <div class="col-6">
+            <!-- <div class="col-6">
                 <dge-map id="dge-map-3" height="50vh" title="Communes de l'EMS"
                     attribution="text:GéoGrandEst;url:https://www.datagrandest.fr|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
                     center="48.6|7.75" zoom="10" data="
@@ -360,6 +360,29 @@
                     queryable:departements.geojson"
                     baselayers="url:https://osm.datagrandest.fr/mapcache/?;layers:relief;layersname:OSM Relief DataGrandEst"
                     osm="true" gesturehandling="true" />
+            </div> -->
+            <div class="col-6">
+                <dge-map 
+                    id="dge-map-poi" 
+                    height="50vh" 
+                    title="Carte des POI"
+                    attribution="text:ART Grand Est;url:https://www.art-grandest.fr/|text:OpenStreetMap;url:https://www.openstreetmap.org/copyright"
+                    center="48.8|5.90" 
+                    zoom="7" 
+                    url="https://www.datagrandest.fr/geoserver/region-grand-est/ows?"
+                    api="wms" 
+                    layers="poi"
+                    layersname="POI Grand Est"
+                    styles="poi"
+                    version="1.1.1"
+                    format="image/png"
+                    transparent="true"
+                    queryable="poi"
+                    fields="titre,types,commune,code_postal,telephone,gratuit, code_dept" 
+                    labels="TITRE,CATEGORIE,COMMUNE,CODE POSTAL,TEL.,GRATUIT"
+                    baselayer="https://osm.datagrandest.fr/mapcache/?,relief" 
+                    osm="true"
+                    filters="code_dept='67'" />
             </div>
         </div>
 

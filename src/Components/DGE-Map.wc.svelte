@@ -123,6 +123,7 @@
     let firstLoad = true;
     let map = null;
     let layerControl = null;
+    let wmsLayers = [];
 
     function addLayersToMap(map, layerControl, data) {
         for (var d = 0, n = data.length; d < n; d++) {
@@ -164,10 +165,14 @@
                     labels: labels,
                 };
                 if (filters[l]) layerOptions.cql_filter = filters[l];
-                const layer = queryable.includes(layers[l])
-                    ? betterWms.wms(data.url, layerOptions).addTo(map)
-                    : L.tileLayer.wms(data.url, layerOptions).addTo(map);
-                if (firstLoad) layerControl.addOverlay(layer, layername);
+                if (firstLoad) { 
+                    wmsLayers[l] = queryable.includes(layers[l])
+                        ? betterWms.wms(data.url, layerOptions).addTo(map)
+                        : L.tileLayer.wms(data.url, layerOptions).addTo(map);
+                    layerControl.addOverlay(wmsLayers[l], layername);
+                } else {
+                    wmsLayers[l].setParams(layerOptions);
+                }
             }
         }
     }
@@ -217,8 +222,7 @@
     }
 
     
-    function loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version) {
-        console.log(111, center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version);
+    function loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version, data_array) {
         let c = center.split("|");
         if (!map) {
             L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
@@ -294,7 +298,7 @@
 
         if (api == "wms") {
             // Add WMS layers from `url` and `layers` properties
-            const wms = {
+            let wms = {
                 api: api,
                 url: url,
                 fields: fields,
@@ -313,7 +317,7 @@
 
         if (api == "geojson") {
             // Add GeoJSON layers from `url` and `layers` properties
-            const geojson = {
+            let geojson = {
                 api: api,
                 url: url,
                 layers: layers,
@@ -336,12 +340,12 @@
 
     $: {
         if (ready) {
-            loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version);
+            loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version, data_array);
         }
     } 
 
     onMount(() => {
-        loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version);
+        loadMap(center, zoom, baselayers_array, api, url, fields, labels, layersname, layers, formats, transparent, styles, filters, queryable, version, data_array);
         ready = true;
     });
 </script>
