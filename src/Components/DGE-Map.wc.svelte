@@ -233,7 +233,7 @@
             });
             layerControl = L.control.layers().addTo(map);
         } else {
-            map.flyTo(c, zoom);
+            map.setView(c, zoom);
         }
 
         let attribution_array = baselayers

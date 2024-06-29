@@ -36,7 +36,7 @@
         "build:table": "rollup -c rollup.table.config.mjs",
         "build:text": "rollup -c rollup.text.config.mjs",
         "build:test": "rollup -c rollup.test.config.mjs",
-        "dev": "rollup -c rollup.demo.config.js -w",
+        "dev": "rollup -c rollup.config.js",
         "start": "sirv demo/public",
         "prepublishOnly": "npm run build"
     },
